@@ -6,7 +6,7 @@ import GoogleRating from '../components/GoogleRating.jsx'
 import FounderSection from '../components/FounderSection.jsx'
 import VoucherCta from '../components/VoucherCta.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
-import DoctorCard from '../components/DoctorCard.jsx'
+import TeamSlider from '../components/TeamSlider.jsx'
 import BookingSection from '../components/BookingSection.jsx'
 
 export default function HomePage() {
@@ -87,11 +87,7 @@ export default function HomePage() {
         <div className="container">
           <p className="section__eyebrow">Kdo se o vás postará</p>
           <h2 className="section__title">Náš sehraný tým</h2>
-          <div className="grid grid--doctors">
-            {doctors.map((d) => (
-              <DoctorCard key={d.id} doctor={d} />
-            ))}
-          </div>
+          <TeamSlider doctors={doctors} />
         </div>
       </section>
 
