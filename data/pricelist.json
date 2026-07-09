@@ -85,21 +85,27 @@
       "id": "korektivni-dermatologie",
       "name": "Korektivní dermatologie – konzultace",
       "description": null,
-      "note": "V případě absolvování hrazeného výkonu (estetické ošetření nebo chirurgická excize) v den konzultace, je z celkové částky konzultace odečteno 500 – 1 000 Kč v závislosti na provedeném výkonu.\nBude-li hlouběji konzultováno více diagnóz, může se cena konzultace navýšit. Předem budete lékařem informování.\nRAJSKÁ Clinic není smluvním pracovištěm žádné zdravotní pojišťovny.",
+      "note": "V případě absolvování hrazeného výkonu (estetické ošetření nebo chirurgická excize) v den konzultace, je z celkové částky konzultace odečteno 500 – 1 000 Kč v závislosti na provedeném výkonu.\nBude-li hlouběji konzultováno více diagnóz, může se cena konzultace navýšit. Předem budete lékařem informováni.\nRAJSKÁ Clinic není smluvním pracovištěm žádné zdravotní pojišťovny.",
+      "keywords": [],
       "items": [
         {
           "name": "Dermatologická konzultace (30 min)/estetická konzultace (30 min)",
           "price": "2 000,-/1 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "aplikace-botulotoxinu-korekce-vrasek",
       "name": "Aplikace botulotoxinu – korekce vrásek v obličeji",
       "description": null,
       "note": "1 oblast znamená ošetření oblasti mezi obočím nebo horní poloviny čela nebo očního okolí,…",
+      "keywords": [
+        "botox",
+        "vrásky",
+        "čelo",
+        "oči"
+      ],
       "items": [
         {
           "name": "1 oblast",
@@ -171,12 +177,6 @@
           "price": "14 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "botox",
-        "vrásky",
-        "čelo",
-        "oči"
       ]
     },
     {
@@ -184,6 +184,11 @@
       "name": "Aplikace botulotoxinu – odstranění nadměrného pocení",
       "description": null,
       "note": null,
+      "keywords": [
+        "botox",
+        "pocení",
+        "hyperhidróza"
+      ],
       "items": [
         {
           "name": "Oblast podpaží",
@@ -200,11 +205,6 @@
           "price": "12 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "botox",
-        "pocení",
-        "hyperhidróza"
       ]
     },
     {
@@ -212,6 +212,12 @@
       "name": "Výplně kyselinou hyaluronovou – korekce vrásek",
       "description": "Doplnění objemu kyselinou hyaluronovou",
       "note": null,
+      "keywords": [
+        "výplně",
+        "hyaluron",
+        "rty",
+        "filler"
+      ],
       "items": [
         {
           "name": "1 ml / 0,55 ml",
@@ -221,39 +227,33 @@
         {
           "name": "1 ml",
           "price": "8 000,-",
-          "priceNote": "OBJEMOVÁ MODELACE KYSELINY HYALURONOVÉ"
+          "priceNote": "Objemová modelace kyseliny hyaluronové"
         },
         {
           "name": "2 ml",
           "price": "14 000,-",
-          "priceNote": "OBJEMOVÁ MODELACE KYSELINY HYALURONOVÉ"
+          "priceNote": "Objemová modelace kyseliny hyaluronové"
         },
         {
           "name": "3 ml",
           "price": "20 000,-",
-          "priceNote": "OBJEMOVÁ MODELACE KYSELINY HYALURONOVÉ"
+          "priceNote": "Objemová modelace kyseliny hyaluronové"
         },
         {
           "name": "4 ml",
           "price": "25 000,-",
-          "priceNote": "OBJEMOVÁ MODELACE KYSELINY HYALURONOVÉ"
+          "priceNote": "Objemová modelace kyseliny hyaluronové"
         },
         {
           "name": "1 ml",
           "price": "8 000,-",
-          "priceNote": "APLIKACE POD OČI"
+          "priceNote": "Aplikace pod oči"
         },
         {
           "name": "Rozpuštění starých výplní aplikovaných jinde",
           "price": "4 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "výplně",
-        "hyaluron",
-        "rty",
-        "filler"
       ]
     },
     {
@@ -261,52 +261,55 @@
       "name": "Výplně hydroxyapatit",
       "description": "Využívá se efektu hydroxyapatitu vápenatého ke zpevnění pokožky a lifnitgu kontur obličeje. Lze aplikovat do tváří, krku, dekoltu či čelistí.",
       "note": null,
+      "keywords": [
+        "radiesse",
+        "výplně"
+      ],
       "items": [
         {
           "name": "Radiesse",
           "price": "15 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "radiesse",
-        "výplně"
       ]
     },
     {
       "id": "biostimulace-kyselinou-polymlecnou",
       "name": "Biostimulace kyselinou polymléčnou",
       "description": "Minimalizace procesu stárnutí pomocí kyseliny L-polymléčné, která obnovuje ochablé kontury obličeje a současně eliminuje nežádoucí vrásky. A to i v oblasti očního okolí, krku, dekoltu či hřbetu rukou.",
-      "note": null,
+      "note": "U ošetření Lenisna je účtována 50 % záloha za výkon předem z důvodu nutnosti přípravy materiálu 24 h předem.",
+      "keywords": [],
       "items": [
         {
           "name": "Lenisna (1 lokalita) – obličej, krk, dekolt, ruce",
           "price": "16 000,-",
-          "priceNote": "(v případě tohoto výkonu je účtována 50 % záloha za výkon předem z důvodu nutnosti přípravy materiálu 24 h předem)"
+          "priceNote": null
         },
         {
-          "name": "1 ošetření",
+          "name": "Juvelook – oční okolí: 1 ošetření",
           "price": "5 500,-",
-          "priceNote": "Juvelook – oční okolí:"
+          "priceNote": null
         },
         {
-          "name": "2 ošetření",
+          "name": "Juvelook – oční okolí: 2 ošetření",
           "price": "10 000,-",
-          "priceNote": "Juvelook – oční okolí:"
+          "priceNote": null
         },
         {
-          "name": "3 ošetření",
+          "name": "Juvelook – oční okolí: 3 ošetření",
           "price": "13 000,-",
-          "priceNote": "Juvelook – oční okolí:"
+          "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "bioremodelace",
       "name": "Bioremodelace",
-      "description": "Stimulace vlastní produkce kolagenu a elastinu, podpora regenerace a výživy buněk, zlepšení kvality kůže, současně s hloubkovou hydratace vypnutím pleti. Lze aplikovat do tváří, krku, dekoltu, hřbetů rukou, nad kolena či do paží.",
+      "description": "Stimulace vlastní produkce kolagenu a elastinu, podpora regenerace a výživy buněk, zlepšení kvality kůže, současně s hloubkovou hydratací a vypnutím pleti. Lze aplikovat do tváří, krku, dekoltu, hřbetů rukou, nad kolena či do paží.",
       "note": null,
+      "keywords": [
+        "profhilo"
+      ],
       "items": [
         {
           "name": "Profhilo (2 ml)",
@@ -319,7 +322,7 @@
           "priceNote": null
         },
         {
-          "name": "Structura (2 ml) - pouze do oblasti tváří",
+          "name": "Structura (2 ml) – pouze do oblasti tváří",
           "price": "15 000,-",
           "priceNote": null
         },
@@ -333,9 +336,6 @@
           "price": "8 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "profhilo"
       ]
     },
     {
@@ -343,6 +343,7 @@
       "name": "Biorevitalizace",
       "description": null,
       "note": null,
+      "keywords": [],
       "items": [
         {
           "name": "Jalupro Super Hydro (2,5 ml)",
@@ -354,22 +355,22 @@
           "price": "12 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "polynukleotidy",
       "name": "Polynukleotidy (PDRN terapie, DNA z lososovitých ryb)",
-      "description": "Efektem ošetření polynukleotid je biostimulace, odstranění volných radikálů, bioregenerace. Pro dosažení ideálních výsledků doporučujeme opakovat cyklus tří ošetření s frekvencí aplikací á 3-4 týdny.",
-      "note": "Sleva 10%: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "description": "Efektem ošetření polynukleotidy je biostimulace, odstranění volných radikálů, bioregenerace. Pro dosažení ideálních výsledků doporučujeme opakovat cyklus tří ošetření s frekvencí aplikací á 3-4 týdny.",
+      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "keywords": [],
       "items": [
         {
-          "name": "Vitaran I (1 ml) - alikace pod oči",
+          "name": "Vitaran I (1 ml) – aplikace pod oči",
           "price": "4 000,-",
           "priceNote": null
         },
         {
-          "name": "Vitaran II (2 ml) - ošetření tváří / celého obličeje",
+          "name": "Vitaran II (2 ml) – ošetření tváří / celého obličeje",
           "price": "6 000,-",
           "priceNote": null
         },
@@ -379,32 +380,35 @@
           "priceNote": null
         },
         {
-          "name": "Plenhyage XL (2ml)",
+          "name": "Plenhyage XL (2 ml)",
           "price": "7 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "exosomy",
       "name": "Exosomy",
       "description": "Efektem ošetření exosomy je biostimulace. Pro dosažení ideálních výsledků doporučujeme opakovat cyklus dvou až tří ošetření s frekvencí aplikací á 3-4 týdny.",
-      "note": "Sleva 10%: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "keywords": [],
       "items": [
         {
           "name": "Ameela Exosomy",
           "price": "4 500,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "mezoterapie",
       "name": "Mezoterapie",
-      "description": "Doporučujeme opakování procedury alespoň 3x. Uvedená cena je vždy za 1 sezení",
-      "note": "Sleva 10%: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "description": "Doporučujeme opakování procedury alespoň 3x. Uvedená cena je vždy za 1 sezení.",
+      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "keywords": [
+        "vlasy",
+        "vlasová pokožka"
+      ],
       "items": [
         {
           "name": "Neauvia Organic Hydrodeluxe (2,5 ml)",
@@ -421,17 +425,21 @@
           "price": "6 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "nitovy-lifting",
       "name": "Niťový lifting",
-      "description": "Pracujeme s nitěmi Aptos – minimálně invazivní nitě, jejichž výsledkem je lifting tkání, konturování a omlazení obličeje, stejně jako vypnutí kůže. Nitě aktivují produkci vlastního kolagenu. Výkon je rychlý, efektivní, používá se nejen ke zpevnění kontur obličeje a krku, ale také pozvedá pokleslé ústních koutků, obočí, vyhlazení vrásek či foxy eyes.",
-      "note": "Před výkonem je nutné vždy absolvovat konzultaci s lékařem ke zvolění vhodného typu ošetření a upřesnění rozsahu ošetřované lokality.\nSleva 10%: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "description": "Pracujeme s nitěmi Aptos – minimálně invazivní nitě, jejichž výsledkem je lifting tkání, konturování a omlazení obličeje, stejně jako vypnutí kůže. Nitě aktivují produkci vlastního kolagenu. Výkon je rychlý, efektivní, používá se nejen ke zpevnění kontur obličeje a krku, ale také pozvedá pokleslé ústní koutky, obočí, vyhlazení vrásek či foxy eyes.",
+      "note": "Před výkonem je nutné vždy absolvovat konzultaci s lékařem ke zvolení vhodného typu ošetření a upřesnění rozsahu ošetřované lokality.\nSleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "keywords": [
+        "nitě",
+        "aptos",
+        "lifting"
+      ],
       "items": [
         {
-          "name": "Full face ošetření -Excellence Visage/Namica",
+          "name": "Full face ošetření – Excellence Visage/Namica",
           "price": "32 000,-/43 000,-",
           "priceNote": null
         },
@@ -473,69 +481,65 @@
         {
           "name": "malý rozsah",
           "price": "38 000,-",
-          "priceNote": "Podbradek současně s liposukcí podbradku (LLN + lipo kanyla) dle rozsahu:"
+          "priceNote": "Podbradek současně s liposukcí podbradku (LLN + lipo kanyla)"
         },
         {
           "name": "střední rozsah",
           "price": "41 000,-",
-          "priceNote": "Podbradek současně s liposukcí podbradku (LLN + lipo kanyla) dle rozsahu:"
+          "priceNote": "Podbradek současně s liposukcí podbradku (LLN + lipo kanyla)"
         },
         {
           "name": "velký rozsah",
           "price": "45 000,-",
-          "priceNote": "Podbradek současně s liposukcí podbradku (LLN + lipo kanyla) dle rozsahu:"
+          "priceNote": "Podbradek současně s liposukcí podbradku (LLN + lipo kanyla)"
         },
         {
-          "name": "Namica+Light Lift Spring",
+          "name": "Namica + Light Lift Spring",
           "price": "49 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "nitě",
-        "aptos",
-        "lifting"
       ]
     },
     {
       "id": "injekcni-lipolyza",
       "name": "Injekční lipolýza",
       "description": null,
-      "note": "Sleva 10%: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "keywords": [],
       "items": [
         {
           "name": "1 ošetření (dle ošetřovaného rozsahu)",
           "price": "od 1 500,-",
-          "priceNote": "PODBRADEK"
+          "priceNote": "Podbradek"
         },
         {
           "name": "1 ošetření",
           "price": "4 000,-",
-          "priceNote": "BŘICHO"
+          "priceNote": "Břicho"
         },
         {
           "name": "2 ošetření",
           "price": "7 500,-",
-          "priceNote": "BŘICHO"
+          "priceNote": "Břicho"
         },
         {
           "name": "3 ošetření",
           "price": "11 000,-",
-          "priceNote": "BŘICHO"
+          "priceNote": "Břicho"
         },
         {
           "name": "4 ošetření",
           "price": "14 000,-",
-          "priceNote": "BŘICHO"
+          "priceNote": "Břicho"
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "infuze-vitaminu-c",
       "name": "Infuze vitamínu C",
       "description": null,
       "note": null,
+      "keywords": [],
       "items": [
         {
           "name": "1 aplikace včetně infuzního setu",
@@ -553,18 +557,18 @@
           "priceNote": null
         },
         {
-          "name": "Zvýhodnění balíček 3 aplikací",
+          "name": "Zvýhodněný balíček 3 aplikací (multivitamín)",
           "price": "3 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "chemicky-peeling",
       "name": "Chemický peeling",
       "description": null,
-      "note": "Sleva 10% + IPLASE Cream: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": "Sleva 10 % + IPLASE Cream: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "keywords": [],
       "items": [
         {
           "name": "Jalupro Glow Peel – 1 ošetření",
@@ -586,14 +590,18 @@
           "price": "1 500,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "mikrojehlickova-radiofrekvence-vivace",
       "name": "Mikrojehličová radiofrekvence VIVACE",
-      "description": "Kombinace mikrojehel a radiofrekvenční energie > Vyhlazuje vrásky, vypíná pleť, efektivní lifting pleti, redukce jizev po akné, řešení strií, zpevňuje tonus pleti.",
+      "description": "Kombinace mikrojehel a radiofrekvenční energie – vyhlazuje vrásky, vypíná pleť, efektivní lifting pleti, redukce jizev po akné, řešení strií, zpevňuje tonus pleti.",
       "note": null,
+      "keywords": [
+        "vivace",
+        "radiofrekvence",
+        "mikrojehličkování"
+      ],
       "items": [
         {
           "name": "Obličej",
@@ -636,32 +644,30 @@
           "priceNote": null
         },
         {
-          "name": "Mikrojehličková radiofrekvence obličej +polynukleotidy (1 oblast)",
+          "name": "Mikrojehličková radiofrekvence obličej + polynukleotidy (1 oblast)",
           "price": "14 900,-",
           "priceNote": null
         },
         {
-          "name": "Mikrojehličková radiofrekvence obličej+ krk +polynukleotidy (1 oblast)",
+          "name": "Mikrojehličková radiofrekvence obličej + krk + polynukleotidy (1 oblast)",
           "price": "16 900,-",
           "priceNote": null
         },
         {
-          "name": "Mikrojehličková radiofrekvence obličej+krk+dekolt +polynukleotidy (1 oblast)",
+          "name": "Mikrojehličková radiofrekvence obličej + krk + dekolt + polynukleotidy (1 oblast)",
           "price": "18 900,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "vivace",
-        "radiofrekvence",
-        "mikrojehličkování"
       ]
     },
     {
       "id": "osetreni-mikrojehlickovani-dermapenem4",
       "name": "Mikrojehličkování Dermapen4",
-      "description": "Ošetření mikrojehličkovacím perem zpevňuje pokožku, vyhlazuje vrásky a jizvy zužuje póry a sjednocuje tón pleti.",
-      "note": "Sleva 10%: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "description": "Ošetření mikrojehličkovacím perem zpevňuje pokožku, vyhlazuje vrásky a jizvy, zužuje póry a sjednocuje tón pleti.",
+      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "keywords": [
+        "dermapen"
+      ],
       "items": [
         {
           "name": "Celý obličej",
@@ -683,33 +689,35 @@
           "price": "7 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "dermapen"
       ]
     },
     {
       "id": "alma-pixel-co2-laser-rejuvenace-laserovy-peeling",
       "name": "ALMA PIXEL CO2 laser – rejuvenace laserový peeling",
-      "description": null,
-      "note": "1 oblast vhodné opakování 1-2x á 4-6 týdnů",
+      "description": "Rejuvenace – laserový peeling (povrchovější)",
+      "note": "1 oblast, vhodné opakování 1-2x á 4-6 týdnů",
+      "keywords": [
+        "laser",
+        "co2"
+      ],
       "items": [
         {
           "name": "Obličej/krk/dekolt/hřbety rukou",
           "price": "4 500,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "laser",
-        "co2"
       ]
     },
     {
       "id": "alma-pixel-co2-laser-rejuvenace-frakcni",
       "name": "ALMA PIXEL CO2 laser – rejuvenace frakční",
-      "description": null,
+      "description": "Rejuvenace – frakční laserové ošetření (hloubkovější)",
       "note": null,
+      "keywords": [
+        "laser",
+        "co2",
+        "frakční"
+      ],
       "items": [
         {
           "name": "Ošetření 1 části obličeje (čelo nebo oční okolí nebo tváře nebo okolí úst)",
@@ -736,18 +744,18 @@
           "price": "8 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "laser",
-        "co2",
-        "frakční"
       ]
     },
     {
       "id": "epilace",
       "name": "Epilace - odstranění nežádoucího ochlupení",
       "description": null,
-      "note": "Doporučený počet ošetření je 6 (může se individuálně lišit)\nPři koupi 6 ošetření- sleva na balíček 10%\nPřed plánovaným ošetřením ideálně večer oholit ošetřovanou oblast",
+      "note": "Doporučený počet ošetření je 6 (může se individuálně lišit).\nPři koupi 6 ošetření – sleva na balíček 10 %.\nPřed plánovaným ošetřením ideálně večer oholit ošetřovanou oblast.",
+      "keywords": [
+        "chloupky",
+        "laser",
+        "depilace"
+      ],
       "items": [
         {
           "name": "Horní ret",
@@ -809,11 +817,6 @@
           "price": "3 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "chloupky",
-        "laser",
-        "depilace"
       ]
     },
     {
@@ -821,6 +824,7 @@
       "name": "Odstranění benigních útvarů",
       "description": null,
       "note": null,
+      "keywords": [],
       "items": [
         {
           "name": "Vyšetření pigmentových névů (v rámci konzultace 30 min)",
@@ -828,17 +832,17 @@
           "priceNote": null
         },
         {
-          "name": "Excize - vyříznutí kožního útvaru se suturou (šití), vel do 0,5 cm",
+          "name": "Excize – vyříznutí kožního útvaru se suturou (šití), vel. do 0,5 cm",
           "price": "1 500,-",
           "priceNote": null
         },
         {
-          "name": "Excize - vyříznutí kožního útvaru se suturou (šití), vel do 2 cm",
+          "name": "Excize – vyříznutí kožního útvaru se suturou (šití), vel. do 2 cm",
           "price": "1 800,-",
           "priceNote": null
         },
         {
-          "name": "Excize - vyříznutí kožního útvaru se suturou (šití), vel nad 2 cm",
+          "name": "Excize – vyříznutí kožního útvaru se suturou (šití), vel. nad 2 cm",
           "price": "2 400,-",
           "priceNote": null
         },
@@ -857,14 +861,14 @@
           "price": "2 000-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "odstraneni-koznich-utvaru",
       "name": "Odstranění kožních útvarů",
       "description": null,
       "note": null,
+      "keywords": [],
       "items": [
         {
           "name": "Snesení mnohočetných molusek – do 20 ks",
@@ -876,14 +880,19 @@
           "price": "od 500,-",
           "priceNote": null
         }
-      ],
-      "keywords": []
+      ]
     },
     {
       "id": "alma-pixel-co2-laser-odstraneni-utvaru",
       "name": "ALMA PIXEL CO2 laser – odstranění útvarů",
       "description": null,
       "note": "Sleva při větším počtu ložisek.",
+      "keywords": [
+        "laser",
+        "co2",
+        "fibromy",
+        "bradavice"
+      ],
       "items": [
         {
           "name": "Odstranění 1 útvaru laserem",
@@ -915,12 +924,6 @@
           "price": "6 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "laser",
-        "co2",
-        "fibromy",
-        "bradavice"
       ]
     },
     {
@@ -928,6 +931,11 @@
       "name": "ADENA LCD G+",
       "description": null,
       "note": "Cena se může odvíjet dle počtu výbojů.",
+      "keywords": [
+        "žilky",
+        "cévky",
+        "pigmentace"
+      ],
       "items": [
         {
           "name": "Celý obličej",
@@ -940,7 +948,7 @@
           "priceNote": null
         },
         {
-          "name": "Pigmentace (1ks)",
+          "name": "Pigmentace (1 ks)",
           "price": "2 000,-",
           "priceNote": null
         },
@@ -964,11 +972,6 @@
           "price": "6 000,-",
           "priceNote": null
         }
-      ],
-      "keywords": [
-        "žilky",
-        "cévky",
-        "pigmentace"
       ]
     }
   ]
