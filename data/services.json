@@ -17,7 +17,50 @@
       "aplikace-botulotoxinu-korekce-vrasek",
       "aplikace-botulotoxinu-odstraneni-nadmerneho-poceni"
     ],
-    "hasVideoMedallion": true
+    "hasVideoMedallion": true,
+    "garantDoctorId": "lucie-rajska",
+    "quickFacts": {
+      "duration": "15–30 minut",
+      "anesthesia": "Bez anestezie / chladicí gel",
+      "recovery": "Ihned do běžného režimu",
+      "result": "Nástup 3–7 dní, výdrž 3–6 měsíců"
+    },
+    "solves": [
+      "Mimické vrásky mezi obočím (glabela)",
+      "Horizontální vrásky na čele",
+      "Vějířky kolem očí („vraní stopy“)",
+      "Pokleslé ústní koutky, gummy smile",
+      "Nadměrné pocení podpaží, dlaní a chodidel"
+    ],
+    "forWhom": [
+      "Pro ty, kterým mimické vrásky ubírají na svěžesti",
+      "Pro každého, kdo chce vypadat odpočatě, ne „upraveně“",
+      "Jako prevence prohlubování vrásek už od 25–30 let",
+      "Pro všechny, které omezuje nadměrné pocení"
+    ],
+    "steps": [
+      {
+        "title": "Konzultace s lékařem",
+        "text": "Probereme, co vás trápí a čeho chcete dosáhnout. Lékař posoudí mimiku a navrhne dávkování — vždy s cílem zachovat přirozený výraz."
+      },
+      {
+        "title": "Aplikace",
+        "text": "Samotné ošetření trvá jen několik minut. Tenkou jehličkou aplikujeme botulotoxin do přesně zvolených bodů. Vpichy jsou téměř bezbolestné."
+      },
+      {
+        "title": "Výsledek",
+        "text": "Efekt nastupuje postupně během 3–7 dní. Na kontrole doladíme detaily, aby výsledek ladil s vaší mimikou."
+      }
+    ],
+    "aftercare": {
+      "text": "Ošetření nevyžaduje žádnou pracovní neschopnost — odejdete rovnou do běžného dne. Drobné pupínky v místech vpichů mizí do několika desítek minut.",
+      "tips": [
+        "4 hodiny po aplikaci zůstaňte ve vzpřímené poloze",
+        "24 hodin vynechte sport, saunu a masáž ošetřené oblasti",
+        "Nemněte si místa vpichů",
+        "Efekt udržíte opakováním 2× ročně"
+      ]
+    }
   },
   {
     "slug": "vyplne-kyselina-hyaluronova",
@@ -37,7 +80,50 @@
       "aplikace-vyplnovych-materialu-kyselina-hyaluronova",
       "vyplne-hydroxyapatit"
     ],
-    "hasVideoMedallion": true
+    "hasVideoMedallion": true,
+    "garantDoctorId": "vladena-charvatova",
+    "quickFacts": {
+      "duration": "30–45 minut",
+      "anesthesia": "Znecitlivující krém",
+      "recovery": "1–2 dny (drobné otoky)",
+      "result": "Okamžitě, výdrž 9–18 měsíců"
+    },
+    "solves": [
+      "Ztráta objemu tváří a rtů",
+      "Nosoretní rýhy a vrásky kolem úst",
+      "Kruhy a propadliny pod očima",
+      "Nevýrazná brada či kontura čelisti",
+      "Dehydratovaná, unavená pleť"
+    ],
+    "forWhom": [
+      "Pro ty, kterým věkem ubývá objem v obličeji",
+      "Pro každého, kdo chce přirozeně plnější rty",
+      "Pro harmonizaci rysů bez operace",
+      "Pro muže i ženy všech věkových kategorií"
+    ],
+    "steps": [
+      {
+        "title": "Konzultace a plán",
+        "text": "Společně projdeme, co vás trápí. Lékař posoudí proporce obličeje a navrhne, kde a kolik materiálu doplnit — po miligramech, ne po mililitrech."
+      },
+      {
+        "title": "Znecitlivění a aplikace",
+        "text": "Ošetřovanou oblast znecitlivíme krémem. Výplň aplikujeme jehlou nebo tupou kanylou, průběžně kontrolujeme symetrii."
+      },
+      {
+        "title": "Kontrola výsledku",
+        "text": "Výsledek vidíte okamžitě. Za 2–4 týdny vás rádi uvidíme na kontrole a případném doladění."
+      }
+    ],
+    "aftercare": {
+      "text": "Počítejte s možností drobných otoků či modřinek, které odezní do několika dní. Většina klientů se vrací do práce ještě týž den.",
+      "tips": [
+        "24–48 hodin nemasírujte ošetřená místa",
+        "Týden vynechte saunu a intenzivní slunění",
+        "První den chlaďte dle potřeby",
+        "Pijte dostatek vody — hyaluron ji váže"
+      ]
+    }
   },
   {
     "slug": "nitovy-lifting",
@@ -56,7 +142,49 @@
     "pricelistCategoryIds": [
       "nitovy-lifting"
     ],
-    "hasVideoMedallion": false
+    "hasVideoMedallion": false,
+    "garantDoctorId": "vladena-charvatova",
+    "quickFacts": {
+      "duration": "45–60 minut",
+      "anesthesia": "Lokální",
+      "recovery": "3–7 dní",
+      "result": "Ihned + zlepšování 2–3 měsíce, výdrž 1–2 roky"
+    },
+    "solves": [
+      "Povolené kontury tváří a čelisti",
+      "Pokleslé obočí a horní víčka",
+      "Povadlá pleť krku a podbradku",
+      "Ztráta pevnosti pleti bez chuti k operaci"
+    ],
+    "forWhom": [
+      "Pro ty, kterým vadí povolená pleť, ale operace je „moc“",
+      "Ideální ve věku 35–55 let, kdy je pleť ještě pružná",
+      "Pro každého, kdo chce viditelný, ale diskrétní lifting",
+      "Po konzultaci i jako doplněk dalších ošetření"
+    ],
+    "steps": [
+      {
+        "title": "Konzultace s lékařem",
+        "text": "Před výkonem vždy pečlivě posoudíme stav pleti a vhodný typ nití Aptos. Ukážeme vám, jakého tahu lze reálně dosáhnout."
+      },
+      {
+        "title": "Zavedení nití",
+        "text": "V lokálním znecitlivění zavedeme vstřebatelné nitě tenkou kanylou do podkoží a vytvarujeme požadovaný tah. Bez řezů a jizev."
+      },
+      {
+        "title": "Okamžitý efekt a dozrávání",
+        "text": "Lifting je vidět hned po výkonu. Nitě navíc 2–3 měsíce stimulují tvorbu vlastního kolagenu, takže výsledek dále zraje."
+      }
+    ],
+    "aftercare": {
+      "text": "Prvních pár dní počítejte s citlivostí, mírným otokem či pnutím — to je normální součást hojení. Do společnosti se většina klientů vrací do týdne.",
+      "tips": [
+        "3–5 dní spěte na zádech s podloženou hlavou",
+        "2 týdny vynechte sport, saunu a stomatologické zákroky",
+        "Měsíc nemasírujte obličej",
+        "Žvýkejte s mírou — šetřete mimiku prvních pár dní"
+      ]
+    }
   },
   {
     "slug": "bioremodelace-biorevitalizace",
@@ -79,7 +207,49 @@
       "polynukleotidy",
       "exosomy"
     ],
-    "hasVideoMedallion": false
+    "hasVideoMedallion": false,
+    "garantDoctorId": "lucie-rajska",
+    "quickFacts": {
+      "duration": "20–30 minut",
+      "anesthesia": "Bez anestezie / krém",
+      "recovery": "Do 24 hodin",
+      "result": "Po 2. ošetření, výdrž 6–9 měsíců"
+    },
+    "solves": [
+      "Unavená pleť bez jasu a pružnosti",
+      "Jemné vrásky a krepovitost",
+      "Dehydratace pleti obličeje, krku i dekoltu",
+      "První známky stárnutí, kterým chcete předejít"
+    ],
+    "forWhom": [
+      "Pro ty, kdo chtějí lepší pleť, ne změněné rysy",
+      "Vhodné pro každý věk i typ pleti",
+      "Pro přípravu pleti před významnou událostí",
+      "Pro doplnění botulotoxinu či výplní"
+    ],
+    "steps": [
+      {
+        "title": "Výběr přípravku",
+        "text": "Podle stavu pleti zvolíme nejvhodnější protokol — Profhilo, polynukleotidy, exosomy nebo jejich kombinaci."
+      },
+      {
+        "title": "Aplikace do bodů",
+        "text": "Přípravek aplikujeme do přesně definovaných bodů obličeje, krku, dekoltu nebo rukou. Ošetření je rychlé a šetrné."
+      },
+      {
+        "title": "Opakování pro plný efekt",
+        "text": "Standardně ošetření opakujeme po 4 týdnech. Plný efekt uvidíte po druhém sezení — pleť je hutnější, hydratovaná a rozjasněná."
+      }
+    ],
+    "aftercare": {
+      "text": "Po ošetření mohou být v místech vpichů drobné pupínky, které se vstřebají do 24 hodin. Jinak pokračujete v běžném dni.",
+      "tips": [
+        "24 hodin bez make-upu na ošetřená místa",
+        "48 hodin vynechte saunu a intenzivní sport",
+        "Používejte SPF 50+",
+        "Dodržte doporučený odstup ošetření"
+      ]
+    }
   },
   {
     "slug": "mezoterapie-mikrojehlickovani",
@@ -101,7 +271,49 @@
       "osetreni-mikrojehlickovani-dermapenem4",
       "chemicky-peeling"
     ],
-    "hasVideoMedallion": false
+    "hasVideoMedallion": false,
+    "garantDoctorId": "zuzana-tulpova",
+    "quickFacts": {
+      "duration": "30–60 minut",
+      "anesthesia": "Znecitlivující krém",
+      "recovery": "1–3 dny (zarudnutí)",
+      "result": "Postupně, kúra 3 ošetření"
+    },
+    "solves": [
+      "Jizvičky po akné a rozšířené póry",
+      "Povadlá, nepružná pleť",
+      "Jemné vrásky a nerovnoměrná struktura",
+      "Strie a hyperpigmentace"
+    ],
+    "forWhom": [
+      "Pro ty, kdo chtějí nastartovat vlastní obnovu pleti",
+      "Pro pleť s jizvičkami či póry, které dráždí",
+      "Vhodné pro všechny typy pleti",
+      "I na jemné oblasti — okolí očí a krk"
+    ],
+    "steps": [
+      {
+        "title": "Diagnostika pleti",
+        "text": "Lékař posoudí pleť a zvolí metodu i hloubku ošetření — VIVACE radiofrekvenci, Dermapen 4, mezoterapii nebo chemický peeling."
+      },
+      {
+        "title": "Ošetření",
+        "text": "Po znecitlivění krémem ošetříme pleť mikrojehličkami; u VIVACE současně působí radiofrekvenční energie do hloubky. Do pleti vpravíme účinná séra."
+      },
+      {
+        "title": "Kúra a výsledky",
+        "text": "Doporučujeme kúru 3 ošetření po 4–6 týdnech. Pleť se postupně zpevňuje, póry i jizvičky se zjemňují."
+      }
+    ],
+    "aftercare": {
+      "text": "Pleť je po ošetření 1–3 dny zarudlá, podobně jako po slunění. Následně se může jemně olupovat — probíhá obnova.",
+      "tips": [
+        "24 hodin bez make-upu",
+        "Týden důsledně SPF 50+",
+        "Nesahat, neškrábat, neloupat",
+        "48 hodin vynechte saunu, bazén a sport"
+      ]
+    }
   },
   {
     "slug": "laserove-osetreni-co2",
@@ -122,7 +334,50 @@
       "alma-pixel-co2-laser-rejuvenace-frakcni",
       "alma-pixel-co2-laser-odstraneni-utvaru"
     ],
-    "hasVideoMedallion": false
+    "hasVideoMedallion": false,
+    "garantDoctorId": "krystof-kudlacek",
+    "quickFacts": {
+      "duration": "20–45 minut",
+      "anesthesia": "Znecitlivující krém",
+      "recovery": "3–7 dní",
+      "result": "Po zhojení, plný efekt do 3 měsíců"
+    },
+    "solves": [
+      "Vrásky a povadlost pleti",
+      "Jizvy po akné i úrazech",
+      "Pigmentové skvrny a nerovnoměrný tón",
+      "Rozšířené póry, hrubší struktura pleti",
+      "Odstranění kožních útvarů (fibromy, bradavice)"
+    ],
+    "forWhom": [
+      "Pro ty, kdo chtějí výrazné omlazení bez skalpelu",
+      "Na pleť poznamenanou akné či sluncem",
+      "Ideálně v podzimních a zimních měsících",
+      "Po konzultaci vhodné pro většinu typů pleti"
+    ],
+    "steps": [
+      {
+        "title": "Konzultace a příprava",
+        "text": "Lékař posoudí pleť a nastaví parametry laseru na míru — od povrchového peelingu po hloubkovou frakční rejuvenaci."
+      },
+      {
+        "title": "Laserové ošetření",
+        "text": "Frakční paprsek ALMA PIXEL vytvoří v pleti mikroskopické sloupce obnovy. Ošetření vedeme po částech a průběžně chladíme."
+      },
+      {
+        "title": "Hojení a obnova",
+        "text": "Pleť se hojí 3–7 dní, poté nastupuje tvorba nového kolagenu. Plný efekt uvidíte do 3 měsíců; dle rozsahu opakujeme 1–3×."
+      }
+    ],
+    "aftercare": {
+      "text": "Po ošetření je pleť zarudlá a citlivá jako po spálení sluncem, během hojení se jemně olupuje. Je to očekávaná součást obnovy.",
+      "tips": [
+        "Promazávejte doporučeným hojivým krémem",
+        "Minimálně měsíc důsledně SPF 50+",
+        "Neloupejte šupinky — nechte je odejít samy",
+        "Týden vynechte saunu, bazén a sport"
+      ]
+    }
   },
   {
     "slug": "epilace",
@@ -141,7 +396,49 @@
     "pricelistCategoryIds": [
       "epilace"
     ],
-    "hasVideoMedallion": false
+    "hasVideoMedallion": false,
+    "garantDoctorId": "marie-efanova",
+    "quickFacts": {
+      "duration": "15–60 minut dle oblasti",
+      "anesthesia": "Není potřeba",
+      "recovery": "Ihned do běžného režimu",
+      "result": "Kúra 6 ošetření, dlouhodobý efekt"
+    },
+    "solves": [
+      "Nežádoucí ochlupení obličeje i těla",
+      "Podráždění po holení a zarůstající chloupky",
+      "Neustálé holení, vosk a cukrová pasta",
+      "Zvýšené ochlupení i u mužů (záda, hrudník)"
+    ],
+    "forWhom": [
+      "Pro ženy i muže, které unavuje holení",
+      "Pro pokožku citlivou na vosk či žiletku",
+      "Pro sportovce a všechny, kdo ocení hladkost",
+      "Vhodnost posoudíme dle typu chloupků a pokožky"
+    ],
+    "steps": [
+      {
+        "title": "Konzultace a test",
+        "text": "Posoudíme typ pokožky a ochlupení a nastavíme parametry přístroje. Provedeme zkušební pulz."
+      },
+      {
+        "title": "Ošetření oblasti",
+        "text": "Přístroj cíleně zahřívá vlasové folikuly a postupně je vyřazuje z růstu. Ošetření je rychlé, s minimálním diskomfortem."
+      },
+      {
+        "title": "Opakování kúry",
+        "text": "Chloupky rostou v cyklech, proto je potřeba 6 ošetření po 4–8 týdnech. Při koupi balíčku 6 ošetření získáte slevu 10 %."
+      }
+    ],
+    "aftercare": {
+      "text": "Pokožka může být po ošetření lehce zarudlá jako po slunění — zklidní se do několika hodin. Jinak nic neomezuje běžný den.",
+      "tips": [
+        "Mezi ošetřeními chloupky pouze holte (netrhat, nevoskovat)",
+        "2 týdny před i po neopalovat, používat SPF",
+        "Den po ošetření vynechte saunu a sport",
+        "Pokožku hydratujte"
+      ]
+    }
   },
   {
     "slug": "plasticka-chirurgie",
@@ -158,6 +455,48 @@
     ],
     "beforeAfter": 3,
     "pricelistCategoryIds": [],
-    "hasVideoMedallion": true
+    "hasVideoMedallion": true,
+    "garantDoctorId": "barbora-formankova",
+    "quickFacts": {
+      "duration": "Dle zákroku (⚠ upřesní odborník)",
+      "anesthesia": "Lokální / analgosedace",
+      "recovery": "1–2 týdny dle zákroku",
+      "result": "Trvalý"
+    },
+    "solves": [
+      "⚠ vyžaduje korekci odborníkem — Pokleslá horní a dolní víčka",
+      "Převislá kůže, kterou estetická medicína nevyřeší",
+      "Drobné kožní útvary vyžadující chirurgické odstranění",
+      "Asymetrie a následky úrazů"
+    ],
+    "forWhom": [
+      "⚠ vyžaduje korekci odborníkem — Pro ty, kde konzervativní metody nestačí",
+      "Po pečlivé konzultaci s plastickým chirurgem",
+      "Pro klienty s realistickým očekáváním",
+      "Vždy s návazností na dermatologickou péči kliniky"
+    ],
+    "steps": [
+      {
+        "title": "Konzultace s chirurgem",
+        "text": "MUDr. Barbora Formánková s vámi probere očekávání, zdravotní stav a možnosti. Někdy je nejlepším doporučením zákrok neprovádět."
+      },
+      {
+        "title": "Zákrok",
+        "text": "Ambulantně, v lokálním znecitlivění či analgosedaci. Šetrná technika a pečlivé šití pro co nejjemnější jizvu."
+      },
+      {
+        "title": "Kontroly a hojení",
+        "text": "Stehy odstraňujeme obvykle do týdne. Průběh hojení sledujeme na kontrolách, jizvu ošetřujeme pro co nejlepší výsledek."
+      }
+    ],
+    "aftercare": {
+      "text": "⚠ vyžaduje korekci odborníkem — Rekonvalescence závisí na rozsahu zákroku; u očních víček počítejte s otoky a modřinami cca 7–14 dní.",
+      "tips": [
+        "Klidový režim dle doporučení lékaře",
+        "Chlazení ošetřené oblasti první dny",
+        "Ochrana jizvy před sluncem 3–6 měsíců",
+        "Kontroly dle plánu, péče o jizvu dle instruktáže"
+      ]
+    }
   }
 ]

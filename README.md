@@ -66,6 +66,12 @@ Veškerý obsah žije **výhradně** v JSON souborech ve složce `/data`. Kompon
 | `beforeAfter` | Galerie před/po | Multi-image *(v prototypu jen počet placeholder dvojic)* |
 | `pricelistCategoryIds` | Kategorie ceníku | **Multi-reference → Ceník (kategorie)** |
 | `hasVideoMedallion` | Má video medailonek | Switch |
+| `garantDoctorId` | Garant ošetření (CTA box s lékařem) | **Reference → Tým** |
+| `quickFacts` | Rychlá fakta: délka / anestezie / rekonvalescence / výsledek | 4× Plain text |
+| `solves` | „S čím vám ošetření pomůže" (odrážky) | Rich text / multi-pole |
+| `forWhom` | „Pro koho je vhodné" (odrážky) | Rich text / multi-pole |
+| `steps` | „Jak ošetření probíhá" — číslované kroky (titulek + text) | Rich text, nebo samostatná kolekce Kroky s referencí na Službu |
+| `aftercare` | Rekonvalescence: text + tipy „Na co po ošetření myslet" | Rich text |
 
 ### `data/pricelist.json` → kolekce **Ceník**
 

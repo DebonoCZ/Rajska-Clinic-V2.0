@@ -3,6 +3,7 @@ import { useCms } from '../context/CmsContext.jsx'
 import { ImagePlaceholder } from '../components/Placeholders.jsx'
 import VoucherCta from '../components/VoucherCta.jsx'
 import BookingSection from '../components/BookingSection.jsx'
+import DoctorHelpCta from '../components/DoctorHelpCta.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 
 /* Stránka oblasti péče (estetická dermatologie / dermatologie) —
@@ -74,6 +75,17 @@ export default function ServiceAreaPage() {
           </div>
         </section>
       ))}
+
+      {/* CTA box s lékařem — pomoc s výběrem ošetření */}
+      <section className="section section--alt">
+        <div className="container container--narrow">
+          <DoctorHelpCta
+            doctorId="lucie-rajska"
+            title="Nevíte, které ošetření je pro vás to pravé?"
+            text="Nemusíte vybírat sami. Na nezávazné konzultaci posoudíme stav vaší pleti a doporučíme jen to, co má pro vás skutečně smysl — někdy je to i méně, než čekáte."
+          />
+        </div>
+      </section>
 
       <VoucherCta />
 
