@@ -4,7 +4,7 @@
     "name": "Botulotoxin",
     "category": "Estetická medicína",
     "heroClaim": "Vyhlazení vrásek, které nikdo nepozná. Jen vy budete vědět proč.",
-    "shortDescription": "Jemná korekce mimických vrásek, po které budete vypadat odpočatě — ne jinak. Ošetření zabere pár minut a výsledek působí naprosto přirozeně. Botulotoxinem řešíme i nadměrné pocení podpaží, dlaní či chodidel.",
+    "shortDescription": "Jemná korekce mimických vrásek, po které budete vypadat odpočatě — ne jinak. Ošetření zabere pár minut a výsledek působí naprosto přirozeně. Botulotoxin navíc dočasně blokuje nervové signály stimulující potní žlázy — u nadměrného pocení podpaží, dlaní či chodidel efekt přetrvává obvykle 6–12 měsíců. Pro maximální komfort ošetřujeme se znecitlivujícím krémem.",
     "benefits": [
       "Přirozený výsledek bez ztuhlého výrazu",
       "Ošetření do 30 minut, bez rekonvalescence",
@@ -21,7 +21,7 @@
     "garantDoctorId": "lucie-rajska",
     "quickFacts": {
       "duration": "15–30 minut",
-      "anesthesia": "Bez anestezie / chladicí gel",
+      "anesthesia": "Chladicí gel / znecitlivující krém",
       "recovery": "Ihned do běžného režimu",
       "result": "Nástup 3–7 dní, výdrž 3–6 měsíců"
     },
@@ -97,7 +97,8 @@
       "Nosoretní rýhy a vrásky kolem úst",
       "Kruhy a propadliny pod očima",
       "Nevýrazná brada či kontura čelisti",
-      "Dehydratovaná, unavená pleť"
+      "Dehydratovaná, unavená pleť",
+      "Tekutý lifting — komplexní omlazení celého obličeje výplněmi"
     ],
     "forWhom": [
       "Pro ty, kterým věkem ubývá objem v obličeji",
@@ -131,7 +132,7 @@
     "problems": [
       "ztráta objemu",
       "rty",
-      "nosoretní rýhy"
+      "tekutý lifting"
     ]
   },
   {
@@ -274,7 +275,7 @@
     "name": "Mezoterapie a mikrojehličkování",
     "category": "Estetická medicína",
     "heroClaim": "Nastartujte obnovu pleti. Jemně, ale důsledně.",
-    "shortDescription": "Mikrojehličková radiofrekvence VIVACE, Dermapen 4 i klasická mezoterapie — ošetření, která probouzí přirozenou regeneraci pleti. Zjemňují jizvičky, póry i drobné vrásky a vrací pleti hladkost.",
+    "shortDescription": "Mikrojehličkové pero Dermapen 4 je moderní metoda, která výrazně podporuje regeneraci, vypnutí a pružnost pokožky. Drobné jehličky stimulují tvorbu kolagenu a nastartují přirozené obnovující procesy v pleti. Technika je vhodná pro všechny typy pleti a lze ji bezpečně použít i v jemných oblastech, jako je okolí očí nebo krk. Doplňuje ji mikrojehličková radiofrekvence VIVACE a klasická mezoterapie.",
     "benefits": [
       "Zpevnění pleti a zjemnění pórů",
       "Redukce jizviček po akné",
@@ -286,8 +287,7 @@
     "pricelistCategoryIds": [
       "mezoterapie",
       "mikrojehlickova-radiofrekvence-vivace",
-      "osetreni-mikrojehlickovani-dermapenem4",
-      "chemicky-peeling"
+      "osetreni-mikrojehlickovani-dermapenem4"
     ],
     "hasVideoMedallion": false,
     "garantDoctorId": "zuzana-tulpova",
@@ -298,10 +298,12 @@
       "result": "Postupně, kúra 3 ošetření"
     },
     "solves": [
-      "Jizvičky po akné a rozšířené póry",
-      "Povadlá, nepružná pleť",
-      "Jemné vrásky a nerovnoměrná struktura",
-      "Strie a hyperpigmentace"
+      "Stárnoucí pokožka a jemné vrásky",
+      "Hyperpigmentace a nerovnoměrný tón pleti",
+      "Léčba jizev po akné i klasických jizev",
+      "Léčba růžovky",
+      "Zjemnění strií",
+      "Rozšířené póry a povadlá pleť"
     ],
     "forWhom": [
       "Pro ty, kdo chtějí nastartovat vlastní obnovu pleti",
@@ -316,7 +318,7 @@
       },
       {
         "title": "Ošetření",
-        "text": "Po znecitlivění krémem ošetříme pleť mikrojehličkami; u VIVACE současně působí radiofrekvenční energie do hloubky. Do pleti vpravíme účinná séra."
+        "text": "Mikrojehličky pronikají do hlubších vrstev kůže, kde usnadňují vstřebávání účinných sér – například s kyselinou hyaluronovou, vitamíny či peptidy – a zároveň aktivují proces hojení, který vede k nové syntéze kolagenu. U VIVACE současně působí radiofrekvenční energie do hloubky."
       },
       {
         "title": "Kúra a výsledky",
@@ -339,11 +341,73 @@
     ]
   },
   {
+    "slug": "chemicky-peeling",
+    "name": "Chemický peeling",
+    "category": "Estetická medicína",
+    "heroClaim": "Nastartujte přirozenou obnovu pleti.",
+    "shortDescription": "Pokožka obličeje má přirozenou schopnost pravidelné obnovy, která probíhá přibližně každých 28 dní. Peeling tento proces urychluje a napomáhá odstranění odumřelých kožních buněk, což vede ke sjednocení tónu pleti, redukci nežádoucí pigmentace a celkově zdravějšímu a zářivějšímu vzhledu pokožky.",
+    "benefits": [],
+    "problems": [
+      "pigmentace",
+      "nerovnoměrný tón pleti",
+      "akné",
+      "růžovka"
+    ],
+    "beforeAfter": 3,
+    "pricelistCategoryIds": [
+      "chemicky-peeling"
+    ],
+    "hasVideoMedallion": false,
+    "garantDoctorId": "zuzana-tulpova",
+    "quickFacts": {
+      "duration": "30–45 minut",
+      "anesthesia": "Není potřeba",
+      "recovery": "1–5 dní (jemné olupování)",
+      "result": "Postupně, kúra 3 ošetření"
+    },
+    "solves": [
+      "Nerovnoměrný tón pleti a nežádoucí pigmentace",
+      "Unavená pleť bez jasu (Biorepeel, Jalupro Glow Peel)",
+      "Hlubší obnova pleti (TCA – trichloroctová kyselina)",
+      "Aknózní pleť (AKN peel, azelaová kyselina)",
+      "Zklidnění pleti se sklonem k růžovce"
+    ],
+    "forWhom": [
+      "Pro každého, kdo chce rozjasnit a sjednotit pleť",
+      "Pro pleť s pigmentacemi po slunci či akné",
+      "Vhodné typy peelingu vybíráme podle stavu pleti",
+      "Ideální v podzimních a zimních měsících"
+    ],
+    "steps": [
+      {
+        "title": "Diagnostika a výběr peelingu",
+        "text": "Podle stavu a citlivosti pleti zvolíme vhodný typ — od jemného Biorepeelu po hloubkovou TCA."
+      },
+      {
+        "title": "Aplikace peelingu",
+        "text": "Přípravek naneseme na očištěnou pleť a řízeně necháme působit. Ošetření je rychlé, pocítíte jen jemné štípání."
+      },
+      {
+        "title": "Obnova pleti",
+        "text": "Během několika dní se pleť přirozeně obnoví. Pro plný efekt doporučujeme kúru 3 ošetření — se slevou 10 % a krémem IPLASE."
+      }
+    ],
+    "aftercare": {
+      "text": "Podle typu peelingu se pleť 1–5 dní jemně olupuje — probíhá přirozená obnova. Zarudnutí odezní během několika hodin až dní.",
+      "tips": [
+        "Neloupejte šupinky, nechte je odejít samy",
+        "Minimálně 2 týdny důsledně SPF 50+",
+        "Pleť promazávejte doporučenou péčí",
+        "Vynechte saunu a intenzivní sport 48 hodin"
+      ]
+    }
+  },
+  {
     "slug": "preventivni-dermatologie",
     "name": "Preventivní dermatologie",
     "category": "Dermatologie",
     "heroClaim": "Znaménka pod kontrolou. Klid, který za tu chvíli stojí.",
-    "shortDescription": "Naším cílem je včasné odhalení a bezpečné odstranění rizikových kožních změn. Vaši pokožku pečlivě vyšetříme ručním dermatoskopem, který nám umožní detailně zvětšit a posoudit i ty nejdrobnější kožní projevy. Pokud objevíme podezřelý útvar, zajistíme jeho šetrné odstranění a následné histologické vyšetření.",
+    "shortDescription": "Naším cílem je včasné odhalení a bezpečné odstranění rizikových kožních změn. Vaši pokožku pečlivě vyšetříme ručním dermatoskopem, který nám umožní detailně zvětšit a posoudit i ty nejdrobnější kožní projevy. Pokud objevíme podezřelý útvar, zajistíme jeho šetrné odstranění a následné histologické vyšetření. Každý zákrok provádíme s maximální ohleduplností k vašemu zdraví i vzhledu.",
     "benefits": [],
     "problems": [
       "kontrola znamének",

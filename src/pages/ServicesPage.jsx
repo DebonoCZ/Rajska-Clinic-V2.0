@@ -8,11 +8,12 @@ import VoucherCta from '../components/VoucherCta.jsx'
 /* Rozcestník služeb: jedna úroveň — taby podle oblasti, karty, detail.
    Žádné mezistránky; karta říká, co ošetření řeší. */
 export default function ServicesPage() {
-  const { services } = useCms()
+  const { services, site } = useCms()
   const [tab, setTab] = useState('Vše')
 
   const categories = ['Vše', 'Estetická medicína', 'Dermatologie', 'Plastická chirurgie']
   const visible = tab === 'Vše' ? services : services.filter((s) => s.category === tab)
+  const tabLead = site.servicesLeads?.[tab]
 
   return (
     <>
@@ -30,6 +31,7 @@ export default function ServicesPage() {
       <section className="section" style={{ paddingTop: '0.5rem' }}>
         <div className="container">
           <CategoryTabs categories={categories} active={tab} onChange={setTab} />
+          {tabLead && <p className="section__lead">{tabLead}</p>}
           <div className="grid grid--services">
             {visible.map((s) => (
               <ServiceCard key={s.slug} service={s} />

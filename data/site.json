@@ -11,6 +11,10 @@
     { "label": "Tým", "path": "/tym" },
     { "label": "Kontakt", "path": "/#kontakt" }
   ],
+  "servicesLeads": {
+    "Estetická medicína": "Naším cílem je přirozeně podpořit krásu vaší pleti, navrátit jí svěžest, pevnost a zářivý vzhled. Moderní estetická péče v RAJSKÁ Clinic propojuje ověřené postupy, inovativní technologie a respekt k vaší individualitě – abyste se cítila sebevědomě a spokojeně ve své kůži.",
+    "Dermatologie": "Komplexní dermatologická péče pro dospělé i děti — od prevence a kontroly znamének přes léčbu kožních obtíží až po laserová ošetření."
+  },
   "pressLogos": [
     "Cosmopolitan",
     "Proženy",
