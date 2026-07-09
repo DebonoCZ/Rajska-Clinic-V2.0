@@ -1,0 +1,163 @@
+[
+  {
+    "slug": "botulotoxin",
+    "name": "Botulotoxin",
+    "category": "Estetická medicína",
+    "heroClaim": "Vyhlazení vrásek, které nikdo nepozná. Jen vy budete vědět proč.",
+    "shortDescription": "Jemná korekce mimických vrásek, po které budete vypadat odpočatě — ne jinak. Ošetření zabere pár minut a výsledek působí naprosto přirozeně. Botulotoxinem řešíme i nadměrné pocení podpaží, dlaní či chodidel.",
+    "benefits": [
+      "Přirozený výsledek bez ztuhlého výrazu",
+      "Ošetření do 30 minut, bez rekonvalescence",
+      "Prevence prohlubování vrásek",
+      "Řeší i nadměrné pocení (hyperhidrózu)",
+      "Aplikace zkušenými lékaři"
+    ],
+    "beforeAfter": 4,
+    "pricelistCategoryIds": [
+      "aplikace-botulotoxinu-korekce-vrasek",
+      "aplikace-botulotoxinu-odstraneni-nadmerneho-poceni"
+    ],
+    "hasVideoMedallion": true
+  },
+  {
+    "slug": "vyplne-kyselina-hyaluronova",
+    "name": "Výplně kyselinou hyaluronovou",
+    "category": "Estetická medicína",
+    "heroClaim": "Doplňte, co čas ubral. S citem a bez přehánění.",
+    "shortDescription": "Kyselina hyaluronová vrací obličeji objem, hydrataci a svěžest. Rty, tváře, brada i oční okolí — vždy s důrazem na harmonii celého obličeje. Výsledkem je odpočatý vzhled, ne změněná tvář.",
+    "benefits": [
+      "Okamžitě viditelný, přirozený výsledek",
+      "Prémiové certifikované materiály",
+      "Individuální plán ošetření na konzultaci",
+      "Hydratace a objem v jednom",
+      "Postupné a plně kontrolovatelné dávkování"
+    ],
+    "beforeAfter": 4,
+    "pricelistCategoryIds": [
+      "aplikace-vyplnovych-materialu-kyselina-hyaluronova",
+      "vyplne-hydroxyapatit"
+    ],
+    "hasVideoMedallion": true
+  },
+  {
+    "slug": "nitovy-lifting",
+    "name": "Niťový lifting",
+    "category": "Estetická medicína",
+    "heroClaim": "Zpevnění a lifting bez skalpelu.",
+    "shortDescription": "Vstřebatelné nitě šetrně vypnou povolenou pokožku a nastartují tvorbu vlastního kolagenu. Ideální řešení pro ty, kdo chtějí viditelný lifting bez operace a dlouhé rekonvalescence.",
+    "benefits": [
+      "Okamžitý liftingový efekt",
+      "Stimulace tvorby vlastního kolagenu",
+      "Bez celkové anestezie a jizev",
+      "Návrat k běžnému režimu během pár dní",
+      "Výsledek se dále zlepšuje v čase"
+    ],
+    "beforeAfter": 3,
+    "pricelistCategoryIds": [
+      "nitovy-lifting"
+    ],
+    "hasVideoMedallion": false
+  },
+  {
+    "slug": "bioremodelace-biorevitalizace",
+    "name": "Bioremodelace a biorevitalizace",
+    "category": "Estetická medicína",
+    "heroClaim": "Kvalita pleti, která je vidět. Zevnitř.",
+    "shortDescription": "Injekční ošetření, která zlepšují kvalitu, hustotu a hydrataci pleti — bez přidávání objemu. Profhilo, polynukleotidy či exosomy vrací pleti pružnost a zdravý jas. Přirozená cesta k lepší pleti.",
+    "benefits": [
+      "Viditelné zlepšení kvality a pružnosti pleti",
+      "Hloubková hydratace bez změny rysů",
+      "Vhodné pro obličej, krk, dekolt i ruce",
+      "Široká paleta přípravků dle potřeb pleti",
+      "Minimální rekonvalescence"
+    ],
+    "beforeAfter": 3,
+    "pricelistCategoryIds": [
+      "bioremodelace",
+      "biorevitalizace",
+      "biostimulace-kyselinou-polymlecnou",
+      "polynukleotidy",
+      "exosomy"
+    ],
+    "hasVideoMedallion": false
+  },
+  {
+    "slug": "mezoterapie-mikrojehlickovani",
+    "name": "Mezoterapie a mikrojehličkování",
+    "category": "Estetická medicína",
+    "heroClaim": "Nastartujte obnovu pleti. Jemně, ale důsledně.",
+    "shortDescription": "Mikrojehličková radiofrekvence VIVACE, Dermapen 4 i klasická mezoterapie — ošetření, která probouzí přirozenou regeneraci pleti. Zjemňují jizvičky, póry i drobné vrásky a vrací pleti hladkost.",
+    "benefits": [
+      "Zpevnění pleti a zjemnění pórů",
+      "Redukce jizviček po akné",
+      "Stimulace kolagenu bez chirurgie",
+      "Ošetření na míru typu pleti",
+      "Kombinovatelné s dalšími procedurami"
+    ],
+    "beforeAfter": 3,
+    "pricelistCategoryIds": [
+      "mezoterapie",
+      "mikrojehlickova-radiofrekvence-vivace",
+      "osetreni-mikrojehlickovani-dermapenem4",
+      "chemicky-peeling"
+    ],
+    "hasVideoMedallion": false
+  },
+  {
+    "slug": "laserove-osetreni-co2",
+    "name": "Laserové ošetření CO2",
+    "category": "Dermatologie",
+    "heroClaim": "Omlazení a obnova pleti silou frakčního laseru.",
+    "shortDescription": "Frakční CO2 laser ALMA PIXEL patří k nejúčinnějším metodám resurfacingu pleti. Vyhlazuje vrásky, jizvy i pigmentace a nastartuje hloubkovou obnovu kůže. Ošetření vede zkušený lékař.",
+    "benefits": [
+      "Viditelné vyhlazení vrásek a jizev",
+      "Redukce pigmentových skvrn",
+      "Dlouhodobý efekt obnovy pleti",
+      "Přesné dávkování energie dle typu pleti",
+      "Ošetření vedené lékařem"
+    ],
+    "beforeAfter": 4,
+    "pricelistCategoryIds": [
+      "alma-pixel-co2-laser-rejuvenace-laserovy-peeling",
+      "alma-pixel-co2-laser-rejuvenace-frakcni",
+      "alma-pixel-co2-laser-odstraneni-utvaru"
+    ],
+    "hasVideoMedallion": false
+  },
+  {
+    "slug": "epilace",
+    "name": "Epilace",
+    "category": "Dermatologie",
+    "heroClaim": "Hladká pokožka bez kompromisů. Trvale.",
+    "shortDescription": "Šetrná a účinná epilace na dermatologické klinice — pod dohledem lékařů a s přístroji, kterým věříme. Rozlučte se s holením i voskováním, ať už jde o obličej, podpaží nebo nohy.",
+    "benefits": [
+      "Dlouhodobé odstranění nežádoucího ochlupení",
+      "Bezpečné ošetření pod lékařským dohledem",
+      "Vhodné pro ženy i muže",
+      "Cenově výhodné balíčky ošetření",
+      "Minimální diskomfort"
+    ],
+    "beforeAfter": 3,
+    "pricelistCategoryIds": [
+      "epilace"
+    ],
+    "hasVideoMedallion": false
+  },
+  {
+    "slug": "plasticka-chirurgie",
+    "name": "Plastická chirurgie",
+    "category": "Plastická chirurgie",
+    "heroClaim": "Když si změna zaslouží ruku chirurga. Přirozeně a bezpečně.",
+    "shortDescription": "⚠ vyžaduje korekci odborníkem — Nově nabízíme konzultace a zákroky plastické chirurgie pod vedením MUDr. Barbory Formánkové. Od korekce očních víček po ošetření, na která estetická medicína nestačí. Vždy konzervativně, s respektem k vaší přirozenosti.",
+    "benefits": [
+      "⚠ vyžaduje korekci odborníkem — Osobní konzultace s plastickým chirurgem",
+      "Korekce horních i dolních očních víček",
+      "Drobné ambulantní zákroky bez hospitalizace",
+      "Konzervativní přístup — méně je více",
+      "Návaznost na dermatologickou péči kliniky"
+    ],
+    "beforeAfter": 3,
+    "pricelistCategoryIds": [],
+    "hasVideoMedallion": true
+  }
+]

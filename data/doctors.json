@@ -1,0 +1,123 @@
+[
+  {
+    "id": "lucie-rajska",
+    "slug": "lucie-rajska",
+    "name": "MUDr. Lucie Rajská, Ph.D.",
+    "title": "Lékař všeobecné dermatologie",
+    "photo": "FOTO — MUDr. Lucie Rajská",
+    "bio": "Zakladatelka Rajská Clinic a lékařka s dlouholetou praxí v dermatologii a estetické medicíně. Věří, že nejlepší výsledek je ten, který na první pohled není vidět — přirozenost bez kompromisu. Pacienty provází od pečlivé konzultace až po dlouhodobou péči o pleť.",
+    "instagram": "https://www.instagram.com/rajskaclinic/",
+    "hasVideoMedallion": true,
+    "serviceSlugs": ["botulotoxin", "vyplne-kyselina-hyaluronova", "bioremodelace-biorevitalizace", "laserove-osetreni-co2"]
+  },
+  {
+    "id": "barbora-grillova",
+    "slug": "barbora-grillova",
+    "name": "MUDr. Barbora Grillová",
+    "title": "Lékař všeobecné dermatovenerologie",
+    "photo": "FOTO — MUDr. Barbora Grillová",
+    "bio": "Specializuje se na všeobecnou dermatovenerologii a komplexní péči o kožní obtíže. Ke každému pacientovi přistupuje s klidem, diskrétností a důrazem na prevenci.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": ["laserove-osetreni-co2", "epilace"]
+  },
+  {
+    "id": "vladena-charvatova",
+    "slug": "vladena-charvatova",
+    "name": "MUDr. Vladěna Charvátová",
+    "title": "Lékař estetické medicíny",
+    "photo": "FOTO — MUDr. Vladěna Charvátová",
+    "bio": "Lékařka estetické medicíny se zaměřením na injekční ošetření a harmonizaci obličeje. Jejím cílem je svěží a odpočatý vzhled, nikdy umělá dokonalost.",
+    "instagram": null,
+    "hasVideoMedallion": true,
+    "serviceSlugs": ["botulotoxin", "vyplne-kyselina-hyaluronova", "nitovy-lifting", "bioremodelace-biorevitalizace"]
+  },
+  {
+    "id": "krystof-kudlacek",
+    "slug": "krystof-kudlacek",
+    "name": "MUDr. Kryštof Kudláček",
+    "title": "Lékař všeobecné dermatologie",
+    "photo": "FOTO — MUDr. Kryštof Kudláček",
+    "bio": "Věnuje se všeobecné dermatologii a laserovým ošetřením pleti. Pacienti u něj oceňují srozumitelný výklad a vstřícný přístup.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": ["laserove-osetreni-co2", "epilace"]
+  },
+  {
+    "id": "natalia-havlicek",
+    "slug": "natalia-havlicek",
+    "name": "MUDr. Natália Havlíček",
+    "title": "Lékař všeobecné dermatologie",
+    "photo": "FOTO — MUDr. Natália Havlíček",
+    "bio": "Zabývá se všeobecnou a preventivní dermatologií. Důraz klade na včasnou diagnostiku a šetrná ošetření.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": ["epilace"]
+  },
+  {
+    "id": "zuzana-tulpova",
+    "slug": "zuzana-tulpova",
+    "name": "MUDr. Zuzana Ťulpová",
+    "title": "Lékař všeobecné dermatologie",
+    "photo": "FOTO — MUDr. Zuzana Ťulpová",
+    "bio": "Lékařka všeobecné dermatologie s citem pro detail. Specializuje se na ošetření pleti moderními přístrojovými metodami.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": ["laserove-osetreni-co2"]
+  },
+  {
+    "id": "marie-efanova",
+    "slug": "marie-efanova",
+    "name": "MUDr. Marie Efanová",
+    "title": "Lékař všeobecné dermatologie",
+    "photo": "FOTO — MUDr. Marie Efanová",
+    "bio": "Věnuje se všeobecné dermatologii a péči o zdravou pokožku v každém věku. K pacientům přistupuje trpělivě a s respektem.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": ["epilace"]
+  },
+  {
+    "id": "barbora-formankova",
+    "slug": "barbora-formankova",
+    "name": "MUDr. Barbora Formánková",
+    "title": "Plastický chirurg",
+    "photo": "FOTO — MUDr. Barbora Formánková",
+    "bio": "Plastická chiruržka s praxí v estetické i rekonstrukční chirurgii. Zastává konzervativní přístup — méně je někdy více, výsledek musí ladit s vaší přirozeností.",
+    "instagram": null,
+    "hasVideoMedallion": true,
+    "serviceSlugs": ["plasticka-chirurgie"]
+  },
+  {
+    "id": "anna-flachsova",
+    "slug": "anna-flachsova",
+    "name": "Bc. Anna Flachsová",
+    "title": "Vrchní zdravotní sestra",
+    "photo": "FOTO — Bc. Anna Flachsová",
+    "bio": "Asistuje lékařům a pomáhá vám starat se o pleť. Dohlíží na hladký průběh ošetření i na to, abyste se na klinice cítili dobře.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": []
+  },
+  {
+    "id": "romana-baluskova",
+    "slug": "romana-baluskova",
+    "name": "Bc. Romana Balušková",
+    "title": "Manažer kliniky",
+    "photo": "FOTO — Bc. Romana Balušková",
+    "bio": "Stará se o každodenní chod kliniky a spokojenost pacientů. Je tu pro vás, kdykoli potřebujete s čímkoli poradit.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": []
+  },
+  {
+    "id": "klara-novakova",
+    "slug": "klara-novakova",
+    "name": "Klára Nováková",
+    "title": "Recepce",
+    "photo": "FOTO — Klára Nováková",
+    "bio": "První úsměv, který na klinice potkáte. Pomůže vám s objednáním, termíny i praktickými dotazy.",
+    "instagram": null,
+    "hasVideoMedallion": false,
+    "serviceSlugs": []
+  }
+]

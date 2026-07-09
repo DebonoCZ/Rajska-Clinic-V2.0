@@ -1,0 +1,40 @@
+{
+  "clinicName": "RAJSKÁ Clinic",
+  "heroClaim": "Estetika bez nadsázky – přirozenost bez kompromisu.",
+  "heroSubclaim": "Vaše spokojenost a přirozenost jsou pro nás na prvním místě. Ke každému přistupujeme individuálně, s respektem k jedinečnosti a přáním každého klienta. Věříme, že krása není o dokonalosti, ale o harmonii, zdraví a sebevědomí.",
+  "ctaLabel": "Domluvit konzultaci",
+  "nav": [
+    { "label": "O nás", "path": "/#o-nas" },
+    { "label": "Služby", "path": "/#sluzby" },
+    { "label": "Ceník", "path": "/cenik" },
+    { "label": "Tým", "path": "/#tym" },
+    { "label": "Kontakt", "path": "/#kontakt" }
+  ],
+  "contact": {
+    "address": "Jankovcova 1566/2B, Praha 7 – Holešovice, 170 00",
+    "phone": "(+420) 731 908 668",
+    "email": "clinic@rajskaclinic.cz",
+    "openingHours": [
+      { "days": "Pondělí – Čtvrtek", "hours": "9:00 – 17:00" },
+      { "days": "Pátek", "hours": "9:00 – 16:00" }
+    ],
+    "bookingNote": "Objednávejte se prosím s dostatečným předstihem. Průměrný termín bývá nejdříve za 14 dní.",
+    "billing": "MUDr. Lucie Rajská s.r.o., Ovenecká 78/33, Praha 7 – Bubeneč 170 00 · IČO: 17936594 / DIČ: CZ17936594",
+    "instagram": "https://www.instagram.com/rajskaclinic/",
+    "facebook": "https://www.facebook.com/rajskaclinic/"
+  },
+  "references": [
+    {
+      "text": "Konečně klinika, kde mě nikdo nepřemlouvá k věcem, které nepotřebuji. Paní doktorka mi naopak půlku plánovaných ošetření rozmluvila — a výsledek je přesně takový, jaký jsem chtěla. Přirozený.",
+      "author": "Kateřina H., Praha"
+    },
+    {
+      "text": "Profesionální přístup od recepce až po lékaře. Ošetření botulotoxinem proběhlo rychle, bezbolestně a nikdo v práci nic nepoznal. Přesně tak to má být.",
+      "author": "Martin V., Praha"
+    },
+    {
+      "text": "Na kliniku chodím na dermatologii i estetiku. Oceňuji, že všechno vyřeším na jednom místě a vždy s pocitem, že jsem v dobrých rukou.",
+      "author": "Lenka S., Kladno"
+    }
+  ]
+}

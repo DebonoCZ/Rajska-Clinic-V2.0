@@ -1,0 +1,200 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  line-height: var(--leading-heading);
+  font-weight: 500;
+  margin: 0 0 0.6em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.72;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+mark {
+  background: var(--color-mark);
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.container--narrow {
+  max-width: 860px;
+}
+
+.section {
+  padding: var(--section-pad) 0;
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+.section__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.section__title {
+  font-size: var(--text-h2);
+}
+
+.section__title--small {
+  font-size: var(--text-h3);
+}
+
+.section__subtitle {
+  font-size: var(--text-h3);
+}
+
+.section__lead {
+  color: var(--color-text-muted);
+  max-width: 46rem;
+  margin-bottom: 2rem;
+}
+
+/* Tlačítka — styl „Domluvit konzultaci" ze současného webu */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: var(--radius-button);
+  padding: 0.8rem 1.7rem;
+  font-size: var(--text-small);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+  color: var(--color-primary-contrast);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-primary-contrast);
+}
+
+.btn--secondary:hover {
+  background: var(--color-primary-hover);
+  opacity: 1;
+}
+
+.btn--large {
+  padding: 0.9rem 2.2rem;
+}
+
+/* Mřížky */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid--services {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.grid--doctors {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.grid--references {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Placeholdery médií */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: repeating-linear-gradient(45deg, #e9e6e2, #e9e6e2 12px, #e2dfda 12px, #e2dfda 24px);
+  border: 1px dashed #c9c4bd;
+  border-radius: var(--radius-card);
+  color: #7c766e;
+  text-align: center;
+  padding: 1rem;
+}
+
+.placeholder__label {
+  font-size: var(--text-small);
+  max-width: 90%;
+}
+
+.placeholder__icon {
+  font-size: 1.6rem;
+  opacity: 0.6;
+}
+
+.placeholder__play {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(26, 26, 26, 0.75);
+  color: #fff;
+  font-size: 1.1rem;
+  padding-left: 4px;
+}

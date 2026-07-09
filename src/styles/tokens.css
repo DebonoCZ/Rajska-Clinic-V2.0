@@ -1,0 +1,57 @@
+/*
+ * Design tokeny extrahované z produkčního webu rajskaclinic.cz (Webflow, 07/2026).
+ * Jediné místo, kde se definují barvy, typografie, zaoblení a stíny.
+ *
+ * Zdroj: Webflow Data API — fonty, custom code (cookie UI s brand barvami), SVG assety.
+ *  - primární akcent  #8F7D6B (bronzově-taupe; pozadí tlačítka „Domluvit konzultaci")
+ *  - sekundární akcent #BBA18E (světlá béžovo-zlatá; sekundární tlačítka)
+ *  - zlatá z loga      #A48965 (akcent „gold-text" v hero claimu)
+ *  - téměř černá       #1B1B1B (hover tlačítek, tmavé plochy)
+ *  - nadpisy: serif Essonnes (custom font — v prototypu zastupuje Playfair Display)
+ *  - tělový text: Lexend, sans-serif
+ *  - tlačítka i karty mají na produkci border-radius 0 (hranatá estetika)
+ */
+:root {
+  /* Barvy */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f3ef;
+  --color-text: #1b1b1b;
+  --color-text-muted: #6f6a64;
+  --color-primary: #8f7d6b;
+  --color-primary-hover: #1b1b1b;
+  --color-primary-contrast: #ffffff;
+  --color-secondary: #bba18e;
+  --color-accent: #a48965;
+  --color-dark: #1b1b1b;
+  --color-border: #e6e1da;
+  --color-mark: #ecdfc9;
+
+  /* Typografie */
+  --font-heading: 'Essonnes', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lexend', 'Helvetica Neue', Arial, sans-serif;
+
+  --text-h1: clamp(2.2rem, 5vw, 3.6rem);
+  --text-h2: clamp(1.8rem, 4vw, 2.6rem);
+  --text-h3: clamp(1.3rem, 3vw, 1.6rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+
+  --leading-heading: 1.15;
+  --leading-body: 1.65;
+
+  /* Zaoblení a stíny — web pracuje s hranatou estetikou (radius 0) */
+  --radius-card: 0px;
+  --radius-button: 0px;
+  --radius-input: 0px;
+  --shadow-card: 0 6px 24px rgba(27, 27, 27, 0.07);
+  --shadow-panel: 0 12px 40px rgba(27, 27, 27, 0.16);
+
+  /* Spacing a layout */
+  --container-max: 1200px;
+  --container-pad: 1.25rem;
+  --section-pad: clamp(3rem, 8vw, 5.5rem);
+
+  /* Animace */
+  --transition-fast: 0.18s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
