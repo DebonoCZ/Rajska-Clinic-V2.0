@@ -135,14 +135,16 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* 5. Před / po */}
-      <section className="section section--alt">
-        <div className="container">
-          <h2 className="section__title section__title--small">Před / po</h2>
-          <p className="section__lead">Reálné výsledky našich pacientů. Přirozené, ne přehnané.</p>
-          <BeforeAfter count={service.beforeAfter} serviceName={service.name} />
-        </div>
-      </section>
+      {/* 5. Před / po — jen u služeb s vizuálním výsledkem */}
+      {service.beforeAfter > 0 && (
+        <section className="section section--alt">
+          <div className="container">
+            <h2 className="section__title section__title--small">Před / po</h2>
+            <p className="section__lead">Reálné výsledky našich pacientů. Přirozené, ne přehnané.</p>
+            <BeforeAfter count={service.beforeAfter} serviceName={service.name} />
+          </div>
+        </section>
+      )}
 
       {/* 6. Ceník služby — stejná akordeon komponenta, jen filtrovaná */}
       {serviceCategories.length > 0 && (

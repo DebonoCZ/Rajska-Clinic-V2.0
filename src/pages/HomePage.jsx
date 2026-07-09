@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCms } from '../context/CmsContext.jsx'
+import CategoryTabs from '../components/CategoryTabs.jsx'
 import { VideoPlaceholder } from '../components/Placeholders.jsx'
 import PressBar from '../components/PressBar.jsx'
 import GoogleRating from '../components/GoogleRating.jsx'
@@ -11,6 +13,9 @@ import BookingSection from '../components/BookingSection.jsx'
 
 export default function HomePage() {
   const { site, services, doctors } = useCms()
+  const [serviceTab, setServiceTab] = useState('Estetická medicína')
+  /* Nejoblíbenější = první 4 v pořadí CMS pro zvolenou kategorii */
+  const popularServices = services.filter((s) => s.category === serviceTab).slice(0, 4)
 
   return (
     <>
@@ -46,19 +51,25 @@ export default function HomePage() {
       {/* ZAKLADATELKA + VIDEO MEDAILONEK */}
       <FounderSection />
 
-      {/* SLUŽBY */}
+      {/* NEJOBLÍBENĚJŠÍ SLUŽBY — tabs + 4 karty + odkaz na vše */}
       <section className="section section--alt" id="sluzby">
         <div className="container">
           <p className="section__eyebrow">Naše péče</p>
-          <h2 className="section__title">Služby</h2>
-          <p className="section__lead">
-            Od preventivní dermatologie po estetickou medicínu. Vždy s jediným cílem —
-            abyste se cítili dobře ve své kůži.
-          </p>
-          <div className="grid grid--services">
-            {services.map((s) => (
+          <h2 className="section__title">Nejoblíbenější služby</h2>
+          <CategoryTabs
+            categories={['Estetická medicína', 'Dermatologie']}
+            active={serviceTab}
+            onChange={setServiceTab}
+          />
+          <div className="grid grid--services grid--services-4">
+            {popularServices.map((s) => (
               <ServiceCard key={s.slug} service={s} />
             ))}
+          </div>
+          <div className="section__more">
+            <Link to="/sluzby" className="btn btn--primary btn--large">
+              Zobrazit všechny služby
+            </Link>
           </div>
         </div>
       </section>

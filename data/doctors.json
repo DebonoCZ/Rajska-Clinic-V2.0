@@ -8,7 +8,13 @@
     "bio": "Zakladatelka Rajská Clinic a lékařka s dlouholetou praxí v dermatologii a estetické medicíně. Věří, že nejlepší výsledek je ten, který na první pohled není vidět — přirozenost bez kompromisu. Pacienty provází od pečlivé konzultace až po dlouhodobou péči o pleť.",
     "instagram": "https://www.instagram.com/rajskaclinic/",
     "hasVideoMedallion": true,
-    "serviceSlugs": ["botulotoxin", "vyplne-kyselina-hyaluronova", "bioremodelace-biorevitalizace", "laserove-osetreni-co2"]
+    "serviceSlugs": [
+      "botulotoxin",
+      "vyplne-kyselina-hyaluronova",
+      "bioremodelace-biorevitalizace",
+      "laserove-osetreni-co2",
+      "preventivni-dermatologie"
+    ]
   },
   {
     "id": "barbora-grillova",
@@ -19,7 +25,12 @@
     "bio": "Specializuje se na všeobecnou dermatovenerologii a komplexní péči o kožní obtíže. Ke každému pacientovi přistupuje s klidem, diskrétností a důrazem na prevenci.",
     "instagram": null,
     "hasVideoMedallion": false,
-    "serviceSlugs": ["laserove-osetreni-co2", "epilace"]
+    "serviceSlugs": [
+      "laserove-osetreni-co2",
+      "epilace",
+      "preventivni-dermatologie",
+      "vseobecna-dermatologie"
+    ]
   },
   {
     "id": "vladena-charvatova",
@@ -30,7 +41,12 @@
     "bio": "Lékařka estetické medicíny se zaměřením na injekční ošetření a harmonizaci obličeje. Jejím cílem je svěží a odpočatý vzhled, nikdy umělá dokonalost.",
     "instagram": null,
     "hasVideoMedallion": true,
-    "serviceSlugs": ["botulotoxin", "vyplne-kyselina-hyaluronova", "nitovy-lifting", "bioremodelace-biorevitalizace"]
+    "serviceSlugs": [
+      "botulotoxin",
+      "vyplne-kyselina-hyaluronova",
+      "nitovy-lifting",
+      "bioremodelace-biorevitalizace"
+    ]
   },
   {
     "id": "krystof-kudlacek",
@@ -41,7 +57,12 @@
     "bio": "Věnuje se všeobecné dermatologii a laserovým ošetřením pleti. Pacienti u něj oceňují srozumitelný výklad a vstřícný přístup.",
     "instagram": null,
     "hasVideoMedallion": false,
-    "serviceSlugs": ["laserove-osetreni-co2", "epilace"]
+    "serviceSlugs": [
+      "laserove-osetreni-co2",
+      "epilace",
+      "preventivni-dermatologie",
+      "vseobecna-dermatologie"
+    ]
   },
   {
     "id": "natalia-havlicek",
@@ -52,7 +73,11 @@
     "bio": "Zabývá se všeobecnou a preventivní dermatologií. Důraz klade na včasnou diagnostiku a šetrná ošetření.",
     "instagram": null,
     "hasVideoMedallion": false,
-    "serviceSlugs": ["epilace"]
+    "serviceSlugs": [
+      "epilace",
+      "preventivni-dermatologie",
+      "detska-dermatologie"
+    ]
   },
   {
     "id": "zuzana-tulpova",
@@ -63,7 +88,11 @@
     "bio": "Lékařka všeobecné dermatologie s citem pro detail. Specializuje se na ošetření pleti moderními přístrojovými metodami.",
     "instagram": null,
     "hasVideoMedallion": false,
-    "serviceSlugs": ["laserove-osetreni-co2"]
+    "serviceSlugs": [
+      "laserove-osetreni-co2",
+      "preventivni-dermatologie",
+      "vseobecna-dermatologie"
+    ]
   },
   {
     "id": "marie-efanova",
@@ -74,7 +103,11 @@
     "bio": "Věnuje se všeobecné dermatologii a péči o zdravou pokožku v každém věku. K pacientům přistupuje trpělivě a s respektem.",
     "instagram": null,
     "hasVideoMedallion": false,
-    "serviceSlugs": ["epilace"]
+    "serviceSlugs": [
+      "epilace",
+      "vseobecna-dermatologie",
+      "detska-dermatologie"
+    ]
   },
   {
     "id": "barbora-formankova",
@@ -85,7 +118,9 @@
     "bio": "Plastická chiruržka s praxí v estetické i rekonstrukční chirurgii. Zastává konzervativní přístup — méně je někdy více, výsledek musí ladit s vaší přirozeností.",
     "instagram": null,
     "hasVideoMedallion": true,
-    "serviceSlugs": ["plasticka-chirurgie"]
+    "serviceSlugs": [
+      "plasticka-chirurgie"
+    ]
   },
   {
     "id": "anna-flachsova",

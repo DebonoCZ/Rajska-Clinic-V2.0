@@ -1,19 +1,18 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useCms } from '../context/CmsContext.jsx'
-import { ImagePlaceholder } from '../components/Placeholders.jsx'
+import CategoryTabs from '../components/CategoryTabs.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
+import DoctorHelpCta from '../components/DoctorHelpCta.jsx'
 import VoucherCta from '../components/VoucherCta.jsx'
 
-/* Rozcestník služeb: oblasti péče (estetická dermatologie / dermatologie)
-   a pod nimi všechna ošetření s vlastní landing page. */
+/* Rozcestník služeb: jedna úroveň — taby podle oblasti, karty, detail.
+   Žádné mezistránky; karta říká, co ošetření řeší. */
 export default function ServicesPage() {
-  const { services, serviceAreas } = useCms()
+  const { services } = useCms()
+  const [tab, setTab] = useState('Vše')
 
-  const groups = [
-    { name: 'Estetická medicína', services: services.filter((s) => s.category === 'Estetická medicína') },
-    { name: 'Dermatologie', services: services.filter((s) => s.category === 'Dermatologie') },
-    { name: 'Plastická chirurgie', services: services.filter((s) => s.category === 'Plastická chirurgie') },
-  ]
+  const categories = ['Vše', 'Estetická medicína', 'Dermatologie', 'Plastická chirurgie']
+  const visible = tab === 'Vše' ? services : services.filter((s) => s.category === tab)
 
   return (
     <>
@@ -22,48 +21,31 @@ export default function ServicesPage() {
           <p className="section__eyebrow">Naše péče</p>
           <h1 className="section__title">Služby</h1>
           <p className="section__lead">
-            Od preventivní dermatologie po estetickou medicínu. Vyberte si oblast péče,
-            nebo rovnou konkrétní ošetření.
+            Vyberte si podle toho, co vás trápí — každá karta říká, s čím ošetření pomáhá.
+            Detail pak ukáže průběh, ceny i lékaře, kteří se vám budou věnovat.
           </p>
         </div>
       </section>
 
-      {/* Oblasti péče */}
-      <section className="section" style={{ paddingTop: '1rem' }}>
+      <section className="section" style={{ paddingTop: '0.5rem' }}>
         <div className="container">
-          <div className="area-teasers">
-            {serviceAreas.map((area) => (
-              <Link to={`/${area.slug}`} className="area-teaser" key={area.slug}>
-                <ImagePlaceholder label={`FOTO — ${area.name}`} ratio="16 / 9" />
-                <div className="area-teaser__body">
-                  <h2 className="area-teaser__title">{area.name}</h2>
-                  <p className="area-teaser__lead">{area.lead}</p>
-                  <span className="area-teaser__more">Zjistit více →</span>
-                </div>
-              </Link>
+          <CategoryTabs categories={categories} active={tab} onChange={setTab} />
+          <div className="grid grid--services">
+            {visible.map((s) => (
+              <ServiceCard key={s.slug} service={s} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Všechna ošetření podle oblastí */}
+      {/* Pomoc s výběrem */}
       <section className="section section--alt">
-        <div className="container">
-          <p className="section__eyebrow">Kompletní nabídka</p>
-          <h2 className="section__title section__title--small">Všechna ošetření</h2>
-          {groups.map(
-            (group) =>
-              group.services.length > 0 && (
-                <div className="services-group" key={group.name}>
-                  <h3 className="services-group__heading">{group.name}</h3>
-                  <div className="grid grid--services">
-                    {group.services.map((s) => (
-                      <ServiceCard key={s.slug} service={s} />
-                    ))}
-                  </div>
-                </div>
-              )
-          )}
+        <div className="container container--narrow">
+          <DoctorHelpCta
+            doctorId="lucie-rajska"
+            title="Nevíte, které ošetření je pro vás to pravé?"
+            text="Nemusíte vybírat sami. Na nezávazné konzultaci posoudíme stav vaší pleti a doporučíme jen to, co má pro vás skutečně smysl — někdy je to i méně, než čekáte."
+          />
         </div>
       </section>
 

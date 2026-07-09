@@ -44,11 +44,14 @@ export default function Footer() {
         <div className="footer__col">
           <p className="footer__heading">Služby</p>
           <ul className="footer__links">
-            {services.map((s) => (
+            {services.slice(0, 8).map((s) => (
               <li key={s.slug}>
                 <Link to={`/sluzby/${s.slug}`}>{s.name}</Link>
               </li>
             ))}
+            <li>
+              <Link to="/sluzby">Všechny služby</Link>
+            </li>
             <li>
               <Link to="/cenik">Ceník</Link>
             </li>

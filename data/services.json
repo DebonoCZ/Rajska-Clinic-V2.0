@@ -60,7 +60,11 @@
         "Nemněte si místa vpichů",
         "Efekt udržíte opakováním 2× ročně"
       ]
-    }
+    },
+    "problems": [
+      "vrásky",
+      "nadměrné pocení"
+    ]
   },
   {
     "slug": "vyplne-kyselina-hyaluronova",
@@ -123,7 +127,12 @@
         "První den chlaďte dle potřeby",
         "Pijte dostatek vody — hyaluron ji váže"
       ]
-    }
+    },
+    "problems": [
+      "ztráta objemu",
+      "rty",
+      "nosoretní rýhy"
+    ]
   },
   {
     "slug": "nitovy-lifting",
@@ -184,7 +193,11 @@
         "Měsíc nemasírujte obličej",
         "Žvýkejte s mírou — šetřete mimiku prvních pár dní"
       ]
-    }
+    },
+    "problems": [
+      "povadlá pleť",
+      "kontury obličeje"
+    ]
   },
   {
     "slug": "bioremodelace-biorevitalizace",
@@ -249,7 +262,12 @@
         "Používejte SPF 50+",
         "Dodržte doporučený odstup ošetření"
       ]
-    }
+    },
+    "problems": [
+      "unavená pleť",
+      "hydratace",
+      "jas"
+    ]
   },
   {
     "slug": "mezoterapie-mikrojehlickovani",
@@ -312,6 +330,194 @@
         "Týden důsledně SPF 50+",
         "Nesahat, neškrábat, neloupat",
         "48 hodin vynechte saunu, bazén a sport"
+      ]
+    },
+    "problems": [
+      "jizvičky po akné",
+      "póry",
+      "strie"
+    ]
+  },
+  {
+    "slug": "preventivni-dermatologie",
+    "name": "Preventivní dermatologie",
+    "category": "Dermatologie",
+    "heroClaim": "Znaménka pod kontrolou. Klid, který za tu chvíli stojí.",
+    "shortDescription": "Naším cílem je včasné odhalení a bezpečné odstranění rizikových kožních změn. Vaši pokožku pečlivě vyšetříme ručním dermatoskopem, který nám umožní detailně zvětšit a posoudit i ty nejdrobnější kožní projevy. Pokud objevíme podezřelý útvar, zajistíme jeho šetrné odstranění a následné histologické vyšetření.",
+    "benefits": [],
+    "problems": [
+      "kontrola znamének",
+      "kožní útvary",
+      "prevence"
+    ],
+    "beforeAfter": 0,
+    "pricelistCategoryIds": [
+      "korektivni-dermatologie",
+      "odstraneni-benignich-utvaru",
+      "odstraneni-koznich-utvaru"
+    ],
+    "hasVideoMedallion": false,
+    "garantDoctorId": "barbora-grillova",
+    "quickFacts": {
+      "duration": "30 minut",
+      "anesthesia": "Není potřeba (u odstranění lokální)",
+      "recovery": "Ihned do běžného režimu",
+      "result": "Výsledek vyšetření na místě"
+    },
+    "solves": [
+      "Kontrola pigmentových znamének dermatoskopem",
+      "Podezřelé či měnící se kožní útvary",
+      "Běžné výrůstky, virové bradavice, stařecké keratózy",
+      "Molusky a další kožní projevy"
+    ],
+    "forWhom": [
+      "Pro každého — prevence je základ péče o kůži",
+      "Pro ty, kdo si všimli změny znaménka",
+      "Pro rodiny s výskytem kožních nádorů",
+      "Doporučujeme kontrolu 1× ročně"
+    ],
+    "steps": [
+      {
+        "title": "Vyšetření dermatoskopem",
+        "text": "Pokožku pečlivě projdeme ručním dermatoskopem, který detailně zvětší i ty nejdrobnější kožní projevy."
+      },
+      {
+        "title": "Posouzení a plán",
+        "text": "Každý nález s vámi srozumitelně probereme. Pokud objevíme podezřelý útvar, navrhneme šetrné odstranění."
+      },
+      {
+        "title": "Odstranění a histologie",
+        "text": "Útvar šetrně odstraníme a zajistíme histologické vyšetření, abychom mohli stanovit nejvhodnější další postup."
+      }
+    ],
+    "aftercare": {
+      "text": "Samotné vyšetření nijak neomezuje běžný den. Po případném odstranění útvaru se o ranku postaráte dle instrukcí lékaře.",
+      "tips": [
+        "Ranku udržujte v suchu a čistotě dle doporučení",
+        "Chraňte jizvičku před sluncem",
+        "Na výsledek histologie vás upozorníme",
+        "Kontrolu znamének opakujte 1× ročně"
+      ]
+    }
+  },
+  {
+    "slug": "vseobecna-dermatologie",
+    "name": "Všeobecná dermatologie",
+    "category": "Dermatologie",
+    "heroClaim": "Komplexní péče o kůži pro dospělé i děti.",
+    "shortDescription": "Nabízíme účinná řešení pro široké spektrum kožních obtíží – od zánětlivých onemocnění přes virové a kvasinkové infekce až po problémy s vypadáváním vlasů. Vždy pečlivě nasloucháme vaší předchozí léčbě i aktuálním obtížím, abychom mohli navrhnout terapii přesně na míru vašim potřebám.",
+    "benefits": [],
+    "problems": [
+      "ekzémy",
+      "akné",
+      "vypadávání vlasů",
+      "infekce kůže"
+    ],
+    "beforeAfter": 0,
+    "pricelistCategoryIds": [
+      "korektivni-dermatologie"
+    ],
+    "hasVideoMedallion": false,
+    "garantDoctorId": "krystof-kudlacek",
+    "quickFacts": {
+      "duration": "30 minut",
+      "anesthesia": "Není potřeba",
+      "recovery": "—",
+      "result": "Léčebný plán na míru"
+    },
+    "solves": [
+      "Zánětlivá onemocnění kůže (ekzémy, akné, lupénka)",
+      "Virové a kvasinkové infekce",
+      "Vypadávání vlasů",
+      "Dlouhodobé kožní obtíže bez jasné příčiny"
+    ],
+    "forWhom": [
+      "Pro dospělé i dětské pacienty od kojeneckého věku",
+      "Pro ty, kterým dosavadní léčba nezabírá",
+      "Pro každého, kdo chce o kůži pečovat komplexně",
+      "Individuální přístup je u nás samozřejmost"
+    ],
+    "steps": [
+      {
+        "title": "Vstupní konzultace",
+        "text": "Pečlivě nasloucháme vaší předchozí léčbě i aktuálním obtížím. Kůži vyšetříme a probereme souvislosti."
+      },
+      {
+        "title": "Terapie na míru",
+        "text": "Navrhneme léčbu přesně na míru vašim potřebám — od lokální péče po moderní přístrojová ošetření."
+      },
+      {
+        "title": "Kontroly a úpravy léčby",
+        "text": "Průběh sledujeme a léčbu společně ladíme, dokud nedosáhneme co nejlepšího výsledku."
+      }
+    ],
+    "aftercare": {
+      "text": "Domů odejdete s jasným léčebným plánem a doporučenou péčí. Kdykoli si nebudete jistí, zavolejte nám.",
+      "tips": [
+        "Dodržujte doporučenou péči a frekvenci aplikace",
+        "Na kontrolu se objednejte dle plánu",
+        "Změny stavu nám hlaste včas",
+        "Recepty umíme vystavit i elektronicky"
+      ]
+    }
+  },
+  {
+    "slug": "detska-dermatologie",
+    "name": "Dětská dermatologie",
+    "category": "Dermatologie",
+    "heroClaim": "Dětská pokožka si zaslouží tu nejjemnější a nejodbornější péči.",
+    "shortDescription": "Každé dítě je jedinečné – a totéž platí i pro jeho pokožku. Kožní onemocnění se u dětí často projevují odlišně než u dospělých a vyžadují citlivý, individuální přístup. Klademe velký důraz na vzájemnou důvěru a úzkou spolupráci s rodiči.",
+    "benefits": [],
+    "problems": [
+      "atopický ekzém",
+      "bradavice",
+      "dětská znaménka"
+    ],
+    "beforeAfter": 0,
+    "pricelistCategoryIds": [
+      "korektivni-dermatologie"
+    ],
+    "hasVideoMedallion": false,
+    "garantDoctorId": "natalia-havlicek",
+    "quickFacts": {
+      "duration": "30 minut",
+      "anesthesia": "Není potřeba",
+      "recovery": "—",
+      "result": "Úleva a jasný plán péče"
+    },
+    "solves": [
+      "Alergické reakce a atopický ekzém",
+      "Vitiligo, lupénka a další diagnózy dětského věku",
+      "Virové, bakteriální a mykotické infekce (bradavice, molusky, impetigo, tinea)",
+      "Preventivní vyšetření pigmentových znamének od útlého dětství"
+    ],
+    "forWhom": [
+      "Pro děti od kojeneckého věku",
+      "Pro rodiče, kteří chtějí citlivý přístup bez stresu",
+      "Pro rodiny řešící opakované kožní obtíže",
+      "Včasná péče je klíčem ke zdravé pokožce"
+    ],
+    "steps": [
+      {
+        "title": "Seznámení a vyšetření",
+        "text": "Na nic nespěcháme — dítě si na ordinaci v klidu zvykne. Kůži vyšetříme šetrně a hravě."
+      },
+      {
+        "title": "Plán péče s rodiči",
+        "text": "Vše srozumitelně vysvětlíme a společně nastavíme péči, kterou zvládnete i doma."
+      },
+      {
+        "title": "Sledování a podpora",
+        "text": "Průběh léčby sledujeme na kontrolách. Jsme vám k dispozici, kdykoli si nebudete jistí."
+      }
+    ],
+    "aftercare": {
+      "text": "Domů odcházíte s jasnými instrukcemi a péčí, kterou zvládne celá rodina. Spolu najdeme cestu k úlevě a navrácení úsměvu na dětskou tvář.",
+      "tips": [
+        "Dodržujte doporučené promazávání a péči",
+        "Sledujte změny a foťte je pro kontrolu",
+        "Na kontrolu přijďte dle plánu",
+        "Kdykoli si nejste jistí, ozvěte se nám"
       ]
     }
   },
@@ -377,7 +583,12 @@
         "Neloupejte šupinky — nechte je odejít samy",
         "Týden vynechte saunu, bazén a sport"
       ]
-    }
+    },
+    "problems": [
+      "jizvy",
+      "pigmentace",
+      "vrásky"
+    ]
   },
   {
     "slug": "epilace",
@@ -438,7 +649,11 @@
         "Den po ošetření vynechte saunu a sport",
         "Pokožku hydratujte"
       ]
-    }
+    },
+    "problems": [
+      "nežádoucí ochlupení",
+      "zarůstající chloupky"
+    ]
   },
   {
     "slug": "plasticka-chirurgie",
@@ -497,6 +712,10 @@
         "Ochrana jizvy před sluncem 3–6 měsíců",
         "Kontroly dle plánu, péče o jizvu dle instruktáže"
       ]
-    }
+    },
+    "problems": [
+      "oční víčka",
+      "převislá kůže"
+    ]
   }
 ]
