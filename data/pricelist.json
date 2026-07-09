@@ -93,7 +93,8 @@
           "price": "2 000,-/1 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "aplikace-botulotoxinu-korekce-vrasek",
@@ -177,7 +178,8 @@
           "price": "14 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "aplikace-botulotoxinu-odstraneni-nadmerneho-poceni",
@@ -205,7 +207,8 @@
           "price": "12 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "aplikace-vyplnovych-materialu-kyselina-hyaluronova",
@@ -254,7 +257,8 @@
           "price": "4 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "vyplne-hydroxyapatit",
@@ -271,7 +275,8 @@
           "price": "15 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "biostimulace-kyselinou-polymlecnou",
@@ -300,7 +305,8 @@
           "price": "13 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "bioremodelace",
@@ -336,7 +342,8 @@
           "price": "8 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "biorevitalizace",
@@ -355,13 +362,14 @@
           "price": "12 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "polynukleotidy",
       "name": "Polynukleotidy (PDRN terapie, DNA z lososovitých ryb)",
       "description": "Efektem ošetření polynukleotidy je biostimulace, odstranění volných radikálů, bioregenerace. Pro dosažení ideálních výsledků doporučujeme opakovat cyklus tří ošetření s frekvencí aplikací á 3-4 týdny.",
-      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": null,
       "keywords": [],
       "items": [
         {
@@ -384,13 +392,17 @@
           "price": "7 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 %",
+        "text": "Zakoupením balíčků 3 ošetření je z celkové částky odečteno −10 %."
+      }
     },
     {
       "id": "exosomy",
       "name": "Exosomy",
       "description": "Efektem ošetření exosomy je biostimulace. Pro dosažení ideálních výsledků doporučujeme opakovat cyklus dvou až tří ošetření s frekvencí aplikací á 3-4 týdny.",
-      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": null,
       "keywords": [],
       "items": [
         {
@@ -398,13 +410,17 @@
           "price": "4 500,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 %",
+        "text": "Zakoupením balíčků 3 ošetření je z celkové částky odečteno −10 %."
+      }
     },
     {
       "id": "mezoterapie",
       "name": "Mezoterapie",
       "description": "Doporučujeme opakování procedury alespoň 3x. Uvedená cena je vždy za 1 sezení.",
-      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": null,
       "keywords": [
         "vlasy",
         "vlasová pokožka"
@@ -425,13 +441,17 @@
           "price": "6 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 %",
+        "text": "Zakoupením balíčků 3 ošetření je z celkové částky odečteno −10 %."
+      }
     },
     {
       "id": "nitovy-lifting",
       "name": "Niťový lifting",
       "description": "Pracujeme s nitěmi Aptos – minimálně invazivní nitě, jejichž výsledkem je lifting tkání, konturování a omlazení obličeje, stejně jako vypnutí kůže. Nitě aktivují produkci vlastního kolagenu. Výkon je rychlý, efektivní, používá se nejen ke zpevnění kontur obličeje a krku, ale také pozvedá pokleslé ústní koutky, obočí, vyhlazení vrásek či foxy eyes.",
-      "note": "Před výkonem je nutné vždy absolvovat konzultaci s lékařem ke zvolení vhodného typu ošetření a upřesnění rozsahu ošetřované lokality.\nSleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": "Před výkonem je nutné vždy absolvovat konzultaci s lékařem ke zvolení vhodného typu ošetření a upřesnění rozsahu ošetřované lokality.",
       "keywords": [
         "nitě",
         "aptos",
@@ -498,13 +518,17 @@
           "price": "49 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 %",
+        "text": "Zakoupením balíčků 3 ošetření je z celkové částky odečteno −10 %."
+      }
     },
     {
       "id": "injekcni-lipolyza",
       "name": "Injekční lipolýza",
       "description": null,
-      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": null,
       "keywords": [],
       "items": [
         {
@@ -532,7 +556,11 @@
           "price": "14 000,-",
           "priceNote": "Břicho"
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 %",
+        "text": "Zakoupením balíčků 3 ošetření je z celkové částky odečteno −10 %."
+      }
     },
     {
       "id": "infuze-vitaminu-c",
@@ -561,13 +589,14 @@
           "price": "3 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "chemicky-peeling",
       "name": "Chemický peeling",
       "description": null,
-      "note": "Sleva 10 % + IPLASE Cream: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": null,
       "keywords": [],
       "items": [
         {
@@ -590,7 +619,11 @@
           "price": "1 500,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 % + IPLASE Cream",
+        "text": "Zakoupením balíčků 3 ošetření je z celkové částky odečteno −10 %."
+      }
     },
     {
       "id": "mikrojehlickova-radiofrekvence-vivace",
@@ -658,13 +691,14 @@
           "price": "18 900,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "osetreni-mikrojehlickovani-dermapenem4",
       "name": "Mikrojehličkování Dermapen4",
       "description": "Ošetření mikrojehličkovacím perem zpevňuje pokožku, vyhlazuje vrásky a jizvy, zužuje póry a sjednocuje tón pleti.",
-      "note": "Sleva 10 %: Zakoupením balíčků 3 ošetření je z celkové částky odečteno -10 %.",
+      "note": null,
       "keywords": [
         "dermapen"
       ],
@@ -689,7 +723,11 @@
           "price": "7 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 %",
+        "text": "Zakoupením balíčků 3 ošetření je z celkové částky odečteno −10 %."
+      }
     },
     {
       "id": "alma-pixel-co2-laser-rejuvenace-laserovy-peeling",
@@ -706,7 +744,8 @@
           "price": "4 500,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "alma-pixel-co2-laser-rejuvenace-frakcni",
@@ -744,13 +783,14 @@
           "price": "8 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "epilace",
       "name": "Epilace - odstranění nežádoucího ochlupení",
       "description": null,
-      "note": "Doporučený počet ošetření je 6 (může se individuálně lišit).\nPři koupi 6 ošetření – sleva na balíček 10 %.\nPřed plánovaným ošetřením ideálně večer oholit ošetřovanou oblast.",
+      "note": "Doporučený počet ošetření je 6 (může se individuálně lišit).\nPřed plánovaným ošetřením ideálně večer oholit ošetřovanou oblast.",
       "keywords": [
         "chloupky",
         "laser",
@@ -817,7 +857,11 @@
           "price": "3 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Sleva 10 % na balíček",
+        "text": "Při koupi 6 ošetření — sleva na balíček 10 %."
+      }
     },
     {
       "id": "odstraneni-benignich-utvaru",
@@ -861,7 +905,8 @@
           "price": "2 000-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "odstraneni-koznich-utvaru",
@@ -880,13 +925,14 @@
           "price": "od 500,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     },
     {
       "id": "alma-pixel-co2-laser-odstraneni-utvaru",
       "name": "ALMA PIXEL CO2 laser – odstranění útvarů",
       "description": null,
-      "note": "Sleva při větším počtu ložisek.",
+      "note": null,
       "keywords": [
         "laser",
         "co2",
@@ -924,7 +970,11 @@
           "price": "6 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": {
+        "title": "Množstevní sleva",
+        "text": "Sleva při větším počtu ložisek."
+      }
     },
     {
       "id": "adena-lcd-g-plus",
@@ -972,7 +1022,8 @@
           "price": "6 000,-",
           "priceNote": null
         }
-      ]
+      ],
+      "promo": null
     }
   ]
 }

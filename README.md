@@ -83,7 +83,8 @@ Ve Webflow doporučujeme dvě kolekce: **Kategorie ceníku** a **Položky ceník
 | `categories[].id` | Slug kategorie | Slug |
 | `categories[].name` | Name | Plain text |
 | `categories[].description` | Popis kategorie | Plain text |
-| `categories[].note` | Poznámka pod kategorií (slevy za balíčky, upozornění) | Plain text |
+| `categories[].note` | Informační poznámka pod kategorií (upozornění, doporučení) | Plain text |
+| `categories[].promo` | Akční box (titulek + text) — slevy za balíčky, množstevní slevy; zvýrazněný zlatý box | 2× Plain text |
 | `categories[].keywords` | Klíčová slova pro vyhledávání (synonyma — „botox", „laser") | Plain text (CSV) |
 | `categories[].items[].name` | Název položky | Plain text |
 | `categories[].items[].price` | Cena (formát „3 700,-" jako na webu) | Plain text |
