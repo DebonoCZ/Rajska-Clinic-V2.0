@@ -9,6 +9,9 @@ import PricelistPage from './pages/PricelistPage.jsx'
 import ServicePage from './pages/ServicePage.jsx'
 import DoctorPage from './pages/DoctorPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
+import ServicesPage from './pages/ServicesPage.jsx'
+import ServiceAreaPage from './pages/ServiceAreaPage.jsx'
+import TeamPage from './pages/TeamPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 
 function ScrollManager() {
@@ -36,8 +39,12 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/o-nas" element={<AboutPage />} />
           <Route path="/cenik" element={<PricelistPage />} />
+          <Route path="/sluzby" element={<ServicesPage />} />
           <Route path="/sluzby/:slug" element={<ServicePage />} />
+          <Route path="/tym" element={<TeamPage />} />
           <Route path="/tym/:slug" element={<DoctorPage />} />
+          {/* Oblasti péče na kořenové úrovni jako na produkci (/esteticka-dermatologie, /dermatologie) */}
+          <Route path="/:areaSlug" element={<ServiceAreaPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         {/* Galerie prostor kliniky na konci každé stránky */}

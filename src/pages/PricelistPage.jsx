@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useCms } from '../context/CmsContext.jsx'
 import Accordion from '../components/Accordion.jsx'
 import StickyCta from '../components/StickyCta.jsx'
@@ -7,9 +8,18 @@ import { matches } from '../utils/search.js'
 /* Klíčová stránka prototypu (bod C nabídky): akordeon + fulltext + rychlá navigace. */
 export default function PricelistPage() {
   const { pricelist } = useCms()
+  const { hash } = useLocation()
   const [query, setQuery] = useState('')
   const [openIds, setOpenIds] = useState([])
   const [activeSection, setActiveSection] = useState('all')
+
+  /* Deep-link z jiných stránek: /cenik#kategorie-<id> kategorii rovnou rozbalí. */
+  useEffect(() => {
+    const match = hash.match(/^#kategorie-(.+)$/)
+    if (match && pricelist.categories.some((c) => c.id === match[1])) {
+      setOpenIds((prev) => (prev.includes(match[1]) ? prev : [...prev, match[1]]))
+    }
+  }, [hash, pricelist])
 
   const sections = pricelist.sections
 

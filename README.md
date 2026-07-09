@@ -21,8 +21,11 @@ Produkční build: `npm run build` (výstup ve složce `dist/`).
 
 | Stránka | URL | Obsah |
 |---|---|---|
-| Homepage | `/` | hero video placeholder s claimem + Google hodnocení, rolující pás „Můžete nás znát z", sekce zakladatelky s video medailonkem, karty služeb, reference, tým, CTA box Dárkový voucher, rezervační formulář s kontaktním boxem |
+| Homepage | `/` | hero video placeholder s claimem + Google hodnocení, rolující pás „Můžete nás znát z", sekce zakladatelky s video medailonkem, karty služeb, reference, tým jako horizontální slider, CTA box Dárkový voucher, rezervační formulář s kontaktním boxem |
 | O nás | `/o-nas` | příběh MUDr. Lucie Rajské v kapitolách (studia → věda → estetika → klinika → média), milníky, video medailonek, citát + CTA |
+| Služby | `/sluzby` | rozcestník: 2 oblasti péče + všechna ošetření seskupená podle oblastí |
+| Oblast péče | `/esteticka-dermatologie`, `/dermatologie` | bloky ošetření s reálnými texty z produkce, odkazy „zobrazit ceník" (deep-link rozbalí kategorii na /cenik), prokliky na detaily služeb, voucher + rychlý kontakt |
+| Tým | `/tym` | plná mřížka všech členů týmu (Lékaři / Zázemí kliniky) |
 | Ceník | `/cenik` | rozklikávací akordeon kategorií, fulltextové vyhledávání se zvýrazněním, pás „Nejčastěji hledáte" (horizontální scroll), přepínač Estetická medicína / Dermatologie, sticky CTA |
 | Podstránka služby | `/sluzby/:slug` | šablona landing page: hero s fotkou ošetření, „Jak ošetření probíhá" (popis + video) hned v úvodu, benefity, před/po galerie, **automaticky propsaný ceník**, **automaticky vyfiltrovaný tým**, rezervační formulář s předvyplněnou službou a kontaktním boxem |
 | Profil lékaře | `/tym/:slug` | foto, bio, video medailonek, **automatický výpis služeb** (reverzní vazba) |
@@ -93,6 +96,15 @@ Navigace, hero claim, kontakty (adresa, telefon, e-mail, ordinační hodiny, fak
 údaje), pás log „Můžete nás znát z" (`pressLogos`), Google hodnocení (`googleRating`),
 sekce zakladatelky (`aboutFounder`), dárkový voucher (`voucher`), galerie prostor
 (`gallery`), recepční v kontaktním boxu (`receptionist`), reference na homepage.
+
+### `data/serviceAreas.json` → kolekce **Oblasti péče**
+
+Stránky `/esteticka-dermatologie` a `/dermatologie` (jako na produkci). Pole: `slug`,
+`name`, `breadcrumb`, `lead` a `blocks` — každý blok má `title`, `paragraphs` (reálné
+texty ze současného webu), `bullets` (volitelně s proklikem na detail služby),
+`pricelistCategoryId` (odkaz „zobrazit ceník" → deep-link, který kategorii na /cenik
+rovnou rozbalí a nascrolluje) a `photo`. Ve Webflow = kolekce s multi-referencí na Služby
+a referencí na kategorii ceníku.
 
 ### `data/about.json` → kolekce **O nás** (kapitoly příběhu)
 

@@ -4,6 +4,7 @@ import servicesData from '../../data/services.json'
 import pricelistData from '../../data/pricelist.json'
 import siteData from '../../data/site.json'
 import aboutData from '../../data/about.json'
+import serviceAreasData from '../../data/serviceAreas.json'
 
 /*
  * Simulace Webflow CMS: veškerý obsah žije v jednom stavu aplikace.
@@ -38,6 +39,7 @@ export function CmsProvider({ children }) {
     pricelist,
     site: siteData,
     about: aboutData,
+    serviceAreas: serviceAreasData,
     updateDoctorName,
     updateItemPrice,
   }

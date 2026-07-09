@@ -5,9 +5,10 @@
   "ctaLabel": "Domluvit konzultaci",
   "nav": [
     { "label": "O nás", "path": "/o-nas" },
-    { "label": "Služby", "path": "/#sluzby" },
+    { "label": "Služby", "path": "/sluzby" },
     { "label": "Ceník", "path": "/cenik" },
-    { "label": "Tým", "path": "/#tym" },
+    { "label": "Prostory", "path": "/#prostory" },
+    { "label": "Tým", "path": "/tym" },
     { "label": "Kontakt", "path": "/#kontakt" }
   ],
   "pressLogos": [

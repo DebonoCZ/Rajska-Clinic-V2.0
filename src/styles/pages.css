@@ -422,3 +422,172 @@
   text-align: center;
   margin-top: 2rem;
 }
+
+/* ========== Breadcrumb ========== */
+.breadcrumb {
+  text-transform: lowercase;
+  letter-spacing: 0.08em;
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.breadcrumb a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.breadcrumb span:last-child {
+  color: var(--color-primary);
+}
+
+/* ========== Rozcestník služeb (oblasti) ========== */
+.area-teasers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .area-teasers {
+    grid-template-columns: 1fr;
+  }
+}
+
+.area-teaser {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.area-teaser:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  opacity: 1;
+}
+
+.area-teaser .placeholder {
+  border: none;
+  border-radius: 0;
+}
+
+.area-teaser__body {
+  padding: 1.5rem;
+}
+
+.area-teaser__title {
+  margin-bottom: 0.4rem;
+}
+
+.area-teaser__lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+}
+
+.area-teaser__more {
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.services-group {
+  margin-top: 2.25rem;
+}
+
+.services-group__heading {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+/* ========== Bloky oblasti péče ========== */
+.area-block {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.area-block--reverse .area-block__body {
+  order: 2;
+}
+
+.area-block--reverse .area-block__photo {
+  order: 1;
+}
+
+@media (max-width: 800px) {
+  .area-block {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .area-block--reverse .area-block__body {
+    order: 1;
+  }
+
+  .area-block--reverse .area-block__photo {
+    order: 2;
+  }
+}
+
+.area-block__pricelink {
+  display: inline-block;
+  text-transform: lowercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 1px solid currentColor;
+  margin-bottom: 0.9rem;
+}
+
+.area-block__text {
+  max-width: 40rem;
+}
+
+.area-block__bullets {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.5rem 1.5rem;
+}
+
+.area-block__bullets li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.area-block__bullets a,
+.area-block__bullets span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.25rem;
+  font-size: var(--text-small);
+}
+
+.area-block__bullets a::after {
+  content: '→';
+  color: var(--color-primary);
+}
+
+.area-block__bullets a:hover {
+  background: var(--color-bg-alt);
+  opacity: 1;
+}
+
+.area-block__servicelink {
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.area-block__servicelink a {
+  border-bottom: 1px solid currentColor;
+}

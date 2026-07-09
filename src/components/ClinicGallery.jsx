@@ -7,7 +7,7 @@ export default function ClinicGallery() {
   const gallery = site.gallery
 
   return (
-    <section className="section clinic-gallery">
+    <section className="section clinic-gallery" id="prostory">
       <div className="container">
         <p className="section__eyebrow">{gallery.eyebrow}</p>
         <h2 className="section__title section__title--small">{gallery.title}</h2>
