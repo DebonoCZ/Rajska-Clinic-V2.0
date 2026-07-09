@@ -637,3 +637,348 @@
   color: var(--color-text-muted);
   margin: 0.5rem 0 0;
 }
+
+/* ========== Press bar — „Můžete nás znát z" ========== */
+.pressbar {
+  padding: 2.5rem 0;
+  background: var(--color-bg-alt);
+  overflow: hidden;
+}
+
+.pressbar__heading {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.pressbar__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.pressbar__track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+  animation: pressbar-scroll 40s linear infinite;
+}
+
+.pressbar__viewport:hover .pressbar__track {
+  animation-play-state: paused;
+}
+
+.pressbar__logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+@keyframes pressbar-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pressbar__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+    gap: 1.5rem 2.5rem;
+  }
+
+  .pressbar__logo[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+/* ========== Google hodnocení ========== */
+.google-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 0.55rem 1rem;
+  font-size: var(--text-small);
+}
+
+.google-rating__stars {
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+}
+
+.google-rating__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-left: 1px solid var(--color-border);
+  padding-left: 0.75rem;
+}
+
+.references__rating {
+  margin-bottom: 1.75rem;
+}
+
+/* ========== Sekce zakladatelky ========== */
+.founder__grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .founder__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .founder__media {
+    max-width: 24rem;
+  }
+}
+
+.founder__title {
+  color: var(--color-text-muted);
+  margin-top: -0.5rem;
+}
+
+.founder__text {
+  font-size: 1.05rem;
+  max-width: 38rem;
+}
+
+.founder__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn--dark {
+  background: var(--color-dark);
+  color: var(--color-primary-contrast);
+}
+
+.btn--dark:hover {
+  background: var(--color-primary);
+  opacity: 1;
+}
+
+/* ========== Dárkový voucher ========== */
+.section--voucher {
+  padding-top: 0;
+}
+
+.voucher {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2.5rem;
+  align-items: center;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+@media (max-width: 720px) {
+  .voucher {
+    grid-template-columns: 1fr;
+  }
+}
+
+.voucher__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.voucher__title {
+  font-size: var(--text-h3);
+  margin-bottom: 0.5rem;
+}
+
+.voucher__text {
+  color: var(--color-text-muted);
+  max-width: 34rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ========== Galerie prostor kliniky ========== */
+.clinic-gallery {
+  border-top: 1px solid var(--color-border);
+}
+
+.clinic-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.clinic-gallery__main {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media (max-width: 720px) {
+  .clinic-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========== Rezervační blok + kontaktní box ========== */
+.booking-section__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .booking-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.booking-form {
+  border-top: 3px solid var(--color-primary);
+}
+
+.booking-form__trust {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.booking-form__trust li::before {
+  content: '✓ ';
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.contact-card {
+  background: var(--color-dark);
+  color: var(--color-primary-contrast);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-card a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-card__person {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 1.25rem;
+}
+
+.contact-card__avatar {
+  position: relative;
+  width: 4.5rem;
+  flex-shrink: 0;
+}
+
+.contact-card__avatar .placeholder {
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0.25rem;
+}
+
+.contact-card__avatar .placeholder__label {
+  font-size: 0.5rem;
+}
+
+.contact-card__avatar .placeholder__icon {
+  display: none;
+}
+
+.contact-card__online-dot {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: #3dbd6e;
+  border: 2px solid var(--color-dark);
+}
+
+.contact-card__person-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.contact-card__person-role {
+  font-size: var(--text-small);
+  opacity: 0.75;
+  margin: 0 0 0.35rem;
+}
+
+.contact-card__online-label {
+  color: #3dbd6e;
+  margin-left: 0.3rem;
+}
+
+.contact-card__person-note {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  margin: 0;
+}
+
+.contact-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contact-card__label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-bottom: 0.15rem;
+}
+
+.contact-card__hours-row {
+  display: block;
+}
+
+.contact-card__note {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1rem;
+}

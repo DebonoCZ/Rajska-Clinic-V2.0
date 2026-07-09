@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import { useCms } from '../context/CmsContext.jsx'
 import Accordion from '../components/Accordion.jsx'
 import BeforeAfter from '../components/BeforeAfter.jsx'
-import BookingForm from '../components/BookingForm.jsx'
+import BookingSection from '../components/BookingSection.jsx'
 import DoctorCard from '../components/DoctorCard.jsx'
-import { VideoPlaceholder } from '../components/Placeholders.jsx'
+import { ImagePlaceholder, VideoPlaceholder } from '../components/Placeholders.jsx'
 import NotFoundPage from './NotFoundPage.jsx'
 
 /* Šablona landing page služby (bod D nabídky) — jedna šablona pro všechny služby. */
@@ -39,24 +39,37 @@ export default function ServicePage() {
 
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero s fotkou ošetření */}
       <section className="page-hero page-hero--service">
-        <div className="container">
-          <p className="section__eyebrow">{service.category}</p>
-          <h1 className="section__title">{service.name}</h1>
-          <p className="service__claim">{service.heroClaim}</p>
-          <button className="btn btn--primary btn--large" onClick={scrollToForm}>
-            Objednat se
-          </button>
+        <div className="container service-hero__grid">
+          <div>
+            <p className="section__eyebrow">{service.category}</p>
+            <h1 className="section__title">{service.name}</h1>
+            <p className="service__claim">{service.heroClaim}</p>
+            <button className="btn btn--primary btn--large" onClick={scrollToForm}>
+              Objednat se
+            </button>
+          </div>
+          <ImagePlaceholder
+            label={`FOTO — průběh ošetření (${service.name})`}
+            ratio="4 / 3"
+            className="service-hero__photo"
+          />
         </div>
       </section>
 
-      {/* 2. Popis + benefity */}
+      {/* 2. Jak ošetření probíhá — hned v úvodu */}
       <section className="section">
         <div className="container service__intro">
           <div>
-            <h2 className="section__subtitle">O ošetření</h2>
+            <h2 className="section__subtitle">Jak ošetření probíhá</h2>
             <p className="service__description">{service.shortDescription}</p>
+            {service.hasVideoMedallion && (
+              <VideoPlaceholder
+                label={`VIDEO — jak probíhá ošetření ${service.name}`}
+                className="service__video"
+              />
+            )}
           </div>
           <div>
             <h2 className="section__subtitle">Proč k nám</h2>
@@ -105,24 +118,14 @@ export default function ServicePage() {
         </section>
       )}
 
-      {/* 6. Video medailonek */}
-      {service.hasVideoMedallion && (
-        <section className="section">
-          <div className="container container--narrow">
-            <h2 className="section__title section__title--small">Jak ošetření probíhá</h2>
-            <VideoPlaceholder label={`VIDEO — medailonek služby ${service.name}`} />
-          </div>
-        </section>
-      )}
-
-      {/* 7. Rezervační formulář */}
-      <section className="section section--alt" id="objednat">
-        <div className="container container--narrow">
-          <h2 className="section__title section__title--small">Objednat se na konzultaci</h2>
-          <p className="section__lead">Vyplňte formulář a my se vám ozveme s návrhem termínu.</p>
-          <BookingForm preselectedService={service.slug} />
-        </div>
-      </section>
+      {/* 6. Rezervační formulář s kontaktním boxem */}
+      <BookingSection
+        id="objednat"
+        eyebrow="Objednat se"
+        title={`Konzultace — ${service.name}`}
+        lead="Vyplňte formulář a my se vám ozveme s návrhem termínu. Nebo nám rovnou zavolejte."
+        preselectedService={service.slug}
+      />
     </>
   )
 }

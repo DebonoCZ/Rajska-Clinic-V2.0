@@ -41,13 +41,6 @@ export default function PricelistPage() {
     setOpenIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]))
   }
 
-  const jumpToCategory = (id) => {
-    setOpenIds((prev) => (prev.includes(id) ? prev : [...prev, id]))
-    requestAnimationFrame(() => {
-      document.getElementById(`kategorie-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    })
-  }
-
   const totalItems = pricelist.categories.reduce((sum, c) => sum + c.items.length, 0)
 
   return (
@@ -104,14 +97,17 @@ export default function PricelistPage() {
             ))}
           </div>
 
-          {/* Rychlá navigace na kategorie */}
+          {/* Nejčastěji hledáte — kurátorované zkratky, horizontální scroll */}
           {!searching && (
-            <div className="pricelist__chips" aria-label="Rychlá navigace">
-              {sectionCategories.map((c) => (
-                <button key={c.id} className="chip" onClick={() => jumpToCategory(c.id)}>
-                  {c.name}
-                </button>
-              ))}
+            <div className="pricelist__popular">
+              <span className="pricelist__popular-label">Nejčastěji hledáte:</span>
+              <div className="pricelist__popular-scroll" aria-label="Nejčastěji hledaná ošetření">
+                {pricelist.popularSearches.map((p) => (
+                  <button key={p.label} className="chip" onClick={() => setQuery(p.query)}>
+                    {p.label}
+                  </button>
+                ))}
+              </div>
             </div>
           )}
 

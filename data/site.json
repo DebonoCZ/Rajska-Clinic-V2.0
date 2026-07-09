@@ -4,12 +4,66 @@
   "heroSubclaim": "Vaše spokojenost a přirozenost jsou pro nás na prvním místě. Ke každému přistupujeme individuálně, s respektem k jedinečnosti a přáním každého klienta. Věříme, že krása není o dokonalosti, ale o harmonii, zdraví a sebevědomí.",
   "ctaLabel": "Domluvit konzultaci",
   "nav": [
-    { "label": "O nás", "path": "/#o-nas" },
+    { "label": "O nás", "path": "/o-nas" },
     { "label": "Služby", "path": "/#sluzby" },
     { "label": "Ceník", "path": "/cenik" },
     { "label": "Tým", "path": "/#tym" },
     { "label": "Kontakt", "path": "/#kontakt" }
   ],
+  "pressLogos": [
+    "Cosmopolitan",
+    "Proženy",
+    "ELLE",
+    "L'Oréal Paris",
+    "TV Nova",
+    "Notino",
+    "eMimino.cz",
+    "Blesk.cz",
+    "iGlanc",
+    "Youradio",
+    "Kondice",
+    "Moje zdraví",
+    "Doktorka.cz",
+    "PigyMáma",
+    "ALMAF Beauty"
+  ],
+  "googleRating": {
+    "score": "5/5",
+    "text": "nás hodnotí naši klienti",
+    "source": "Google"
+  },
+  "aboutFounder": {
+    "eyebrow": "Zakladatelka kliniky",
+    "name": "MUDr. Lucie Rajská, Ph.D.",
+    "title": "Lékař všeobecné dermatologie",
+    "text": "Každý obličej vypráví svůj vlastní příběh a skrývá v sobě jedinečnou krásu. Na naší klinice se zaměřujeme na to, abychom ji jemně podpořili a zvýraznili její přirozené rysy. Pracujeme s respektem k individualitě a přáním každého klienta – nehledáme univerzální vzory ani umělou dokonalost.",
+    "videoLabel": "VIDEO — medailonek MUDr. Lucie Rajská",
+    "ctaLabel": "Poznejte můj příběh",
+    "ctaPath": "/o-nas"
+  },
+  "voucher": {
+    "eyebrow": "Dárkový voucher",
+    "title": "Dárek, který zanechá stopu krásy",
+    "text": "Darujte zážitek krásy a péče o pleť. Voucher je k zakoupení u nás v ordinaci — a pokud nestíháte, pošleme vám ho na e-mail.",
+    "ctaLabel": "Chci darovat voucher"
+  },
+  "gallery": {
+    "eyebrow": "Prostory kliniky",
+    "title": "Prohlédněte si, jak to u nás vypadá",
+    "photos": [
+      "FOTO — recepce kliniky",
+      "FOTO — čekárna",
+      "FOTO — ošetřovna 1",
+      "FOTO — ošetřovna 2",
+      "FOTO — laserová ordinace",
+      "FOTO — detail interiéru"
+    ]
+  },
+  "receptionist": {
+    "doctorId": "klara-novakova",
+    "isOnline": true,
+    "note": "Ráda vám pomůže s objednáním i výběrem ošetření."
+  },
   "contact": {
     "address": "Jankovcova 1566/2B, Praha 7 – Holešovice, 170 00",
     "phone": "(+420) 731 908 668",
@@ -21,7 +75,7 @@
     "bookingNote": "Objednávejte se prosím s dostatečným předstihem. Průměrný termín bývá nejdříve za 14 dní.",
     "billing": "MUDr. Lucie Rajská s.r.o., Ovenecká 78/33, Praha 7 – Bubeneč 170 00 · IČO: 17936594 / DIČ: CZ17936594",
     "instagram": "https://www.instagram.com/rajskaclinic/",
-    "facebook": "https://www.facebook.com/rajskaclinic/"
+    "facebook": "https://www.facebook.com/dr.lucierajska/"
   },
   "references": [
     {

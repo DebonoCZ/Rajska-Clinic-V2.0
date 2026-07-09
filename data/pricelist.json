@@ -1,4 +1,46 @@
 {
+  "popularSearches": [
+    {
+      "label": "Botox",
+      "query": "botox"
+    },
+    {
+      "label": "Výplně rtů",
+      "query": "rty"
+    },
+    {
+      "label": "Laser CO2",
+      "query": "laser"
+    },
+    {
+      "label": "Epilace",
+      "query": "epilace"
+    },
+    {
+      "label": "Niťový lifting",
+      "query": "nitě"
+    },
+    {
+      "label": "Mezoterapie",
+      "query": "mezoterapie"
+    },
+    {
+      "label": "Chemický peeling",
+      "query": "peeling"
+    },
+    {
+      "label": "Nadměrné pocení",
+      "query": "pocení"
+    },
+    {
+      "label": "Vitamín C",
+      "query": "vitamín"
+    },
+    {
+      "label": "Odstranění znamének",
+      "query": "útvarů"
+    }
+  ],
   "sections": [
     {
       "id": "esteticka-medicina",

@@ -243,3 +243,182 @@
   text-align: center;
   padding: calc(var(--section-pad) * 1.5) 0;
 }
+
+/* ========== Hero služby s fotkou ošetření ========== */
+.service-hero__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: center;
+  padding-bottom: var(--section-pad);
+}
+
+@media (max-width: 800px) {
+  .service-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.service__video {
+  margin-top: 1.5rem;
+}
+
+/* ========== Nejčastěji hledáte ========== */
+.pricelist__popular {
+  margin-bottom: 1.75rem;
+}
+
+.pricelist__popular-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.pricelist__popular-scroll {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricelist__popular-scroll .chip {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 0.45rem 1rem;
+}
+
+/* ========== Hero — akce + hodnocení ========== */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ========== O nás ========== */
+.about-hero {
+  background: var(--color-bg-alt);
+  padding-bottom: var(--section-pad);
+}
+
+.about-hero__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .about-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.about-hero__lead {
+  font-size: 1.1rem;
+  max-width: 36rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-chapter {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-chapter--reverse {
+  grid-template-columns: 2fr 3fr;
+}
+
+.about-chapter--reverse .about-chapter__body {
+  order: 2;
+}
+
+.about-chapter--reverse .about-chapter__photo {
+  order: 1;
+}
+
+@media (max-width: 800px) {
+  .about-chapter,
+  .about-chapter--reverse {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .about-chapter--reverse .about-chapter__body {
+    order: 1;
+  }
+
+  .about-chapter--reverse .about-chapter__photo {
+    order: 2;
+  }
+}
+
+.about-chapter__text {
+  font-size: 1.05rem;
+  max-width: 36rem;
+}
+
+.milestones {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 2px solid var(--color-primary);
+}
+
+.milestones__item {
+  position: relative;
+  padding: 0 0 1.5rem 1.75rem;
+}
+
+.milestones__item::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 0.45rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid var(--color-bg);
+}
+
+.milestones__year {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--color-primary);
+}
+
+.milestones__text {
+  color: var(--color-text);
+}
+
+.about-quote__quote {
+  margin: 0;
+  text-align: center;
+}
+
+.about-quote__quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.4;
+}
+
+.about-quote__quote cite {
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+.about-quote__cta {
+  text-align: center;
+  margin-top: 2rem;
+}

@@ -6,7 +6,7 @@ export default function Footer() {
   const { contact } = site
 
   return (
-    <footer className="footer" id="kontakt">
+    <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__col">
           <p className="footer__brand">{site.clinicName}</p>

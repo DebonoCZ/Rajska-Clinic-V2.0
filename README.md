@@ -21,11 +21,16 @@ Produkční build: `npm run build` (výstup ve složce `dist/`).
 
 | Stránka | URL | Obsah |
 |---|---|---|
-| Homepage | `/` | hero video placeholder s claimem, karty služeb, tým, reference, rezervační formulář |
-| Ceník | `/cenik` | rozklikávací akordeon kategorií, fulltextové vyhledávání se zvýrazněním, rychlá navigace (chips), přepínač Estetická medicína / Dermatologie, sticky CTA |
-| Podstránka služby | `/sluzby/:slug` | šablona landing page: hero, benefity, před/po galerie, **automaticky propsaný ceník**, **automaticky vyfiltrovaný tým**, video medailonek, rezervační formulář s předvyplněnou službou |
+| Homepage | `/` | hero video placeholder s claimem + Google hodnocení, rolující pás „Můžete nás znát z", sekce zakladatelky s video medailonkem, karty služeb, reference, tým, CTA box Dárkový voucher, rezervační formulář s kontaktním boxem |
+| O nás | `/o-nas` | příběh MUDr. Lucie Rajské v kapitolách (studia → věda → estetika → klinika → média), milníky, video medailonek, citát + CTA |
+| Ceník | `/cenik` | rozklikávací akordeon kategorií, fulltextové vyhledávání se zvýrazněním, pás „Nejčastěji hledáte" (horizontální scroll), přepínač Estetická medicína / Dermatologie, sticky CTA |
+| Podstránka služby | `/sluzby/:slug` | šablona landing page: hero s fotkou ošetření, „Jak ošetření probíhá" (popis + video) hned v úvodu, benefity, před/po galerie, **automaticky propsaný ceník**, **automaticky vyfiltrovaný tým**, rezervační formulář s předvyplněnou službou a kontaktním boxem |
 | Profil lékaře | `/tym/:slug` | foto, bio, video medailonek, **automatický výpis služeb** (reverzní vazba) |
 | Demo CMS | plovoucí tlačítko „🔧 Demo CMS" | změna ceny položky / jména lékaře se okamžitě propíše na všechny stránky najednou |
+
+Na konci každé stránky je navíc **galerie prostor kliniky** („Prohlédněte si, jak to u nás
+vypadá") a v rezervačním bloku **kontaktní box** s telefonem, e-mailem, adresou, ordinačními
+hodinami a recepční (foto + indikace online).
 
 ## Datový model — mapa JSON → budoucí Webflow CMS kolekce
 
@@ -79,10 +84,22 @@ Ve Webflow doporučujeme dvě kolekce: **Kategorie ceníku** a **Položky ceník
 **Data ceníku jsou reálná** — extrahovaná ze současné stránky `/cenik` produkčního webu
 (24 kategorií, 125 položek, včetně poznámek o slevách za balíčky).
 
+Ceník má navíc pole `popularSearches` — kurátorovaný seznam zkratek „Nejčastěji hledáte"
+(label + hledaný výraz), který se ve Webflow povede jako malá samostatná kolekce.
+
 ### `data/site.json` → globální nastavení (Webflow „Site settings" / samostatná kolekce)
 
 Navigace, hero claim, kontakty (adresa, telefon, e-mail, ordinační hodiny, fakturační
-údaje), reference na homepage.
+údaje), pás log „Můžete nás znát z" (`pressLogos`), Google hodnocení (`googleRating`),
+sekce zakladatelky (`aboutFounder`), dárkový voucher (`voucher`), galerie prostor
+(`gallery`), recepční v kontaktním boxu (`receptionist`), reference na homepage.
+
+### `data/about.json` → kolekce **O nás** (kapitoly příběhu)
+
+Hero, kapitoly příběhu (eyebrow + titulek + text + foto), milníky (rok + text), citát
+a video medailonek. Fakta čerpána z veřejných zdrojů (Estheticon, lucierajska.cz,
+inhair.cz) — **před spuštěním nechat zkontrolovat klinikou** (zejména rok založení
+kliniky a formulace o certifikacích).
 
 ## Design tokeny
 

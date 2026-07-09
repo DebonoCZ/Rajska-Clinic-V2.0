@@ -84,6 +84,11 @@ export default function BookingForm({ preselectedService = '' }) {
       <button type="submit" className="btn btn--primary btn--large">
         Odeslat poptávku
       </button>
+      <ul className="booking-form__trust">
+        <li>Odpovídáme do 24 hodin</li>
+        <li>Konzultace je nezávazná</li>
+        <li>Vaše údaje nikomu nepředáváme</li>
+      </ul>
     </form>
   )
 }

@@ -3,10 +3,12 @@ import { useEffect } from 'react'
 import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
 import CmsDemoPanel from './components/CmsDemoPanel.jsx'
+import ClinicGallery from './components/ClinicGallery.jsx'
 import HomePage from './pages/HomePage.jsx'
 import PricelistPage from './pages/PricelistPage.jsx'
 import ServicePage from './pages/ServicePage.jsx'
 import DoctorPage from './pages/DoctorPage.jsx'
+import AboutPage from './pages/AboutPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 
 function ScrollManager() {
@@ -32,11 +34,14 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/o-nas" element={<AboutPage />} />
           <Route path="/cenik" element={<PricelistPage />} />
           <Route path="/sluzby/:slug" element={<ServicePage />} />
           <Route path="/tym/:slug" element={<DoctorPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        {/* Galerie prostor kliniky na konci každé stránky */}
+        <ClinicGallery />
       </main>
       <Footer />
       <CmsDemoPanel />

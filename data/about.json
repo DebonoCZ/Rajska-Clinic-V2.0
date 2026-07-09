@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "eyebrow": "Náš příběh",
+    "title": "Krása, která nepotřebuje filtr",
+    "lead": "RAJSKÁ Clinic založila dermatoložka MUDr. Lucie Rajská, Ph.D. s jednoduchým přesvědčením: nejlepší estetická medicína je ta, která na první pohled není vidět. Tohle je její příběh — a příběh kliniky, které dnes věří tisíce klientů.",
+    "photo": "FOTO — MUDr. Lucie Rajská, portrét"
+  },
+  "chapters": [
+    {
+      "id": "zacatek",
+      "eyebrow": "Kde to začalo",
+      "title": "Od medicíny ke kůži",
+      "text": "Lucie Rajská vystudovala všeobecné lékařství na Lékařské fakultě Masarykovy univerzity v Brně, kterou dokončila v roce 2010. Kůže ji fascinovala od začátku — je to orgán, na kterém je vidět všechno: zdraví, únava, radost i starosti. Profesní cesta ji proto vedla přímo na Dermatovenerologickou kliniku Nemocnice Na Bulovce a 2. lékařskou fakultu Univerzity Karlovy.",
+      "photo": "FOTO — z lékařského prostředí / archiv"
+    },
+    {
+      "id": "veda",
+      "eyebrow": "Věda a praxe",
+      "title": "Atestace, doktorát a vlastní výzkum",
+      "text": "Na Bulovce složila atestaci a v roce 2017 úspěšně dokončila postgraduální studium titulem Ph.D. Vedle klinické praxe se věnovala i vědě — jako hlavní řešitelka získala grantovou podporu Agentury pro zdravotnický výzkum Ministerstva zdravotnictví. Právě spojení vědecké preciznosti a každodenní praxe dodnes určuje, jak se na klinice pracuje: žádné módní výstřelky, jen metody, které mají oporu v datech.",
+      "photo": "FOTO — odborná práce / konference"
+    },
+    {
+      "id": "estetika",
+      "eyebrow": "Cesta k estetice",
+      "title": "Estetická medicína s pokorou",
+      "text": "Zkušenosti z estetické a korektivní dermatologie sbírala na renomované klinice Yes Visage. Získala certifikace pro aplikaci injekčních výplní, niťové liftingy, mezoterapii, plazmaterapii, injekční lipolýzu i chemické peelingy. A právě tam dozrálo přesvědčení, se kterým později zakládala vlastní kliniku: estetická medicína má člověka osvěžit, ne změnit.",
+      "photo": "FOTO — ošetření na klinice"
+    },
+    {
+      "id": "klinika",
+      "eyebrow": "RAJSKÁ Clinic",
+      "title": "Klinika, kde vám rozmluvíme, co nepotřebujete",
+      "text": "V pražských Holešovicích pak vznikla RAJSKÁ Clinic — dermatologická a estetická klinika, kde dnes pečuje o klienty celý tým lékařů. Od všeobecné a preventivní dermatologie po estetickou medicínu. Krédo zůstává stejné: estetika bez nadsázky, přirozenost bez kompromisu. Proto se u nás nejdřív pečlivě konzultuje — a někdy je nejlepším doporučením neudělat nic.",
+      "photo": "FOTO — recepce a tým kliniky"
+    },
+    {
+      "id": "media",
+      "eyebrow": "Známá tvář oboru",
+      "title": "Odbornice, které nasloucháte",
+      "text": "Lucii Rajskou můžete znát z médií — o péči o pleť mluví srozumitelně a bez příkras v Cosmopolitanu, ELLE, na TV Nova i v řadě podcastů a odborných rozhovorů. Je členkou dermatologických odborných společností a stojí také za vlastní vlasovou řadou HT by Dr. Rajská s patentovanou složkou proti padání vlasů.",
+      "photo": "FOTO — z natáčení / tisková fotografie"
+    }
+  ],
+  "milestones": [
+    { "year": "2010", "text": "Promoce na Lékařské fakultě Masarykovy univerzity v Brně" },
+    { "year": "2010–2017", "text": "Dermatovenerologická klinika Nemocnice Na Bulovce a 2. LF UK — atestace" },
+    { "year": "2017", "text": "Dokončení postgraduálního studia, titul Ph.D." },
+    { "year": "2017+", "text": "Estetická a korektivní dermatologie (Yes Visage), certifikace v estetických metodách" },
+    { "year": "2023", "text": "Založení RAJSKÁ Clinic v Praze 7 – Holešovicích" },
+    { "year": "dnes", "text": "Tým 8 lékařů, tisíce spokojených klientů a hodnocení 5/5 na Google" }
+  ],
+  "quote": {
+    "text": "Věřím, že skutečná krása je výsledkem vyváženosti a sebevědomí, které společně objevíme a podtrhneme.",
+    "author": "MUDr. Lucie Rajská, Ph.D."
+  },
+  "videoLabel": "VIDEO — medailonek MUDr. Lucie Rajská (příběh kliniky)"
+}
