@@ -1,21 +1,21 @@
 <!-- ============================================================
-  RAJSKÁ CLINIC — skript pro stránku CENÍK (jediné ruční vložení)
+  RAJSKÁ CLINIC — skript pro stránku CENÍK  ·  VERZE 2
 
   KAM: Webflow Designer → Pages → Ceník → ⚙ Settings
-       → Custom code → „Before </body> tag" → vložit celý blok → Save.
+       → Custom code → „Before </body> tag" → NAHRADIT celý obsah
+       tímto blokem → Save → Publish.
 
   CO DĚLÁ:
   1. Rozřadí 125 položek ze skrytých zásobníků pod 24 kategorií.
-  2. Kategorie = akordeon: sbalené, rozbalí se kliknutím na název (+/−).
-  3. Okamžité fulltextové vyhledávání (bez načítání stránky):
-     – bez diakritiky („zilky" najde „žilky")
-     – hledá v názvech kategorií, klíčových slovech z CMS
-       (synonyma jako „botox"), názvech i skupinách položek
-     – nalezené kategorie automaticky rozbalí, nenalezené skryje
-     – prázdný výsledek zobrazí hlášku #cenikPrazdne
-  4. Čipy „Nejčastěji hledáte" vyplní hledání jedním klikem.
-  5. Skryje akční boxy bez textu a přesune poznámku kategorie
-     pod položky.
+  2. Kategorie = akordeon. Sbalený stav ukazuje JEN název — popis,
+     akční box, poznámka i položky se zobrazí až po rozkliknutí
+     (řeší CSS v embedu, nahrané přes API).
+  3. Filtr oblastí Vše / Estetická medicína / Dermatologie —
+     funguje hned, bez psaní; kategorie „Obě" zůstávají v obou.
+  4. Okamžité fulltextové vyhledávání bez načítání stránky:
+     bez diakritiky, včetně klíčových slov z CMS (např. „botox").
+     Shody se automaticky rozbalí; kombinuje se s filtrem oblastí.
+  5. Čipy „Nejčastěji hledáte" vyplní hledání jedním klikem.
 ============================================================ -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   };
 
-  /* 1) rozřazení položek pod kategorie (Finsweet „CMS nest" vzor) */
+  /* 1) rozřazení položek pod kategorie */
   document.querySelectorAll('#cenik-zasobnik-1 .cenik-polozka, #cenik-zasobnik-2 .cenik-polozka').forEach(function (r) {
     var m = r.querySelector('.je-skryte');
     var kat = m ? m.textContent.trim() : '';
@@ -34,40 +34,45 @@ document.addEventListener('DOMContentLoaded', function () {
   var kategorie = Array.prototype.slice.call(document.querySelectorAll('.cenik-kategorie'));
 
   kategorie.forEach(function (kat) {
-    /* poznámku kategorie přesunout až pod položky */
+    /* skryté značky: [0] = klíčová slova, [1] = oblast */
+    var znacky = kat.querySelectorAll(':scope > .je-skryte');
+    kat._slova = norm(znacky[0] ? znacky[0].textContent : '');
+    kat._oblast = (znacky[1] ? znacky[1].textContent : '').trim();
+    kat._nazev = norm((kat.querySelector('h3') || {}).textContent);
+
+    /* poznámku přesunout pod položky, prázdnou schovat */
     var pozn = kat.querySelector(':scope > .cenik-skupina');
     if (pozn) {
       if (pozn.textContent.trim()) { kat.appendChild(pozn); } else { pozn.style.display = 'none'; }
     }
+
     /* 2) akordeon */
     var h = kat.querySelector('h3');
-    if (h) {
-      h.addEventListener('click', function () { kat.classList.toggle('je-rozbalena'); });
-    }
+    if (h) { h.addEventListener('click', function () { kat.classList.toggle('je-rozbalena'); }); }
   });
 
-  /* 5) skrýt prázdné akční boxy */
+  /* skrýt prázdné akční boxy (inline styl přebije i rozbalený stav) */
   document.querySelectorAll('[data-akce-box]').forEach(function (b) {
     var t = (b.firstElementChild && b.firstElementChild.textContent.trim()) || '';
     if (!t) { b.style.display = 'none'; }
   });
 
-  /* 3) fulltextové vyhledávání */
   var input = document.getElementById('cenikHledani');
   var chipy = document.getElementById('cenikChipy');
+  var oblasti = document.getElementById('cenikOblasti');
   var prazdne = document.getElementById('cenikPrazdne');
-  if (!input) return;
+  var aktivniOblast = '';
 
   function filtruj() {
-    var q = norm(input.value.trim());
+    var q = norm(input ? input.value.trim() : '');
     var nalezeno = 0;
 
     kategorie.forEach(function (kat) {
-      var nazev = norm((kat.querySelector('h3') || {}).textContent);
-      var slovaEl = kat.querySelector(':scope > .je-skryte');
-      var slova = norm(slovaEl ? slovaEl.textContent : '');
-      var katShoda = !q || nazev.indexOf(q) !== -1 || slova.indexOf(q) !== -1;
+      /* 3) filtr oblastí — „Obě" patří do obou */
+      var oblastOk = !aktivniOblast || kat._oblast === aktivniOblast || kat._oblast === 'Obě';
 
+      /* 4) fulltext */
+      var katShoda = !q || kat._nazev.indexOf(q) !== -1 || kat._slova.indexOf(q) !== -1;
       var polozky = kat.querySelectorAll('.cenik-polozka');
       var viditelnych = 0;
       polozky.forEach(function (p) {
@@ -76,11 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (shoda) viditelnych++;
       });
 
-      var zobraz = katShoda || viditelnych > 0;
+      var zobraz = oblastOk && (katShoda || viditelnych > 0);
       kat.style.display = zobraz ? '' : 'none';
       if (zobraz) nalezeno++;
 
-      /* při hledání rozbalit shody, po smazání dotazu vše sbalit */
       if (q && zobraz) { kat.classList.add('je-rozbalena'); }
       else if (!q) { kat.classList.remove('je-rozbalena'); }
     });
@@ -88,11 +92,26 @@ document.addEventListener('DOMContentLoaded', function () {
     if (prazdne) { prazdne.classList.toggle('je-skryte', !(q && nalezeno === 0)); }
   }
 
-  input.addEventListener('input', filtruj);
+  if (input) { input.addEventListener('input', filtruj); }
+
   if (chipy) {
     chipy.addEventListener('click', function (e) {
       var btn = e.target.closest('button');
-      if (btn) { input.value = btn.textContent.trim(); filtruj(); input.focus(); }
+      if (btn && input) { input.value = btn.textContent.trim(); filtruj(); input.focus(); }
+    });
+  }
+
+  if (oblasti) {
+    var btns = oblasti.querySelectorAll('button');
+    if (btns[0]) { btns[0].classList.add('je-aktivni'); }
+    oblasti.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      btns.forEach(function (b) { b.classList.remove('je-aktivni'); });
+      btn.classList.add('je-aktivni');
+      var t = btn.textContent.trim();
+      aktivniOblast = (t === 'Vše') ? '' : t;
+      filtruj();
     });
   }
 });
