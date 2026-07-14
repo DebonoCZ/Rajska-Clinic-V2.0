@@ -1,0 +1,105 @@
+<!-- ============================================================
+  RAJSKÁ CLINIC — fulltextové vyhledávání v ceníku
+  Vložit do stránky /cenik jako HTML Embed blok NAD výpis kategorií.
+
+  Očekávaná struktura Collection Listů (třídy nastavte v Designeru):
+    .cenik-kategorie        … wrapper jedné kategorie (Collection Item kategorií)
+      .cenik-kategorie-nazev  … element s názvem kategorie
+      [data-klicova-slova]    … na wrapperu; bind na CMS pole „Klíčová slova"
+                                (Element settings → Custom attributes → + →
+                                 name: data-klicova-slova, value: ⚡ Klíčová slova)
+      .cenik-polozka          … řádek položky (Collection Item položek)
+
+  Chování:
+    – hledá bez diakritiky („zilky" najde „žilky")
+    – prohledává název kategorie, klíčová slova (synonyma jako „botox")
+      i texty položek; nenalezené kategorie/položky skryje
+    – čipy „Nejčastěji hledáte" vyplní hledání jedním klikem
+============================================================ -->
+<div class="cenik-hledani">
+  <input type="search" id="cenikHledani" placeholder="Hledejte ošetření… (např. botox, žilky, epilace)" autocomplete="off">
+  <div class="cenik-chipy" id="cenikChipy">
+    <!-- Čipy upravte dle potřeby -->
+    <button type="button">botox</button>
+    <button type="button">výplně</button>
+    <button type="button">epilace</button>
+    <button type="button">znaménka</button>
+    <button type="button">peeling</button>
+    <button type="button">laser</button>
+  </div>
+  <p id="cenikPrazdne" style="display:none">Nic jsme nenašli. Zkuste jiný výraz, nebo nám <a href="/kontakt">napište</a> — poradíme.</p>
+</div>
+
+<style>
+  .cenik-hledani{margin-bottom:2rem}
+  .cenik-hledani input{width:100%;padding:.9rem 1.1rem;border:1px solid #ddd3c6;font-size:1rem;border-radius:0}
+  .cenik-hledani input:focus{outline:none;border-color:#8f7d6b}
+  .cenik-chipy{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+  .cenik-chipy button{border:1px solid #ddd3c6;background:#fff;padding:.35rem .9rem;font-size:.85rem;cursor:pointer;border-radius:0}
+  .cenik-chipy button:hover{border-color:#8f7d6b;color:#8f7d6b}
+  mark.cenik-shoda{background:#e9e1d7;color:inherit}
+</style>
+
+<script>
+(function () {
+  var norm = function (s) {
+    return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  };
+
+  function init() {
+    var input = document.getElementById("cenikHledani");
+    var chipy = document.getElementById("cenikChipy");
+    var prazdne = document.getElementById("cenikPrazdne");
+    if (!input) return;
+
+    function filtruj() {
+      var q = norm(input.value.trim());
+      var kategorie = document.querySelectorAll(".cenik-kategorie");
+      var nalezeno = 0;
+
+      kategorie.forEach(function (kat) {
+        var nazev = norm((kat.querySelector(".cenik-kategorie-nazev") || {}).textContent);
+        var slova = norm(kat.getAttribute("data-klicova-slova"));
+        var katShoda = !q || nazev.indexOf(q) !== -1 || slova.indexOf(q) !== -1;
+        var polozky = kat.querySelectorAll(".cenik-polozka");
+        var viditelnych = 0;
+
+        polozky.forEach(function (p) {
+          var shoda = katShoda || norm(p.textContent).indexOf(q) !== -1;
+          p.style.display = shoda ? "" : "none";
+          if (shoda) viditelnych++;
+        });
+
+        var zobraz = katShoda || viditelnych > 0;
+        kat.style.display = zobraz ? "" : "none";
+        if (zobraz) nalezeno++;
+
+        /* při hledání kategorii rozbalit (funguje s <details> i s .je-rozbalena třídou) */
+        if (q && zobraz) {
+          if (kat.tagName === "DETAILS") kat.open = true;
+          kat.classList.add("je-rozbalena");
+        } else {
+          kat.classList.remove("je-rozbalena");
+        }
+      });
+
+      if (prazdne) prazdne.style.display = q && nalezeno === 0 ? "" : "none";
+    }
+
+    input.addEventListener("input", filtruj);
+    if (chipy) chipy.addEventListener("click", function (e) {
+      if (e.target.tagName === "BUTTON") {
+        input.value = e.target.textContent;
+        filtruj();
+        input.focus();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
