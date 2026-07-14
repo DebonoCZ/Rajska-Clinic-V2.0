@@ -1,0 +1,29 @@
+<!-- ============================================================
+  RAJSKÁ CLINIC — skript pro šablonu služby (JEDINÉ ruční vložení)
+
+  KAM: Webflow Designer → Pages → Služby Template → ⚙ Settings
+       → Custom code → „Before </body> tag" → vložit celý blok níže → Save.
+
+  CO DĚLÁ:
+  1. Rozřadí položky ceníku (ze skrytých zásobníků #cenik-zasobnik-1/2)
+     pod správné kategorie podle slugu — Webflow neumí nativně vnořit
+     položky do kategorií, tohle je standardní „CMS nest" řešení.
+  2. Skryje zlatý akční box u kategorií, které nemají vyplněný
+     „Akce – titulek".
+
+  Vše ostatní (struktura, CMS bindingy, styly) je už hotové přes API.
+============================================================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('#cenik-zasobnik-1 .cenik-polozka, #cenik-zasobnik-2 .cenik-polozka').forEach(function (r) {
+    var m = r.querySelector('.je-skryte');
+    var kat = m ? m.textContent.trim() : '';
+    var cil = document.getElementById(kat);
+    if (cil) { cil.appendChild(r); }
+  });
+  document.querySelectorAll('[data-akce-box]').forEach(function (b) {
+    var t = (b.firstElementChild && b.firstElementChild.textContent.trim()) || '';
+    if (!t) { b.style.display = 'none'; }
+  });
+});
+</script>
