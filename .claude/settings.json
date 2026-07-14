@@ -1,14 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Webflow__data_sites_tool",
-      "mcp__Webflow__data_cms_tool",
-      "mcp__Webflow__data_pages_tool",
-      "mcp__Webflow__data_fonts_tool",
-      "mcp__Webflow__data_variable_tool",
-      "mcp__Webflow__data_localization_tool",
-      "mcp__Webflow__webflow_guide_tool",
-      "mcp__Webflow__get_more_tools"
+      "mcp__Webflow",
+      "mcp__Claude_Code_Remote",
+      "WebFetch",
+      "WebSearch"
     ]
   }
 }

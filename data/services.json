@@ -219,7 +219,8 @@
       "biorevitalizace",
       "biostimulace-kyselinou-polymlecnou",
       "polynukleotidy",
-      "exosomy"
+      "exosomy",
+      "infuze-vitaminu-c"
     ],
     "hasVideoMedallion": false,
     "garantDoctorId": "lucie-rajska",
@@ -233,7 +234,8 @@
       "Unavená pleť bez jasu a pružnosti",
       "Jemné vrásky a krepovitost",
       "Dehydratace pleti obličeje, krku i dekoltu",
-      "První známky stárnutí, kterým chcete předejít"
+      "První známky stárnutí, kterým chcete předejít",
+      "Podpora pleti a vitality zevnitř — infuze vitamínu C"
     ],
     "forWhom": [
       "Pro ty, kdo chtějí lepší pleť, ne změněné rysy",
@@ -399,6 +401,66 @@
         "Minimálně 2 týdny důsledně SPF 50+",
         "Pleť promazávejte doporučenou péčí",
         "Vynechte saunu a intenzivní sport 48 hodin"
+      ]
+    }
+  },
+  {
+    "slug": "injekcni-lipolyza",
+    "name": "Injekční lipolýza",
+    "category": "Estetická medicína",
+    "heroClaim": "Kontury bez skalpelu. Cílená redukce lokálního tuku.",
+    "shortDescription": "Injekční lipolýza cíleně rozpouští menší tukové polštářky, které odolávají dietě i cvičení — nejčastěji podbradek, bříško, boky či paže. Účinná látka aplikovaná tenkou jehličkou naruší tukové buňky a tělo je postupně přirozeně odbourá. Ambulantně, bez řezů a bez rekonvalescence.",
+    "benefits": [],
+    "problems": [
+      "podbradek",
+      "lokální tuk",
+      "kontury"
+    ],
+    "beforeAfter": 3,
+    "pricelistCategoryIds": [
+      "injekcni-lipolyza"
+    ],
+    "hasVideoMedallion": false,
+    "garantDoctorId": "vladena-charvatova",
+    "quickFacts": {
+      "duration": "30–45 minut",
+      "anesthesia": "Znecitlivující krém",
+      "recovery": "2–3 dny citlivost, možné modřinky",
+      "result": "Za cca 4 týdny, kúra 2–3 ošetření"
+    },
+    "solves": [
+      "Podbradek („druhá brada“)",
+      "Tukové polštářky na břiše a bocích",
+      "Vnitřní strana stehen a paží",
+      "Doladění kontur tváře a těla bez operace"
+    ],
+    "forWhom": [
+      "Pro ty, kterým lokální tuk odolává dietě i cvičení",
+      "Pro doladění drobných partií — není to metoda hubnutí",
+      "Pro každého, kdo nechce podstoupit liposukci",
+      "Vhodnost partie posoudí lékař na konzultaci"
+    ],
+    "steps": [
+      {
+        "title": "Konzultace a plán",
+        "text": "Lékař posoudí, zda je partie pro lipolýzu vhodná, a navrhne počet ošetření. Injekční lipolýza není náhradou hubnutí — cílí na drobné, odolné polštářky."
+      },
+      {
+        "title": "Aplikace",
+        "text": "Do podkožního tuku aplikujeme tenkou jehličkou účinný roztok, který naruší stěny tukových buněk. Ošetření je díky znecitlivujícímu krému téměř bezbolestné."
+      },
+      {
+        "title": "Odbourání a výsledek",
+        "text": "Uvolněný tuk tělo v následujících týdnech přirozeně zpracuje. Výsledek hodnotíme po zhruba 4 týdnech; obvykle doporučujeme 2–3 opakování."
+      }
+    ],
+    "aftercare": {
+      "text": "Ošetřená partie může být 2–3 dny citlivá, mírně oteklá či s modřinkou — vše odezní samo. Do běžného dne se vracíte ihned.",
+      "tips": [
+        "Pijte dostatek vody — podpoříte odbourávání tuku",
+        "24 hodin vynechte sport a saunu",
+        "Partii nemasírujte, nechte přípravek působit",
+        "Výsledek nejlépe udrží stabilní váha"
       ]
     }
   },
@@ -586,11 +648,11 @@
     }
   },
   {
-    "slug": "laserove-osetreni-co2",
-    "name": "Laserové ošetření CO2",
+    "slug": "laserova-osetreni",
+    "name": "Laserová ošetření",
     "category": "Dermatologie",
-    "heroClaim": "Omlazení a obnova pleti silou frakčního laseru.",
-    "shortDescription": "Frakční CO2 laser ALMA PIXEL patří k nejúčinnějším metodám resurfacingu pleti. Vyhlazuje vrásky, jizvy i pigmentace a nastartuje hloubkovou obnovu kůže. Ošetření vede zkušený lékař.",
+    "heroClaim": "Omlazení, pigmentace i žilky. Síla lékařských laserů.",
+    "shortDescription": "Frakční CO2 laser ALMA PIXEL patří k nejúčinnějším metodám resurfacingu pleti — vyhlazuje vrásky, jizvy i pigmentace a nastartuje hloubkovou obnovu kůže. Doplňuje ho přístroj Adena LCD G+ pro šetrné ošetření pigmentací, rozšířených žilek a fotorejuvenaci. Ošetření vede zkušený lékař.",
     "benefits": [
       "Viditelné vyhlazení vrásek a jizev",
       "Redukce pigmentových skvrn",
@@ -602,7 +664,8 @@
     "pricelistCategoryIds": [
       "alma-pixel-co2-laser-rejuvenace-laserovy-peeling",
       "alma-pixel-co2-laser-rejuvenace-frakcni",
-      "alma-pixel-co2-laser-odstraneni-utvaru"
+      "alma-pixel-co2-laser-odstraneni-utvaru",
+      "adena-lcd-g-plus"
     ],
     "hasVideoMedallion": false,
     "garantDoctorId": "krystof-kudlacek",
@@ -615,7 +678,8 @@
     "solves": [
       "Vrásky a povadlost pleti",
       "Jizvy po akné i úrazech",
-      "Pigmentové skvrny a nerovnoměrný tón",
+      "Pigmentové skvrny a nerovnoměrný tón (ALMA PIXEL, Adena LCD G+)",
+      "Rozšířené žilky kolem nosu a zarudnutí (Adena LCD G+)",
       "Rozšířené póry, hrubší struktura pleti",
       "Odstranění kožních útvarů (fibromy, bradavice)"
     ],
@@ -628,7 +692,7 @@
     "steps": [
       {
         "title": "Konzultace a příprava",
-        "text": "Lékař posoudí pleť a nastaví parametry laseru na míru — od povrchového peelingu po hloubkovou frakční rejuvenaci."
+        "text": "Lékař posoudí pleť a zvolí vhodný přístroj i parametry — od povrchového peelingu po hloubkovou frakční rejuvenaci CO2 laserem; na pigmentace a žilky nasazujeme Adena LCD G+."
       },
       {
         "title": "Laserové ošetření",
@@ -651,7 +715,8 @@
     "problems": [
       "jizvy",
       "pigmentace",
-      "vrásky"
+      "vrásky",
+      "žilky"
     ]
   },
   {

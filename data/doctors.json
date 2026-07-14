@@ -12,7 +12,7 @@
       "botulotoxin",
       "vyplne-kyselina-hyaluronova",
       "bioremodelace-biorevitalizace",
-      "laserove-osetreni-co2",
+      "laserova-osetreni",
       "preventivni-dermatologie"
     ]
   },
@@ -26,7 +26,7 @@
     "instagram": null,
     "hasVideoMedallion": false,
     "serviceSlugs": [
-      "laserove-osetreni-co2",
+      "laserova-osetreni",
       "epilace",
       "preventivni-dermatologie",
       "vseobecna-dermatologie"
@@ -46,7 +46,8 @@
       "vyplne-kyselina-hyaluronova",
       "nitovy-lifting",
       "bioremodelace-biorevitalizace",
-      "chemicky-peeling"
+      "chemicky-peeling",
+      "injekcni-lipolyza"
     ]
   },
   {
@@ -59,7 +60,7 @@
     "instagram": null,
     "hasVideoMedallion": false,
     "serviceSlugs": [
-      "laserove-osetreni-co2",
+      "laserova-osetreni",
       "epilace",
       "preventivni-dermatologie",
       "vseobecna-dermatologie"
@@ -90,7 +91,7 @@
     "instagram": null,
     "hasVideoMedallion": false,
     "serviceSlugs": [
-      "laserove-osetreni-co2",
+      "laserova-osetreni",
       "preventivni-dermatologie",
       "vseobecna-dermatologie",
       "chemicky-peeling"
