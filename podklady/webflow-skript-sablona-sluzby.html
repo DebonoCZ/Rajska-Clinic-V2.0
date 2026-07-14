@@ -1,26 +1,44 @@
 <!-- ============================================================
-  RAJSKÁ CLINIC — skript pro šablonu služby (JEDINÉ ruční vložení)
+  RAJSKÁ CLINIC — skript pro šablonu služby  ·  VERZE 2 (akordeon)
 
   KAM: Webflow Designer → Pages → Služby Template → ⚙ Settings
-       → Custom code → „Before </body> tag" → vložit celý blok níže → Save.
+       → Custom code → „Before </body> tag" → NAHRADIT celý obsah
+       tímto blokem → Save → Publish.
 
   CO DĚLÁ:
   1. Rozřadí položky ceníku (ze skrytých zásobníků #cenik-zasobnik-1/2)
-     pod správné kategorie podle slugu — Webflow neumí nativně vnořit
-     položky do kategorií, tohle je standardní „CMS nest" řešení.
-  2. Skryje zlatý akční box u kategorií, které nemají vyplněný
-     „Akce – titulek".
+     pod správné kategorie podle slugu.
+  2. Kategorie fungují jako akordeon — položky jsou sbalené,
+     rozbalí se kliknutím na název kategorie (+/− indikátor).
+     První kategorie je rozbalená automaticky.
+  3. Skryje zlatý akční box u kategorií bez vyplněného „Akce – titulek".
 
-  Vše ostatní (struktura, CMS bindingy, styly) je už hotové přes API.
+  Vzhled akordeonu (kurzor, +/−, sbalení) řeší CSS přímo v embedu
+  na stránce — tam už je nahrané přes API, nic dalšího nevkládejte.
 ============================================================ -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  /* 1) rozřazení položek pod kategorie */
   document.querySelectorAll('#cenik-zasobnik-1 .cenik-polozka, #cenik-zasobnik-2 .cenik-polozka').forEach(function (r) {
     var m = r.querySelector('.je-skryte');
     var kat = m ? m.textContent.trim() : '';
     var cil = document.getElementById(kat);
     if (cil) { cil.appendChild(r); }
   });
+
+  /* 2) akordeon — klik na název kategorie */
+  var kategorie = document.querySelectorAll('.cenik-kategorie');
+  kategorie.forEach(function (kat) {
+    var h = kat.querySelector('h3');
+    if (h) {
+      h.addEventListener('click', function () {
+        kat.classList.toggle('je-rozbalena');
+      });
+    }
+  });
+  if (kategorie.length) { kategorie[0].classList.add('je-rozbalena'); }
+
+  /* 3) skrýt prázdné akční boxy */
   document.querySelectorAll('[data-akce-box]').forEach(function (b) {
     var t = (b.firstElementChild && b.firstElementChild.textContent.trim()) || '';
     if (!t) { b.style.display = 'none'; }
