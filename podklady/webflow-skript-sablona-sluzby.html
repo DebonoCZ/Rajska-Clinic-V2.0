@@ -18,6 +18,9 @@
 ============================================================ -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  /* aktivuje sbalování — v Designeru (kde skript neběží) zůstává vše rozbalené */
+  document.body.classList.add('cenik-nacteno');
+
   /* 1) rozřazení položek pod kategorie */
   document.querySelectorAll('#cenik-zasobnik-1 .cenik-polozka, #cenik-zasobnik-2 .cenik-polozka').forEach(function (r) {
     var m = r.querySelector('.je-skryte');

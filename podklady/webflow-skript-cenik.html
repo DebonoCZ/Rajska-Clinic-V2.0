@@ -19,6 +19,9 @@
 ============================================================ -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  /* aktivuje sbalování — v Designeru (kde skript neběží) zůstává vše rozbalené */
+  document.body.classList.add('cenik-nacteno');
+
   var norm = function (s) {
     return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   };
