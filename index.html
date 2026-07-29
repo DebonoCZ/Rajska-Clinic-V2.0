@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Superconscious — Prompts that think ahead</title>
+<title>Debono — Doba se zrychlila. Důvěra ne.</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +34,7 @@
   --watermark:rgba(255,255,255,0.85);
   --card-violet:radial-gradient(95% 80% at 50% 28%, #ddd6fe 0%, #9a73f0 38%, #6d28d9 68%, #34146e 100%);
   --loader-glow:rgba(154,115,240,0.55);
+  --db-accent:#7c5cfc;
   --radius-btn:8px; --radius-card:3vmin; --radius-pf:2.5vmin;
   --radius-slider:1.6vmin; --radius-grid:12px; --radius-target:30px;
   --sr-card-w:42vmin;
@@ -82,68 +83,79 @@ h1,h2,h3,p { font-weight:inherit; }
   will-change:transform,filter,opacity;
 }
 
-/* ── Site header ────────────────────────────────────── */
+/* ── Site header (OSMO-style bar) ───────────────────── */
 #siteHeader {
-  position:fixed; left:0; top:2vmin; z-index:100;
+  position:fixed; left:0; top:0; z-index:100;
   display:flex; width:100%; flex-direction:column; align-items:center;
-  pointer-events:none;
+  padding:14px 16px 0; pointer-events:none;
   opacity:0; transform:translateY(-10px);
   transition:opacity 700ms ease-in-out, transform 700ms ease-in-out;
 }
 #siteHeader.revealed { opacity:1; transform:translateY(0); }
-#siteHeader nav {
-  pointer-events:auto; display:flex; align-items:stretch; gap:1px;
-  border-radius:8px; background:var(--nav-surface); padding:1px;
-  border:1px solid var(--nav-border); box-shadow:0 10px 30px var(--nav-shadow);
+.osmo-bar {
+  pointer-events:auto; display:flex; align-items:center;
+  width:100%; max-width:1888px; height:72px;
+  background:#fff; border-radius:14px; padding:0 18px 0 28px;
+  box-shadow:0 8px 28px rgba(10,8,30,.10);
 }
-.nav-logo {
-  display:flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border-radius:8px; background:var(--nav-logo);
-}
-.nav-logo img { width:18px; height:18px; transition:transform 600ms cubic-bezier(.34,1.56,.64,1); }
-.nav-logo:hover img { transform:rotate(90deg); }
-.nav-links { display:none; align-items:stretch; gap:1px; }
-@media (min-width:640px){ .nav-links { display:flex; } }
+.brand { display:flex; align-items:center; flex:none; }
+.brand svg { height:24px; width:auto; display:block; }
+.brand svg path { fill:#111; }
+.brand svg path:first-child { fill:var(--db-accent); }
+.nav-links { display:none; align-items:center; gap:40px; margin-left:56px; }
+@media (min-width:960px){ .nav-links { display:flex; } }
 .nav-links a {
-  display:flex; align-items:center; justify-content:center;
-  width:88px; height:40px; border-radius:8px; background:var(--nav-item);
+  display:flex; align-items:center; gap:7px;
+  font-size:16px; font-weight:500; color:#111;
+  transition:opacity .25s ease;
 }
-.nav-links a span {
-  font-size:15px; color:var(--nav-ink);
-  transition:opacity 350ms cubic-bezier(.3,1,.4,1);
+.nav-links a:hover { opacity:.55; }
+.nav-links .chev { width:11px; height:11px; flex:none; }
+.nav-actions { display:flex; align-items:center; gap:12px; margin-left:auto; }
+.btn-nav-outline {
+  display:flex; align-items:center; height:46px; padding:0 24px;
+  border:1px solid var(--db-accent); border-radius:10px; background:#fff;
+  color:var(--db-accent); font-size:16px; font-weight:500;
+  transition:background .25s ease;
 }
-.nav-links a:hover span { opacity:.55; }
-@media (max-width:760px){
-  .nav-links a { width:66px; }
-  .nav-links a span { font-size:13px; }
+.btn-nav-outline:hover { background:rgba(124,92,252,.08); }
+.btn-nav-solid {
+  display:flex; align-items:center; gap:9px; height:46px; padding:0 24px;
+  border-radius:10px; background:var(--db-accent); color:#fff;
+  font-size:16px; font-weight:500; transition:filter .25s ease;
+}
+.btn-nav-solid:hover { filter:brightness(1.08); }
+.btn-nav-solid svg { width:13px; height:13px; }
+@media (max-width:640px){
+  .btn-nav-outline { display:none; }
+  .btn-nav-solid { height:42px; padding:0 18px; font-size:14px; }
+  .osmo-bar { height:62px; padding:0 12px 0 18px; }
+  .brand svg { height:20px; }
 }
 .nav-menu {
   display:flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border-radius:8px; background:var(--nav-item);
-  border:none; cursor:pointer; font-size:16px; color:var(--nav-ink);
-  font-family:inherit; padding:0;
+  width:44px; height:44px; margin-left:10px; border-radius:10px;
+  background:transparent; border:none; cursor:pointer;
+  font-size:19px; color:#111; font-family:inherit; padding:0;
 }
-@media (min-width:640px){ .nav-menu { display:none; } }
-.nav-cta {
-  display:flex; align-items:center; justify-content:center;
-  height:40px; border-radius:8px; background:var(--nav-cta);
-  padding:0 22px; font-size:15px; font-weight:500; color:var(--nav-cta-ink);
-}
-@media (max-width:760px){ .nav-cta { padding:0 16px; font-size:13px; } }
+.nav-menu:hover { background:rgba(0,0,0,.05); }
+@media (min-width:960px){ .nav-menu { display:none; } }
 #mobileMenu {
-  pointer-events:none; margin-top:1vmin; width:calc(100% - 8vmin); max-width:420px;
-  overflow:hidden; border-radius:8px; background:var(--nav-surface); padding:1px;
+  pointer-events:none; margin-top:8px; width:100%; max-width:1888px;
+  overflow:hidden; border-radius:14px; background:#fff; padding:10px;
+  box-shadow:0 8px 28px rgba(10,8,30,.10);
   opacity:0; transform:translateY(-8px);
   transition:opacity 450ms cubic-bezier(.3,1.2,.5,1), transform 450ms cubic-bezier(.3,1.2,.5,1);
 }
 #mobileMenu.open { pointer-events:auto; opacity:1; transform:translateY(0); }
-@media (min-width:640px){ #mobileMenu { display:none; } }
-#mobileMenu ul { display:flex; flex-direction:column; gap:1px; }
+@media (min-width:960px){ #mobileMenu { display:none; } }
+#mobileMenu ul { display:flex; flex-direction:column; }
 #mobileMenu a {
-  display:flex; align-items:center; justify-content:center;
-  height:44px; width:100%; background:var(--nav-item);
-  font-size:15px; color:var(--nav-ink); border-radius:8px;
+  display:flex; align-items:center; height:48px; padding:0 16px;
+  border-radius:10px; font-size:16px; font-weight:500; color:#111;
 }
+#mobileMenu a:hover { background:rgba(0,0,0,.05); }
+#mobileMenu .mm-cta { margin-top:6px; background:var(--db-accent); color:#fff; justify-content:center; }
 
 /* ── Aurora overlay ─────────────────────────────────── */
 #aurora { position:fixed; inset:0; pointer-events:none; z-index:30; opacity:0; }
@@ -190,8 +202,13 @@ h1,h2,h3,p { font-weight:inherit; }
 }
 #heroCanvas { position:absolute; inset:0; z-index:1; width:100%; height:100%; }
 #heroHeadline {
-  position:absolute; inset:0; z-index:3; display:flex; padding:40px;
-  pointer-events:none;
+  position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
+  align-items:flex-start; gap:26px; padding:118px 40px 40px; pointer-events:none;
+}
+.hero-sub { max-width:34rem; font-size:17px; font-weight:300; line-height:1.6; color:#fff; opacity:.88; }
+@media (max-width:640px){
+  #heroHeadline { padding:86px 20px 20px; gap:16px; }
+  .hero-sub { font-size:14px; }
 }
 .hero-h1 {
   display:flex; flex-direction:column; align-items:flex-start; text-align:left;
@@ -247,7 +264,6 @@ h1,h2,h3,p { font-weight:inherit; }
 .trusted { font-size:14px; font-weight:500; opacity:.9; white-space:nowrap; }
 .hero-meta-right { max-width:32rem; opacity:.9; text-align:right; font-size:15px; }
 @media (max-width:640px){
-  #heroHeadline { padding:20px; }
   #heroBottom { padding:20px; gap:16px; }
   .hero-para { font-size:14px; }
   .hero-btns { flex-direction:column; align-items:stretch; gap:12px; }
@@ -439,25 +455,40 @@ h1,h2,h3,p { font-weight:inherit; }
 
 <!-- ═══ Site header ═══ -->
 <header id="siteHeader">
-  <nav>
-    <a class="nav-logo" href="#" aria-label="Home"><img id="navStar" alt="" width="18" height="18"></a>
+  <nav class="osmo-bar">
+    <a class="brand" href="#home" aria-label="Debono">
+      <svg viewBox="0 0 169 35" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Debono">
+        <path d="M17.3261 34.3893V25.9278H8.62692V17.359H0V0C0.314927 0 0.619528 0 0.922408 0C7.91963 0.00851431 14.9186 0 21.9158 0.0272458C31.7078 0.0647088 39.648 8.45641 39.0664 18.1287C38.5553 26.6191 32.3583 33.2739 23.7744 34.3501C21.6921 34.6107 19.5495 34.3893 17.3261 34.3893ZM17.4173 17.2296V25.6945C19.3981 25.6945 21.3204 25.9312 23.1617 25.6485C27.7875 24.9367 30.6976 20.8924 30.2467 16.1346C29.8578 12.0222 26.0116 8.72376 21.5802 8.71525C17.5671 8.70844 13.5556 8.71355 9.54245 8.71525C9.29291 8.71525 9.0451 8.74079 8.79041 8.75612V17.2313H17.4156L17.4173 17.2296Z"/>
+        <path d="M92.9316 26.2693V9.07892C94.3204 9.07892 95.6593 9.06189 96.9999 9.08232C99.0323 9.11468 101.073 9.08232 103.095 9.2458C105.36 9.42971 107.017 10.8601 107.403 12.7724C107.783 14.6643 107.152 16.1696 105.458 17.2986C106.596 17.9542 107.453 18.8176 107.838 20.0539C108.724 22.8925 107.012 25.4553 103.801 26.065C103.157 26.1876 102.495 26.2557 101.841 26.2608C98.8929 26.2812 95.945 26.2693 92.9334 26.2693H92.9316ZM96.9775 19.1122V22.8449C98.1443 22.8449 99.256 22.8602 100.368 22.8397C101.108 22.8261 101.863 22.8466 102.581 22.7018C103.596 22.4958 104.033 21.7959 103.961 20.764C103.899 19.8734 103.335 19.1718 102.402 19.1343C100.61 19.0611 98.8137 19.1139 96.9775 19.1139V19.1122ZM96.9758 15.7592C98.6778 15.7592 100.306 15.8154 101.927 15.7388C102.977 15.6894 103.476 15.0934 103.489 14.1739C103.503 13.2509 102.93 12.5545 101.903 12.5068C100.28 12.4336 98.6537 12.488 96.9741 12.488V15.7592H96.9758Z"/>
+        <path d="M119.212 8.70679C123.435 8.7119 126.608 10.7042 127.87 14.2564C128.673 16.5229 128.689 18.8269 127.882 21.09C126.717 24.3578 124.232 26.0504 120.865 26.5834C119.117 26.861 117.369 26.7673 115.686 26.2156C112.249 25.09 110.373 22.6635 109.814 19.1607C109.193 15.273 110.91 11.5131 114.142 9.81025C115.691 8.99458 117.357 8.64889 119.212 8.70509V8.70679ZM119.12 23.0193C122.254 23.0193 124.299 20.9333 124.319 17.7149C124.34 14.5084 122.239 12.3475 119.077 12.3288C116.004 12.31 113.889 14.488 113.887 17.6724C113.887 20.9333 115.928 23.0193 119.12 23.0193Z"/>
+        <path d="M158.742 8.70735C163.246 8.71757 166.509 10.9398 167.643 14.7729C168.804 18.6963 167.581 22.8173 164.617 24.9646C161.062 27.5427 155.097 27.2532 152.005 24.3532C149.416 21.9267 148.575 17.6235 149.984 14.0271C151.244 10.8104 154.323 8.78057 158.055 8.70735C158.284 8.70224 158.513 8.70735 158.742 8.70735ZM158.666 23.0199C161.852 23.0199 163.948 20.893 163.925 17.6814C163.903 14.4562 161.805 12.3327 158.641 12.331C155.576 12.331 153.466 14.526 153.478 17.7053C153.49 20.9169 155.543 23.0182 158.666 23.0199Z"/>
+        <path d="M57.9712 26.2169V9.23592C58.0349 9.18143 58.0779 9.11161 58.1192 9.11331C61.2616 9.19335 64.447 8.9873 67.536 9.43515C71.427 9.9988 73.7554 13.018 73.9877 16.9363C74.146 19.5978 73.5644 22.0074 71.5939 23.9452C70.2189 25.299 68.5049 26.0891 66.6136 26.1811C63.7638 26.319 60.9019 26.2169 57.9712 26.2169ZM62.1496 12.5872V22.6783C63.2131 22.6783 64.2147 22.6783 65.2145 22.6783C67.5033 22.6749 69.1554 21.4097 69.713 19.2368C70.3531 16.7353 69.4325 14.2406 67.4809 13.2359C67.154 13.0674 66.8012 12.8715 66.4467 12.8426C65.0321 12.7251 63.6106 12.6672 62.1496 12.5854V12.5872Z"/>
+        <path d="M131.132 26.2162V9.13647C131.378 9.11604 131.599 9.08028 131.819 9.08028C136.522 9.07687 141.225 9.08369 145.929 9.06836C146.448 9.06836 146.722 9.16202 146.717 9.75802C146.674 15.1493 146.653 20.5405 146.622 25.9301C146.622 26.0101 146.586 26.0885 146.553 26.2196H142.643V12.5132C141.279 12.5132 139.997 12.5132 138.715 12.5132C137.825 12.5132 136.934 12.5558 136.049 12.4996C135.335 12.4537 135.121 12.6886 135.127 13.4004C135.159 17.346 135.142 21.2915 135.142 25.237V26.2145H131.132V26.2162Z"/>
+        <path d="M76.7603 26.2113V9.12305H89.9028V12.5066H80.7734V15.7574H87.8601V19.5905H80.7596V22.7953H89.9011V26.2113H76.762H76.7603Z"/>
+      </svg>
+    </a>
     <ul class="nav-links">
-      <li><a href="#wearable"><span>Wearable</span></a></li>
-      <li><a href="#neural"><span>Neural</span></a></li>
-      <li><a href="#programs"><span>Programs</span></a></li>
-      <li><a href="#updates"><span>Updates</span></a></li>
-      <li><a href="#search"><span>Search</span></a></li>
+      <li><a href="#prace"><span>Práce</span></a></li>
+      <li><a href="#sluzby"><span>Služby</span><svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4.2 L6 8 L10 4.2" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      <li><a href="#kliniky"><span>Pro kliniky</span><svg class="chev" viewBox="0 0 12 12" fill="none"><path d="M2 4.2 L6 8 L10 4.2" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      <li><a href="#studio"><span>Studio</span></a></li>
     </ul>
-    <button class="nav-menu" id="navMenuBtn" aria-label="Menu">☰</button>
-    <a class="nav-cta" href="#get-started">Get Started</a>
+    <div class="nav-actions">
+      <a class="btn-nav-outline" href="#kontakt">Kontakt</a>
+      <a class="btn-nav-solid" href="#zacit-projekt">Začít projekt
+        <svg viewBox="0 0 14 14" fill="none"><path d="M3 7 H11 M7.4 3.4 L11 7 L7.4 10.6" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-menu" id="navMenuBtn" aria-label="Menu">☰</button>
+    </div>
   </nav>
   <div id="mobileMenu">
     <ul>
-      <li><a href="#wearable">Wearable</a></li>
-      <li><a href="#neural">Neural</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#updates">Updates</a></li>
-      <li><a href="#search">Search</a></li>
+      <li><a href="#prace">Práce</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#kliniky">Pro kliniky</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a class="mm-cta" href="#zacit-projekt">Začít projekt</a></li>
     </ul>
   </div>
 </header>
@@ -484,6 +515,7 @@ h1,h2,h3,p { font-weight:inherit; }
                 <span id="heroLine1"></span>
                 <span id="heroLine2" class="hero-line2"></span>
               </h1>
+              <p class="hero-sub">Web si dnes vygenerujete za odpoledne. Jenže důvěra zákazníků se vygenerovat nedá — ta se pořád buduje: značkou, webem a obsahem, které někdo promyslel. Přesně tam začínáme my.</p>
             </div>
             <div id="browseTemplates"><h2 id="browseText"></h2></div>
             <div id="heroImageWrap">
@@ -493,10 +525,9 @@ h1,h2,h3,p { font-weight:inherit; }
               </div>
             </div>
             <div id="heroBottom">
-              <p class="hero-para">Turn engagement into conversions, trends into traffic, and views into revenue. All with a team that knows how to make social media work for you.</p>
               <div class="hero-btns">
-                <a class="hero-btn" href="#pricing">See Pricing</a>
-                <a class="hero-btn solid" href="#start">Start Journey</a>
+                <a class="hero-btn solid" href="#zacit-projekt">Začít projekt</a>
+                <a class="hero-btn" href="#prace">Podívat se na práci ↓</a>
               </div>
               <div class="hero-divider"></div>
               <div class="hero-meta">
@@ -508,9 +539,9 @@ h1,h2,h3,p { font-weight:inherit; }
                     <img src="https://i.pravatar.cc/100?img=4" alt="">
                     <img src="https://i.pravatar.cc/100?img=5" alt="">
                   </div>
-                  <span class="trusted">Trusted by 4000+ creatives</span>
+                  <span class="trusted">Věří nám Škoda Auto, Kooperativa i IKEM</span>
                 </div>
-                <p class="hero-meta-right">From crafting scroll-stopping content to engineering algorithms we help your brand break through the noise and go viral.</p>
+                <p class="hero-meta-right">Za posledních pár let se změnilo všechno a nic. Zákazník se rozhoduje pořád stejně: podle toho, komu věří.</p>
               </div>
             </div>
           </div>
@@ -522,17 +553,17 @@ h1,h2,h3,p { font-weight:inherit; }
               <div class="cc-overlay">
                 <div class="cc-top">
                   <div class="cc-logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L13.9 10.1 L22 12 L13.9 13.9 L12 22 L10.1 13.9 L2 12 L10.1 10.1 Z"/></svg></div>
-                  <span class="cc-url">Catalist.co.uk</span>
+                  <span class="cc-url">debono.cz</span>
                 </div>
                 <div class="cc-pill">
                   <div class="cc-pill-label">
-                    <small>Catalist Lendings</small>
-                    <b>Apply for Loan</b>
+                    <small>Metoda PONOR</small>
+                    <b>Nejdřív se ponoříme</b>
                   </div>
                   <span class="cc-badge">+</span>
                 </div>
                 <div class="cc-bottom">
-                  <h3>The Ultimate Engine for <strong>Business Lending</strong></h3>
+                  <h3>Web je váš nejpilnější <strong>obchodník</strong></h3>
                 </div>
               </div>
             </div>
@@ -545,15 +576,15 @@ h1,h2,h3,p { font-weight:inherit; }
               <div class="cc-overlay">
                 <div class="cc-top">
                   <div class="cc-logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L13.9 10.1 L22 12 L13.9 13.9 L12 22 L10.1 13.9 L2 12 L10.1 10.1 Z"/></svg></div>
-                  <span class="cc-url">Catalist.co.uk</span>
+                  <span class="cc-url">debono.cz</span>
                 </div>
                 <div class="cc-search">
                   <span class="cc-badge">+</span>
-                  <span class="cc-query">Analyze impact of lending in Business [Field]</span>
+                  <span class="cc-query">Rutinu dělá AI. Co napsat, říkáme my.</span>
                   <span class="cc-badge cc-send">➤</span>
                 </div>
                 <div class="cc-bottom">
-                  <p>Use AI-based system analyser — <strong>all through one intelligent platform.</strong></p>
+                  <p>Strategie, design, web i produkce — <strong>od jednoho týmu pod jednou střechou.</strong></p>
                 </div>
               </div>
             </div>
@@ -564,10 +595,10 @@ h1,h2,h3,p { font-weight:inherit; }
             <div class="sphere-face">
               <div class="sphere-face-inner">
                 <div class="sf-top">
-                  <span class="sf-pill">Neural Core</span>
-                  <span class="sf-url">superconscious.ai</span>
+                  <span class="sf-pill">WE ARE DEBONO®</span>
+                  <span class="sf-url">debono.cz</span>
                 </div>
-                <h3 class="sf-h3">Intelligence, beyond limits</h3>
+                <h3 class="sf-h3">Studio pro značky, kterým lidé věří</h3>
               </div>
             </div>
             <div id="blackPanel">
@@ -577,8 +608,8 @@ h1,h2,h3,p { font-weight:inherit; }
                 <h2 id="headingTop"></h2>
                 <h2 id="headingBottom"><span id="hbAll"></span><span id="hbLimits"></span></h2>
                 <div id="sphereBody">
-                  <p>Superconscious is a neural engine that turns intent into action — anticipating your next move before you make it, across every device you already own.</p>
-                  <p>One model, every surface: wearable, neural, and beyond. No ceilings, no limits — just intelligence that keeps pace with the way you think.</p>
+                  <p>Rutinu dělá AI — zrychlila nám wireframy, kód i střih. Ušetřený čas vracíme do práce, kterou za nás neudělá: do strategie, textů a designu, který se pozná. Podepisuje se vždy člověk.</p>
+                  <p>Zákazník se rozhoduje pořád stejně — podle toho, komu věří. Naše práce je udělat z vašeho prvního dojmu nejsilnější obchodní argument.</p>
                 </div>
               </div>
             </div>
@@ -593,16 +624,16 @@ h1,h2,h3,p { font-weight:inherit; }
           <canvas id="targetCanvas"></canvas>
           <div id="targetFrame"></div>
           <div id="ctaBlock">
-            <h2><span>Build beyond</span><span class="dim">all limits</span></h2>
-            <p>Templates, prompts, and tools that think ahead — start shipping faster today.</p>
-            <a id="ctaBtn" href="#get-started">Get started</a>
+            <h2><span>Nový web, rebrand</span><span class="dim">nebo kampaň?</span></h2>
+            <p>Napište nám pár vět. Do 24 hodin se ozve člověk — a kafe platíme my.</p>
+            <a id="ctaBtn" href="#zacit-projekt">Začít projekt</a>
           </div>
         </div>
 
       </div><!-- /rig -->
     </div><!-- /scene3d -->
 
-    <div id="carouselCta"><a href="#templates">Explore the collection</a></div>
+    <div id="carouselCta"><a href="#prace">Podívat se na práci</a></div>
   </div>
 </div>
 
@@ -611,18 +642,18 @@ h1,h2,h3,p { font-weight:inherit; }
   <div id="pfTrack">
     <div class="pf-card">
       <video data-src="" loop muted playsinline preload="none"></video>
-      <div class="pf-tags"><span>logan cee</span><span class="pf-dot">·</span><span>2023</span><span class="pf-dot">·</span><span>Architecture Design · Website</span></div>
-      <h3 class="pf-title">Archin</h3>
+      <div class="pf-tags"><span>IKEM</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>UX · Web · Zdravotnictví</span></div>
+      <h3 class="pf-title">IKEM Online</h3>
     </div>
     <div class="pf-card">
       <video data-src="" loop muted playsinline preload="none"></video>
-      <div class="pf-tags"><span>zumar</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>Web Design &amp; Development</span></div>
-      <h3 class="pf-title">Zumar</h3>
+      <div class="pf-tags"><span>Škoda Auto</span><span class="pf-dot">·</span><span>2023</span><span class="pf-dot">·</span><span>Kampaň · Produkce</span></div>
+      <h3 class="pf-title">Škoda Auto</h3>
     </div>
     <div class="pf-card">
       <video data-src="" loop muted playsinline preload="none"></video>
-      <div class="pf-tags"><span>nova</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>Brand · Motion · Web</span></div>
-      <h3 class="pf-title">Nova</h3>
+      <div class="pf-tags"><span>Nepanikař</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>Rebrand · Aplikace</span></div>
+      <h3 class="pf-title">Nepanikař</h3>
     </div>
   </div>
 </section>
@@ -649,7 +680,6 @@ const A = {
 const GRID_IMAGES = Array.from({ length: 9 }, (_, i) => `${ASSET_BASE_URL}/grid-images/image%20${553 + i}.png`);
 
 document.getElementById('loaderStar').src = A.star;
-document.getElementById('navStar').src = A.star;
 document.getElementById('ccDarkBg').src = A.card2;
 document.getElementById('ccLightBg').src = A.card3;
 document.querySelectorAll('.pf-card video').forEach((v, i) => v.dataset.src = A.pf[i]);
@@ -896,7 +926,7 @@ heroImgAEl.src = A.stone;
 heroImgBEl.src = A.hero2;
 
 /* Marquee */
-const MARQUEE_ITEMS = ['Templates that work', 'Design that sells', 'Speed without compromise', 'AI prompts on another level'];
+const MARQUEE_ITEMS = ['Studio pro značky, kterým lidé věří', 'Malé studio. Velké značky.', 'Obsahu je dost. Smysl je vzácný.', 'Rutinu dělá AI. Podepisuje se člověk.'];
 {
   const row = el('marqueeRow');
   for (let rep = 0; rep < 2; rep++) {
@@ -912,13 +942,13 @@ const MARQUEE_ITEMS = ['Templates that work', 'Design that sells', 'Speed withou
 }
 
 /* Per-letter headings */
-const heroLine1 = scrollLetters(el('heroLine1'), 'Prompts that');
-const heroLine2 = scrollLetters(el('heroLine2'), 'think ahead');
-const browseLetters = scrollLetters(el('browseText'), 'Browse our\ntemplates');
-const BLOCK_TOTAL = 15; // Beyond(6) + all(3) + limits(6)
-const beyondLetters = scrollLetters(el('headingTop'), 'Beyond', { indexOffset: 0, totalOverride: BLOCK_TOTAL });
-const allLetters    = scrollLetters(el('hbAll'), 'all',       { indexOffset: 6, totalOverride: BLOCK_TOTAL });
-const limitsLetters = scrollLetters(el('hbLimits'), 'limits', { indexOffset: 9, totalOverride: BLOCK_TOTAL });
+const heroLine1 = scrollLetters(el('heroLine1'), 'Doba se zrychlila,');
+const heroLine2 = scrollLetters(el('heroLine2'), 'Důvěra ne');
+const browseLetters = scrollLetters(el('browseText'), 'Podívat se\nna práci');
+const BLOCK_TOTAL = 14; // Důvěra(6) + se(2) + buduje(6)
+const beyondLetters = scrollLetters(el('headingTop'), 'Důvěra', { indexOffset: 0, totalOverride: BLOCK_TOTAL });
+const allLetters    = scrollLetters(el('hbAll'), 'se',        { indexOffset: 6, totalOverride: BLOCK_TOTAL });
+const limitsLetters = scrollLetters(el('hbLimits'), 'buduje', { indexOffset: 8, totalOverride: BLOCK_TOTAL });
 
 /* Parallax grid */
 const RAW_GRID = [
