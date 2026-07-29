@@ -137,14 +137,14 @@ h1,h2,h3,p { font-weight:inherit; }
 .nav-actions { display:flex; align-items:center; gap:12px; margin-left:auto; }
 .btn-nav-outline {
   display:flex; align-items:center; height:46px; padding:0 24px;
-  border:1px solid rgba(17,17,17,.28); border-radius:10px; background:rgba(255,255,255,.35);
+  border:1px solid rgba(17,17,17,.28); border-radius:9999px; background:rgba(255,255,255,.35);
   color:#111; font-size:16px; font-weight:500;
   transition:background .25s ease;
 }
 .btn-nav-outline:hover { background:rgba(255,255,255,.7); }
 .btn-nav-solid {
   display:flex; align-items:center; gap:9px; height:46px; padding:0 24px;
-  border-radius:10px; background:var(--db-accent); color:#111;
+  border-radius:9999px; background:var(--db-accent); color:#111;
   font-size:16px; font-weight:500; transition:filter .25s ease;
 }
 .btn-nav-solid:hover { filter:brightness(.94); }
@@ -158,7 +158,7 @@ h1,h2,h3,p { font-weight:inherit; }
 }
 .nav-menu {
   display:flex; align-items:center; justify-content:center;
-  width:44px; height:44px; margin-left:10px; border-radius:10px;
+  width:44px; height:44px; margin-left:10px; border-radius:9999px;
   background:transparent; border:none; cursor:pointer;
   font-size:19px; color:#111; font-family:inherit; padding:0;
 }
@@ -180,7 +180,7 @@ h1,h2,h3,p { font-weight:inherit; }
   border-radius:10px; font-size:16px; font-weight:500; color:#111;
 }
 #mobileMenu a:hover { background:rgba(0,0,0,.05); }
-#mobileMenu .mm-cta { margin-top:6px; background:var(--db-accent); color:#111; justify-content:center; }
+#mobileMenu .mm-cta { margin-top:6px; background:var(--db-accent); color:#111; justify-content:center; border-radius:9999px; }
 
 /* ── Aurora overlay ─────────────────────────────────── */
 #aurora { position:fixed; inset:0; pointer-events:none; z-index:30; opacity:0; }
@@ -274,7 +274,7 @@ h1,h2,h3,p { font-weight:inherit; }
 .hero-btns { display:flex; align-items:center; gap:16px; }
 .hero-btn {
   display:inline-flex; align-items:center; justify-content:center;
-  padding:14px 32px; border-radius:8px; font-size:17px; color:#fff;
+  padding:14px 32px; border-radius:9999px; font-size:17px; color:#fff;
   background:rgba(255,255,255,.1); backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.2);
 }
@@ -476,7 +476,7 @@ h1,h2,h3,p { font-weight:inherit; }
 #ctaBlock p { max-width:26vw; font-size:2.2vmin; line-height:1.375; color:rgba(245,241,236,0.7); }
 #ctaBtn {
   pointer-events:auto; margin-top:1.5vmin; display:inline-flex;
-  border-radius:8px; background:var(--db-accent); padding:2.2vmin 4.6vmin;
+  border-radius:9999px; background:var(--db-accent); padding:2.2vmin 4.6vmin;
   font-size:2.5vmin; color:#111;
 }
 @media (max-width:640px){
@@ -491,7 +491,7 @@ h1,h2,h3,p { font-weight:inherit; }
   pointer-events:none; opacity:0;
 }
 #carouselCta a {
-  pointer-events:auto; border-radius:var(--radius-btn); background:var(--db-accent);
+  pointer-events:auto; border-radius:9999px; background:var(--db-accent);
   padding:2vmin 4.2vmin; font-size:2.1vmin; color:#111;
 }
 
@@ -503,18 +503,18 @@ h1,h2,h3,p { font-weight:inherit; }
 }
 #pfTrack { display:flex; height:100%; gap:3vmin; padding-left:3vmin; will-change:transform; }
 .pf-card {
-  position:relative; display:flex; height:100%; width:62vw; flex:none;
+  position:relative; display:flex; height:100%; width:50vw; flex:none;
   flex-direction:column; justify-content:space-between; overflow:hidden;
-  border-radius:var(--radius-pf); background:var(--pf-card); padding:3.5vmin; color:#fff;
+  border-radius:var(--radius-pf); background:var(--pf-card); padding:3.2vmin; color:#fff;
 }
-.pf-card video { position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover; }
+.pf-card .pf-img { position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover; }
 .pf-tags {
   position:relative; z-index:2; display:flex; flex-wrap:wrap; align-items:center;
   gap:1.4vmin; font-size:1.7vmin; opacity:.9;
 }
 .pf-dot { opacity:.5; }
 .pf-title {
-  position:relative; z-index:2; max-width:85%; font-size:7vw; font-weight:400;
+  position:relative; z-index:2; max-width:85%; font-size:5vw; font-weight:400;
   text-transform:capitalize; line-height:0.95; letter-spacing:-0.03em;
 }
 </style>
@@ -735,19 +735,29 @@ h1,h2,h3,p { font-weight:inherit; }
 <section id="portfolio">
   <div id="pfTrack">
     <div class="pf-card">
-      <video data-src="" loop muted playsinline preload="none"></video>
-      <div class="pf-tags"><span>IKEM</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>UX · Web · Zdravotnictví</span></div>
-      <h3 class="pf-title">IKEM Online</h3>
+      <img class="pf-img" data-src="assets/refs/rum-professore.jpg" alt="">
+      <div class="pf-tags"><span>Rum Professore</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>Produkce · Foto &amp; video</span></div>
+      <h3 class="pf-title">Rum Professore</h3>
     </div>
     <div class="pf-card">
-      <video data-src="" loop muted playsinline preload="none"></video>
-      <div class="pf-tags"><span>Škoda Auto</span><span class="pf-dot">·</span><span>2023</span><span class="pf-dot">·</span><span>Kampaň · Produkce</span></div>
-      <h3 class="pf-title">Škoda Auto</h3>
+      <img class="pf-img" data-src="assets/refs/kissdent.jpg" alt="">
+      <div class="pf-tags"><span>kissDent</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>Web · Zdravotnictví</span></div>
+      <h3 class="pf-title">kissDent</h3>
     </div>
     <div class="pf-card">
-      <video data-src="" loop muted playsinline preload="none"></video>
-      <div class="pf-tags"><span>Nepanikař</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>Rebrand · Aplikace</span></div>
-      <h3 class="pf-title">Nepanikař</h3>
+      <img class="pf-img" data-src="assets/refs/orbiso.jpg" alt="">
+      <div class="pf-tags"><span>Orbiso</span><span class="pf-dot">·</span><span>2023</span><span class="pf-dot">·</span><span>Aplikace · UX/UI</span></div>
+      <h3 class="pf-title">Orbiso</h3>
+    </div>
+    <div class="pf-card">
+      <img class="pf-img" data-src="assets/refs/sm-projekt.jpg" alt="">
+      <div class="pf-tags"><span>SM Projekt</span><span class="pf-dot">·</span><span>2024</span><span class="pf-dot">·</span><span>Vizuální identita · Brandbook</span></div>
+      <h3 class="pf-title">SM Projekt</h3>
+    </div>
+    <div class="pf-card">
+      <img class="pf-img" data-src="assets/refs/pustit-k-vode.jpg" alt="">
+      <div class="pf-tags"><span>Střední Čechy</span><span class="pf-dot">·</span><span>2023</span><span class="pf-dot">·</span><span>Kampaň · OOH</span></div>
+      <h3 class="pf-title">Pusť stáří k vodě</h3>
     </div>
   </div>
 </section>
@@ -1144,7 +1154,7 @@ float snoise(vec2 v) {
     return 130.0 * dot(m, g);
 }`;
 
-const meshGradFrag = withMouse => `
+const meshGradFrag = (withMouse, radial = false) => `
 precision mediump float;
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -1162,7 +1172,7 @@ void main() {
     vec2 st = gl_FragCoord.xy / u_resolution.xy;
     float t = u_time * 0.22;
 
-    vec2 uv = st;
+    vec2 uv = ${radial ? 'vec2(0.5, distance(st, vec2(1.0, 1.0)) / 1.1)' : 'st'};
     uv.x += 0.16 * snoise(st * 1.1 + vec2(0.0, t));
     uv.y += 0.16 * snoise(st * 1.1 + vec2(7.3, -t * 0.9));
 ${withMouse ? `
@@ -1208,7 +1218,7 @@ ${withMouse ? `
     col = clamp(col, 0.0, 1.0);
     col = pow(col, vec3(0.90));
 
-    float vig = smoothstep(1.20, 0.32, distance(st, vec2(0.5, 0.22)));
+    float vig = smoothstep(1.20, 0.32, ${radial ? 'distance(st, vec2(1.0, 1.0)) * 0.75' : 'distance(st, vec2(0.5, 0.22))'});
     col *= 0.50 + 0.50 * vig;
 
     float grain = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233)) + u_time * 0.5) * 43758.5453);
@@ -1375,7 +1385,7 @@ const heroUniforms = {
 };
 {
   const mat = new THREE.RawShaderMaterial({
-    vertexShader: CLIP_VERT, fragmentShader: meshGradFrag(true), uniforms: heroUniforms,
+    vertexShader: CLIP_VERT, fragmentShader: meshGradFrag(true, true), uniforms: heroUniforms,
   });
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat);
   mesh.frustumCulled = false;
@@ -1591,15 +1601,12 @@ let videosMounted = false;
 function setVideos(on) {
   if (on === videosMounted) return;
   videosMounted = on;
-  document.querySelectorAll('.pf-card video').forEach(v => {
-    if (on) {
-      if (!v.src) { v.src = v.dataset.src; v.load(); }
-      v.play().catch(() => {});
-    } else {
-      v.pause();
-    }
-  });
-  if (on) requestAnimationFrame(measure);
+  if (on) {
+    document.querySelectorAll('.pf-card .pf-img').forEach(img => {
+      if (!img.src) img.src = img.dataset.src;
+    });
+    requestAnimationFrame(measure);
+  }
 }
 
 /* ═══════════════════ Nav (mobile menu) ═══════════════════ */
@@ -1620,7 +1627,7 @@ const LOADER_MIN = REDUCED ? 700 : 2600;
 const LOADER_EXIT = 650;
 let loaderActive = true;
 let loaderStart = 0, loaderExitStart = 0;
-let ldSpring = 0, ldSpringV = 0, ldBloom = 0, ldRot = 0;
+let ldSpring = 0, ldSpringV = 0, ldBloom = 0;
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
 document.documentElement.classList.add('locked');
@@ -1642,17 +1649,14 @@ function updateLoader(now, dt) {
     exitT = easeInOut(clamp01((now - loaderExitStart) / LOADER_EXIT));
   }
 
-  // spin: 4200ms/turn, accelerating to 1100ms/turn on exit
-  if (!REDUCED) {
-    const period = 4.2 - 3.1 * exitT;
-    ldRot += dt * 360 / period;
-  }
+  // gentle pulse (no rotation), fading out during exit
+  const pulse = REDUCED ? 1 : 1 + 0.05 * Math.sin((now / 1000) * (Math.PI * 2 / 1.4)) * (1 - exitT);
 
-  const scale = (0.5 + 0.5 * sv) * (1 + 0.55 * exitT);
+  const scale = (0.5 + 0.5 * sv) * (1 + 0.55 * exitT) * pulse;
   const blur = 22 * (1 - sv) + 14 * exitT;
   const ty = -4 * exitT;
   loaderStarEl.style.opacity = Math.max(0, Math.min(1, sv) * (1 - exitT));
-  loaderStarEl.style.transform = `translateY(${ty}vh) rotate(${ldRot}deg) scale(${scale})`;
+  loaderStarEl.style.transform = `translateY(${ty}vh) scale(${scale})`;
   loaderStarEl.style.filter = `drop-shadow(0 0 28px var(--loader-glow)) blur(${blur}px)`;
   loaderBloomEl.style.opacity = ldBloom * (1 - exitT);
   loaderEl.style.opacity = 1 - exitT;
