@@ -56,6 +56,7 @@
   --loader-glow:rgba(229,255,3,0.5);
   --db-accent:#E5FF03;
   --sr-hero-top:100px;
+  --hero-card-shift:22%;
   --radius-btn:8px; --radius-card:3vmin; --radius-pf:2.5vmin;
   --radius-slider:1.6vmin; --radius-grid:12px; --radius-target:30px;
   --sr-card-w:42vmin;
@@ -63,8 +64,8 @@
   --sr-carousel-r:27vmin;
   --sr-flyback:40vmin;
   --sr-hero-pad:8vmin;
-  --sr-heading-1:18vmin;
-  --sr-heading-2:24vmin;
+  --sr-heading-1:10vmin;
+  --sr-heading-2:10vmin;
   --sr-sphere-body-w:52vmin;
   --sr-sphere-body-text:2.4vmin;
 }
@@ -100,7 +101,7 @@ h1,h2,h3,p { font-weight:inherit; }
   filter:blur(80px); background:var(--card-violet); opacity:0;
 }
 #loaderStar {
-  position:relative; width:132px; height:132px; opacity:0;
+  position:relative; width:132px; height:auto; opacity:0;
   will-change:transform,filter,opacity;
 }
 
@@ -149,7 +150,7 @@ h1,h2,h3,p { font-weight:inherit; }
 .btn-nav-solid:hover { filter:brightness(.94); }
 .btn-nav-solid svg { width:13px; height:13px; }
 @media (max-width:640px){
-  :root { --sr-hero-top:90px; }
+  :root { --sr-hero-top:90px; --hero-card-shift:0%; }
   .btn-nav-outline { display:none; }
   .btn-nav-solid { height:42px; padding:0 18px; font-size:14px; }
   .osmo-bar { height:62px; padding:0 12px 0 18px; }
@@ -236,8 +237,10 @@ h1,h2,h3,p { font-weight:inherit; }
 }
 .hero-h1 {
   display:flex; flex-direction:column; align-items:flex-start; text-align:left;
-  font-size:7vw; font-weight:400; line-height:0.95; letter-spacing:-0.03em; color:#fff;
+  max-width:50%;
+  font-size:6vw; font-weight:400; line-height:0.98; letter-spacing:-0.03em; color:#fff;
 }
+@media (max-width:640px){ .hero-h1 { max-width:100%; font-size:11vw; } }
 .hero-line2 { opacity:0.4; }
 #browseTemplates {
   position:absolute; inset:0; z-index:7; display:flex; align-items:center;
@@ -382,20 +385,24 @@ h1,h2,h3,p { font-weight:inherit; }
   -webkit-mask-position:center; mask-position:center;
   -webkit-mask-size:contain; mask-size:contain;
 }
-#headingTop {
-  position:absolute; left:4vmin; top:4vmin; z-index:4;
-  font-size:var(--sr-heading-1); line-height:0.85; color:#fff; font-weight:400;
+#sphereHeading {
+  position:absolute; left:4vmin; top:var(--sr-hero-top); z-index:4;
+  display:flex; flex-direction:column; align-items:flex-start;
+  color:#fff; text-align:left;
 }
+#headingTop { font-size:var(--sr-heading-1); line-height:0.9; font-weight:400; }
 #headingBottom {
-  position:absolute; bottom:4vmin; right:4vmin; z-index:4;
-  display:flex; flex-direction:column; align-items:flex-end; text-align:right;
-  font-size:var(--sr-heading-2); line-height:0.85; color:#fff; font-weight:400;
+  display:flex; gap:0.22em; font-size:var(--sr-heading-2);
+  line-height:0.9; font-weight:400;
 }
 #sphereBody {
-  position:absolute; bottom:5vmin; left:4vmin; z-index:4;
+  position:absolute; bottom:0; right:0; z-index:4;
   display:flex; flex-direction:column; gap:1.8vmin;
-  max-width:var(--sr-sphere-body-w); font-size:var(--sr-sphere-body-text);
+  max-width:calc(var(--sr-sphere-body-w) + 12vmin);
+  padding:9vmin 4vmin 4vmin 12vmin;
+  font-size:var(--sr-sphere-body-text);
   font-weight:300; line-height:1.45; color:#fff;
+  background:radial-gradient(135% 135% at 92% 92%, rgba(0,0,0,.74) 0%, rgba(0,0,0,.42) 55%, rgba(0,0,0,0) 82%);
 }
 
 /* ── Parallax grid + target ─────────────────────────── */
@@ -537,7 +544,8 @@ h1,h2,h3,p { font-weight:inherit; }
             <div id="heroHeadline">
               <h1 class="hero-h1">
                 <span id="heroLine1"></span>
-                <span id="heroLine2" class="hero-line2"></span>
+                <span id="heroLine2"></span>
+                <span id="heroLine3" class="hero-line2"></span>
               </h1>
               <p class="hero-sub">Web si dnes vygenerujete za odpoledne. Jenže důvěra zákazníků se vygenerovat nedá — ta se pořád buduje: značkou, webem a obsahem, které někdo promyslel. Přesně tam začínáme my.</p>
             </div>
@@ -576,7 +584,7 @@ h1,h2,h3,p { font-weight:inherit; }
               <img class="cc-bg" id="ccDarkBg" alt="">
               <div class="cc-overlay">
                 <div class="cc-top">
-                  <div class="cc-logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L13.9 10.1 L22 12 L13.9 13.9 L12 22 L10.1 13.9 L2 12 L10.1 10.1 Z"/></svg></div>
+                  <div class="cc-logo"><svg viewBox="0 0 39.2 34.7" fill="currentColor"><path d="M17.3261 34.3893V25.9278H8.62692V17.359H0V0C0.314927 0 0.619528 0 0.922408 0C7.91963 0.00851431 14.9186 0 21.9158 0.0272458C31.7078 0.0647088 39.648 8.45641 39.0664 18.1287C38.5553 26.6191 32.3583 33.2739 23.7744 34.3501C21.6921 34.6107 19.5495 34.3893 17.3261 34.3893ZM17.4173 17.2296V25.6945C19.3981 25.6945 21.3204 25.9312 23.1617 25.6485C27.7875 24.9367 30.6976 20.8924 30.2467 16.1346C29.8578 12.0222 26.0116 8.72376 21.5802 8.71525C17.5671 8.70844 13.5556 8.71355 9.54245 8.71525C9.29291 8.71525 9.0451 8.74079 8.79041 8.75612V17.2313H17.4156L17.4173 17.2296Z"/></svg></div>
                   <span class="cc-url">debono.cz</span>
                 </div>
                 <div class="cc-pill">
@@ -599,7 +607,7 @@ h1,h2,h3,p { font-weight:inherit; }
               <img class="cc-bg" id="ccLightBg" alt="">
               <div class="cc-overlay">
                 <div class="cc-top">
-                  <div class="cc-logo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 L13.9 10.1 L22 12 L13.9 13.9 L12 22 L10.1 13.9 L2 12 L10.1 10.1 Z"/></svg></div>
+                  <div class="cc-logo"><svg viewBox="0 0 39.2 34.7" fill="currentColor"><path d="M17.3261 34.3893V25.9278H8.62692V17.359H0V0C0.314927 0 0.619528 0 0.922408 0C7.91963 0.00851431 14.9186 0 21.9158 0.0272458C31.7078 0.0647088 39.648 8.45641 39.0664 18.1287C38.5553 26.6191 32.3583 33.2739 23.7744 34.3501C21.6921 34.6107 19.5495 34.3893 17.3261 34.3893ZM17.4173 17.2296V25.6945C19.3981 25.6945 21.3204 25.9312 23.1617 25.6485C27.7875 24.9367 30.6976 20.8924 30.2467 16.1346C29.8578 12.0222 26.0116 8.72376 21.5802 8.71525C17.5671 8.70844 13.5556 8.71355 9.54245 8.71525C9.29291 8.71525 9.0451 8.74079 8.79041 8.75612V17.2313H17.4156L17.4173 17.2296Z"/></svg></div>
                   <span class="cc-url">debono.cz</span>
                 </div>
                 <div class="cc-search">
@@ -629,8 +637,10 @@ h1,h2,h3,p { font-weight:inherit; }
               <div id="sphereSceneWrap">
                 <div id="sphereWrap"><canvas id="sphereCanvas"></canvas></div>
                 <div id="sphereLogo"></div>
-                <h2 id="headingTop"></h2>
-                <h2 id="headingBottom"><span id="hbAll"></span><span id="hbLimits"></span></h2>
+                <div id="sphereHeading">
+                  <h2 id="headingTop"></h2>
+                  <h2 id="headingBottom"><span id="hbAll"></span><span id="hbLimits"></span></h2>
+                </div>
                 <div id="sphereBody">
                   <p>Rutinu dělá AI — zrychlila nám wireframy, kód i střih. Ušetřený čas vracíme do práce, kterou za nás neudělá: do strategie, textů a designu, který se pozná. Podepisuje se vždy člověk.</p>
                   <p>Zákazník se rozhoduje pořád stejně — podle toho, komu věří. Naše práce je udělat z vašeho prvního dojmu nejsilnější obchodní argument.</p>
@@ -684,7 +694,7 @@ h1,h2,h3,p { font-weight:inherit; }
 
 <script type="module">
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
 
 /* ════════════════════════════ Assets ════════════════════════════ */
 const ASSET_BASE_URL = 'https://api.getlayers.ai/storage/v1/object/public/public/assets/ai-studio-0b8d365222';
@@ -693,8 +703,6 @@ const A = {
   hero2:      `${ASSET_BASE_URL}/showreel/hero-image-2.png`,
   card2:      `${ASSET_BASE_URL}/showreel/card-2.jpg`,
   card3:      `${ASSET_BASE_URL}/showreel/card-3.jpg`,
-  star:       `${ASSET_BASE_URL}/showreel/star.svg`,
-  model:      `${ASSET_BASE_URL}/showreel/model.glb`,
   pf: [
     `${ASSET_BASE_URL}/showreel/portfolio-1.mp4`,
     `${ASSET_BASE_URL}/showreel/portfolio-2.mp4`,
@@ -703,14 +711,25 @@ const A = {
 };
 const GRID_IMAGES = Array.from({ length: 9 }, (_, i) => `${ASSET_BASE_URL}/grid-images/image%20${553 + i}.png`);
 
-document.getElementById('loaderStar').src = A.star;
+/* Debono "D" mark — replaces the star motif (masks, loader, chrome model) */
+const D_PATH = 'M17.3261 34.3893V25.9278H8.62692V17.359H0V0C0.314927 0 0.619528 0 0.922408 0C7.91963 0.00851431 14.9186 0 21.9158 0.0272458C31.7078 0.0647088 39.648 8.45641 39.0664 18.1287C38.5553 26.6191 32.3583 33.2739 23.7744 34.3501C21.6921 34.6107 19.5495 34.3893 17.3261 34.3893ZM17.4173 17.2296V25.6945C19.3981 25.6945 21.3204 25.9312 23.1617 25.6485C27.7875 24.9367 30.6976 20.8924 30.2467 16.1346C29.8578 12.0222 26.0116 8.72376 21.5802 8.71525C17.5671 8.70844 13.5556 8.71355 9.54245 8.71525C9.29291 8.71525 9.0451 8.74079 8.79041 8.75612V17.2313H17.4156L17.4173 17.2296Z';
+/* Outer silhouette only (no counter hole) — used for the reveal mask so the
+   growing D actually covers the viewport instead of showing through its hole */
+const D_PATH_SOLID = 'M17.3261 34.3893V25.9278H8.62692V17.359H0V0C0.314927 0 0.619528 0 0.922408 0C7.91963 0.00851431 14.9186 0 21.9158 0.0272458C31.7078 0.0647088 39.648 8.45641 39.0664 18.1287C38.5553 26.6191 32.3583 33.2739 23.7744 34.3501C21.6921 34.6107 19.5495 34.3893 17.3261 34.3893Z';
+const dMarkSvg = (fill, path = D_PATH) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.2 34.7"><path fill="${fill}" d="${path}"/></svg>`;
+const D_URI       = 'data:image/svg+xml;utf8,' + encodeURIComponent(dMarkSvg('#000'));
+const D_URI_SOLID = 'data:image/svg+xml;utf8,' + encodeURIComponent(dMarkSvg('#000', D_PATH_SOLID));
+const D_URI_LIME  = 'data:image/svg+xml;utf8,' + encodeURIComponent(dMarkSvg('#E5FF03'));
+
+document.getElementById('loaderStar').src = D_URI_LIME;
 document.getElementById('ccDarkBg').src = A.card2;
 document.getElementById('ccLightBg').src = A.card3;
 document.querySelectorAll('.pf-card video').forEach((v, i) => v.dataset.src = A.pf[i]);
 const blackPanelEl = document.getElementById('blackPanel');
-blackPanelEl.style.webkitMaskImage = blackPanelEl.style.maskImage = `url("${A.star}")`;
+blackPanelEl.style.webkitMaskImage = blackPanelEl.style.maskImage = `url("${D_URI_SOLID}")`;
 const sphereLogoEl = document.getElementById('sphereLogo');
-sphereLogoEl.style.webkitMaskImage = sphereLogoEl.style.maskImage = `url("${A.star}")`;
+sphereLogoEl.style.webkitMaskImage = sphereLogoEl.style.maskImage = `url("${D_URI}")`;
 
 /* ═══════════════════ Virtual-scroll timeline ═══════════════════ */
 const TRACK_VH = 2000, STICKY_VH = 100;
@@ -884,9 +903,9 @@ const sceneVisibility = p => {
 
 /* ═══════════════════ Responsive geometry ═══════════════════ */
 const BUCKETS = {
-  desktop: { track:2000, cardW:42, cardH:62, carouselRVmin:27, flybackVmin:40, h1:18, h2:24, bodyW:52, bodyT:2.4 },
-  tablet:  { track:1700, cardW:54, cardH:80, carouselRVmin:35, flybackVmin:52, h1:13, h2:16, bodyW:64, bodyT:3.0 },
-  mobile:  { track:1300, cardW:64, cardH:94, carouselRVmin:41, flybackVmin:60, h1:10, h2:12, bodyW:82, bodyT:4.2 },
+  desktop: { track:2000, cardW:42, cardH:62, carouselRVmin:27, flybackVmin:40, h1:10, h2:10, bodyW:52, bodyT:2.4 },
+  tablet:  { track:1700, cardW:54, cardH:80, carouselRVmin:35, flybackVmin:52, h1:9, h2:9, bodyW:64, bodyT:3.0 },
+  mobile:  { track:1300, cardW:64, cardH:94, carouselRVmin:41, flybackVmin:60, h1:8, h2:8, bodyW:82, bodyT:4.2 },
 };
 let geo = BUCKETS.desktop;
 
@@ -966,8 +985,9 @@ const MARQUEE_ITEMS = ['Studio pro značky, kterým lidé věří', 'Malé studi
 }
 
 /* Per-letter headings */
-const heroLine1 = scrollLetters(el('heroLine1'), 'Doba se zrychlila,');
-const heroLine2 = scrollLetters(el('heroLine2'), 'Důvěra ne');
+const heroLine1 = scrollLetters(el('heroLine1'), 'Doba se');
+const heroLine2 = scrollLetters(el('heroLine2'), 'zrychlila,');
+const heroLine3 = scrollLetters(el('heroLine3'), 'Důvěra ne');
 const browseLetters = scrollLetters(el('browseText'), 'Podívat se\nna práci');
 const BLOCK_TOTAL = 14; // Důvěra(6) + se(2) + buduje(6)
 const beyondLetters = scrollLetters(el('headingTop'), 'Důvěra', { indexOffset: 0, totalOverride: BLOCK_TOTAL });
@@ -1144,7 +1164,7 @@ void main() {
     vec3 w = pow(warp3d(vec3(uv.x, sin(uv.y), uv.y), u_time * 1.5), vec3(1.5));
     vec3 col = 1.6 * iAuroraDeep * w.x; col *= w.y; col += iAuroraBright * w.z;
     col *= smoothstep(0.6, 1.0, abs(uv.y));
-    col *= smoothstep(-0.5, 1.0, -uv.y * uv.x); col *= smoothstep(-0.5, 1.0, -uv.y * uv.x);
+    col *= smoothstep(-0.5, 1.0, uv.y * uv.x); col *= smoothstep(-0.5, 1.0, uv.y * uv.x);
     vec3 c = col * 1.15;
     float a = clamp(max(c.r, max(c.g, c.b)) * 1.6, 0.0, 0.9);
     gl_FragColor = vec4(c, a);
@@ -1428,26 +1448,30 @@ const targetBgUniforms = {
 const starGroup = new THREE.Group();
 targetScene.add(starGroup);
 let starSpin = 0;
-new GLTFLoader().load(A.model, gltf => {
-  const model = gltf.scene;
-  model.traverse(o => {
-    if (o.isMesh) {
-      o.material = new THREE.MeshPhysicalMaterial({
-        color: 0xeef2f8, metalness: 1.0, roughness: 0.025,
-        envMapIntensity: 1.35, clearcoat: 1.0, clearcoatRoughness: 0.03,
-      });
-    }
+{
+  // Extrude the Debono "D" mark into a chrome 3D model
+  const svgData = new SVGLoader().parse(dMarkSvg('#000'));
+  const shapes = svgData.paths.flatMap(p => SVGLoader.createShapes(p));
+  const geom = new THREE.ExtrudeGeometry(shapes, {
+    depth: 7, curveSegments: 16,
+    bevelEnabled: true, bevelThickness: 1.0, bevelSize: 1.0, bevelSegments: 5,
   });
+  geom.scale(1, -1, 1); // SVG y-axis points down
+  geom.center();
+  const mat = new THREE.MeshPhysicalMaterial({
+    color: 0xeef2f8, metalness: 1.0, roughness: 0.025,
+    envMapIntensity: 1.35, clearcoat: 1.0, clearcoatRoughness: 0.03,
+    side: THREE.DoubleSide,
+  });
+  const model = new THREE.Mesh(geom, mat);
   const box = new THREE.Box3().setFromObject(model);
-  const center = box.getCenter(new THREE.Vector3());
   const size = box.getSize(new THREE.Vector3());
   const maxDim = Math.max(size.x, size.y, size.z) || 1;
-  model.position.sub(center);
   const inner = new THREE.Group();
   inner.scale.setScalar(2.4 / maxDim);
   inner.add(model);
   starGroup.add(inner);
-}, undefined, err => console.warn('Chrome star GLB failed to load', err));
+}
 function sizeTarget() {
   const w = window.innerWidth, h = window.innerHeight;
   targetRenderer.setSize(w, h, false);
@@ -1601,6 +1625,7 @@ function updateDOM(p, dt) {
   const tf = heroTiltFade(p);
   heroSliderEl.style.width = heroSliderWidth(p);
   heroSliderEl.style.height = heroSliderHeight(p);
+  heroSliderEl.style.left = `calc(50% + var(--hero-card-shift) * ${1 - phase1(p)})`;
   heroSliderEl.style.transform =
     `translate(-50%,-50%) rotateX(${(tiltRx * tf).toFixed(3)}deg) rotateY(${(tiltRy * tf).toFixed(3)}deg)`;
   const pan = heroSlidePan(p);
@@ -1608,6 +1633,7 @@ function updateDOM(p, dt) {
   heroImgBEl.style.transform = `translateX(${pan}%) rotate(-90deg) scale(1.65)`;
   heroLine1.update(p, heroLetterStyle);
   heroLine2.update(p, heroLetterStyle);
+  heroLine3.update(p, heroLetterStyle);
   browseLetters.update(p, templatesLetterWrap);
 
   const ccr = carouselCtaReveal(p);
