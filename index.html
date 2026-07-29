@@ -17,9 +17,29 @@
 </script>
 
 <style>
+@font-face {
+  font-family:"Mona Sans Expanded";
+  src:url("fonts/MonaSansExpanded-Light.otf") format("opentype");
+  font-weight:300; font-style:normal; font-display:swap;
+}
+@font-face {
+  font-family:"Mona Sans Expanded";
+  src:url("fonts/MonaSansExpanded-Regular.otf") format("opentype");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+@font-face {
+  font-family:"Mona Sans Expanded";
+  src:url("fonts/MonaSansExpanded-Medium.otf") format("opentype");
+  font-weight:500; font-style:normal; font-display:swap;
+}
+@font-face {
+  font-family:"Mona Sans Expanded";
+  src:url("fonts/MonaSansExpanded-SemiBold.otf") format("opentype");
+  font-weight:600 700; font-style:normal; font-display:swap;
+}
 :root {
   --background:#000000; --foreground:#f5f1ec;
-  --ink:#07031a;
+  --ink:#0a0d02;
   --pf-card:#14110e;
   --cc-search:#161310;
   --paper:#f5f1ec;
@@ -32,9 +52,10 @@
   --glass-dark:rgba(40,36,33,0.55); --glass-border:rgba(255,255,255,0.12);
   --glass-border-soft:rgba(255,255,255,0.14); --hairline:rgba(255,255,255,0.28);
   --watermark:rgba(255,255,255,0.85);
-  --card-violet:radial-gradient(95% 80% at 50% 28%, #ddd6fe 0%, #9a73f0 38%, #6d28d9 68%, #34146e 100%);
-  --loader-glow:rgba(154,115,240,0.55);
-  --db-accent:#7c5cfc;
+  --card-violet:radial-gradient(95% 80% at 50% 28%, #fbffc2 0%, #e5ff03 38%, #a3b502 68%, #333f00 100%);
+  --loader-glow:rgba(229,255,3,0.5);
+  --db-accent:#E5FF03;
+  --sr-hero-top:100px;
   --radius-btn:8px; --radius-card:3vmin; --radius-pf:2.5vmin;
   --radius-slider:1.6vmin; --radius-grid:12px; --radius-target:30px;
   --sr-card-w:42vmin;
@@ -59,7 +80,7 @@ html, body { scrollbar-width:none; }
 ::-webkit-scrollbar { display:none; }
 body {
   background:#000; color:#f5f1ec; overflow-x:hidden;
-  font-family:"Zen Kaku Gothic New",sans-serif;
+  font-family:"Mona Sans Expanded","Zen Kaku Gothic New",sans-serif;
 }
 html.locked, html.locked body { overflow:hidden; height:100%; }
 a { text-decoration:none; color:inherit; }
@@ -95,13 +116,14 @@ h1,h2,h3,p { font-weight:inherit; }
 .osmo-bar {
   pointer-events:auto; display:flex; align-items:center;
   width:100%; max-width:1888px; height:72px;
-  background:#fff; border-radius:14px; padding:0 18px 0 28px;
-  box-shadow:0 8px 28px rgba(10,8,30,.10);
+  background:rgba(255,255,255,.62); border-radius:14px; padding:0 18px 0 28px;
+  border:1px solid rgba(255,255,255,.45);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 8px 28px rgba(10,10,10,.08);
 }
 .brand { display:flex; align-items:center; flex:none; }
 .brand svg { height:24px; width:auto; display:block; }
 .brand svg path { fill:#111; }
-.brand svg path:first-child { fill:var(--db-accent); }
 .nav-links { display:none; align-items:center; gap:40px; margin-left:56px; }
 @media (min-width:960px){ .nav-links { display:flex; } }
 .nav-links a {
@@ -114,19 +136,20 @@ h1,h2,h3,p { font-weight:inherit; }
 .nav-actions { display:flex; align-items:center; gap:12px; margin-left:auto; }
 .btn-nav-outline {
   display:flex; align-items:center; height:46px; padding:0 24px;
-  border:1px solid var(--db-accent); border-radius:10px; background:#fff;
-  color:var(--db-accent); font-size:16px; font-weight:500;
+  border:1px solid rgba(17,17,17,.28); border-radius:10px; background:rgba(255,255,255,.35);
+  color:#111; font-size:16px; font-weight:500;
   transition:background .25s ease;
 }
-.btn-nav-outline:hover { background:rgba(124,92,252,.08); }
+.btn-nav-outline:hover { background:rgba(255,255,255,.7); }
 .btn-nav-solid {
   display:flex; align-items:center; gap:9px; height:46px; padding:0 24px;
-  border-radius:10px; background:var(--db-accent); color:#fff;
+  border-radius:10px; background:var(--db-accent); color:#111;
   font-size:16px; font-weight:500; transition:filter .25s ease;
 }
-.btn-nav-solid:hover { filter:brightness(1.08); }
+.btn-nav-solid:hover { filter:brightness(.94); }
 .btn-nav-solid svg { width:13px; height:13px; }
 @media (max-width:640px){
+  :root { --sr-hero-top:90px; }
   .btn-nav-outline { display:none; }
   .btn-nav-solid { height:42px; padding:0 18px; font-size:14px; }
   .osmo-bar { height:62px; padding:0 12px 0 18px; }
@@ -142,8 +165,9 @@ h1,h2,h3,p { font-weight:inherit; }
 @media (min-width:960px){ .nav-menu { display:none; } }
 #mobileMenu {
   pointer-events:none; margin-top:8px; width:100%; max-width:1888px;
-  overflow:hidden; border-radius:14px; background:#fff; padding:10px;
-  box-shadow:0 8px 28px rgba(10,8,30,.10);
+  overflow:hidden; border-radius:14px; background:rgba(255,255,255,.8); padding:10px;
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 8px 28px rgba(10,10,10,.08);
   opacity:0; transform:translateY(-8px);
   transition:opacity 450ms cubic-bezier(.3,1.2,.5,1), transform 450ms cubic-bezier(.3,1.2,.5,1);
 }
@@ -155,7 +179,7 @@ h1,h2,h3,p { font-weight:inherit; }
   border-radius:10px; font-size:16px; font-weight:500; color:#111;
 }
 #mobileMenu a:hover { background:rgba(0,0,0,.05); }
-#mobileMenu .mm-cta { margin-top:6px; background:var(--db-accent); color:#fff; justify-content:center; }
+#mobileMenu .mm-cta { margin-top:6px; background:var(--db-accent); color:#111; justify-content:center; }
 
 /* ── Aurora overlay ─────────────────────────────────── */
 #aurora { position:fixed; inset:0; pointer-events:none; z-index:30; opacity:0; }
@@ -203,11 +227,11 @@ h1,h2,h3,p { font-weight:inherit; }
 #heroCanvas { position:absolute; inset:0; z-index:1; width:100%; height:100%; }
 #heroHeadline {
   position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
-  align-items:flex-start; gap:26px; padding:118px 40px 40px; pointer-events:none;
+  align-items:flex-start; gap:26px; padding:40px; pointer-events:none;
 }
 .hero-sub { max-width:34rem; font-size:17px; font-weight:300; line-height:1.6; color:#fff; opacity:.88; }
 @media (max-width:640px){
-  #heroHeadline { padding:86px 20px 20px; gap:16px; }
+  #heroHeadline { padding:20px; gap:16px; }
   .hero-sub { font-size:14px; }
 }
 .hero-h1 {
@@ -249,7 +273,7 @@ h1,h2,h3,p { font-weight:inherit; }
   background:rgba(255,255,255,.1); backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.2);
 }
-.hero-btn.solid { background:#fff; color:#000; font-weight:500; border-color:transparent; }
+.hero-btn.solid { background:var(--db-accent); color:#111; font-weight:500; border-color:transparent; }
 .hero-divider { width:100%; height:1px; background:rgba(255,255,255,.3); margin:8px 0; }
 .hero-meta { display:flex; align-items:center; justify-content:space-between; gap:24px; }
 .avatar-pill {
@@ -402,8 +426,8 @@ h1,h2,h3,p { font-weight:inherit; }
 #ctaBlock p { max-width:26vw; font-size:2.2vmin; line-height:1.375; color:rgba(245,241,236,0.7); }
 #ctaBtn {
   pointer-events:auto; margin-top:1.5vmin; display:inline-flex;
-  border-radius:8px; background:var(--paper); padding:2.2vmin 4.6vmin;
-  font-size:2.5vmin; color:var(--ink);
+  border-radius:8px; background:var(--db-accent); padding:2.2vmin 4.6vmin;
+  font-size:2.5vmin; color:#111;
 }
 @media (max-width:640px){
   #ctaBlock h2 { max-width:88vw; }
@@ -417,8 +441,8 @@ h1,h2,h3,p { font-weight:inherit; }
   pointer-events:none; opacity:0;
 }
 #carouselCta a {
-  pointer-events:auto; border-radius:var(--radius-btn); background:var(--ink);
-  padding:2vmin 4.2vmin; font-size:2.1vmin; color:var(--paper);
+  pointer-events:auto; border-radius:var(--radius-btn); background:var(--db-accent);
+  padding:2vmin 4.2vmin; font-size:2.1vmin; color:#111;
 }
 
 /* ── Portfolio ──────────────────────────────────────── */
@@ -476,7 +500,7 @@ h1,h2,h3,p { font-weight:inherit; }
     <div class="nav-actions">
       <a class="btn-nav-outline" href="#kontakt">Kontakt</a>
       <a class="btn-nav-solid" href="#zacit-projekt">Začít projekt
-        <svg viewBox="0 0 14 14" fill="none"><path d="M3 7 H11 M7.4 3.4 L11 7 L7.4 10.6" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 14 14" fill="none"><path d="M3 7 H11 M7.4 3.4 L11 7 L7.4 10.6" stroke="#111" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <button class="nav-menu" id="navMenuBtn" aria-label="Menu">☰</button>
     </div>
@@ -715,8 +739,8 @@ const phase4 = p => clamp01((gp(p) - 0.4) / 0.35);
 
 /* ── Card 1 (hero) ── */
 const card1Width  = p => `calc((100vw - var(--sr-hero-pad)) * ${1 - phase1(p)} + var(--sr-card-h) * ${phase1(p)})`;
-const card1Height = p => `calc((100vh - var(--sr-hero-pad)) * ${1 - phase1(p)} + var(--sr-card-w) * ${phase1(p)})`;
-const card1Transform = p => `rotateZ(${phase1(p) * 90}deg) translateZ(calc(var(--sr-carousel-r) * ${phase2(p)} + 1px))`;
+const card1Height = p => `calc((100vh - var(--sr-hero-top) - 4vmin) * ${1 - phase1(p)} + var(--sr-card-w) * ${phase1(p)})`;
+const card1Transform = p => `translateY(calc((var(--sr-hero-top) - 4vmin) * ${0.5 * (1 - phase1(p))})) rotateZ(${phase1(p) * 90}deg) translateZ(calc(var(--sr-carousel-r) * ${phase2(p)} + 1px))`;
 const card1Opacity = p => (gp(p) >= 0.75 ? 0 : 1);
 const heroSlidePan = p => phase1(p) * -100;
 const heroTiltFade = p => 1 - phase1(p);
@@ -1047,11 +1071,11 @@ ${withMouse ? `
     float infl = exp(-distance(st, mouse) * 1.8);
     uv += (st - mouse) * infl * 0.22;
 ` : ''}
-    vec3 night    = vec3(0.020, 0.015, 0.045);
-    vec3 indigo   = vec3(0.10,  0.08,  0.32);
-    vec3 violet   = vec3(0.34,  0.14,  0.72);
-    vec3 electric = vec3(0.52,  0.24,  0.92);
-    vec3 glow     = vec3(0.82,  0.72,  0.99);
+    vec3 night    = vec3(0.012, 0.016, 0.002);
+    vec3 indigo   = vec3(0.10,  0.12,  0.015);
+    vec3 violet   = vec3(0.42,  0.50,  0.02);
+    vec3 electric = vec3(0.68,  0.80,  0.02);
+    vec3 glow     = vec3(0.93,  1.00,  0.40);
 
     vec3 acc = vec3(0.0);
     float wsum = 0.0;
@@ -1076,7 +1100,7 @@ ${withMouse ? `
 
     vec2 hot = vec2(0.44 + 0.05 * sin(t * 1.1), 0.02 + 0.03 * cos(t));
     float hotGlow = exp(-distance(uv, hot) * 4.5);
-    col += vec3(0.78, 0.68, 1.0) * hotGlow * 0.7;
+    col += vec3(0.92, 1.0, 0.40) * hotGlow * 0.7;
 
     float luma = dot(col, vec3(0.299, 0.587, 0.114));
     col = mix(vec3(luma), col, 1.4);
@@ -1106,8 +1130,8 @@ const AURORA_FRAG = `
 precision mediump float;
 varying vec2 vUv;
 uniform float u_time;
-const vec3 iAuroraDeep = vec3(0.38, 0.14, 0.88);
-const vec3 iAuroraBright = vec3(0.66, 0.30, 1.00);
+const vec3 iAuroraDeep = vec3(0.20, 0.50, 0.03);
+const vec3 iAuroraBright = vec3(0.90, 1.00, 0.06);
 vec3 warp3d(vec3 pos, float t) {
     float curv = .8, a = 1.9, b = 0.7; pos *= 2.;
     pos.x += curv * sin(t + a * pos.y) + t * b; pos.y += curv * cos(t + a * pos.x);
@@ -1219,9 +1243,9 @@ void main(){
     float soft = smoothstep(0.5 * tighten, 0.0, d);
     float core = smoothstep(0.16 * tighten, 0.0, d);
 
-    vec3 pink   = vec3(1.00, 0.32, 0.78);
-    vec3 purple = vec3(0.52, 0.12, 1.00);
-    vec3 white  = vec3(0.86, 0.82, 1.00);
+    vec3 pink   = vec3(0.90, 1.00, 0.05);
+    vec3 purple = vec3(0.12, 0.60, 0.10);
+    vec3 white  = vec3(0.93, 1.00, 0.72);
     float vt = clamp(vVert * 0.5 + 0.5, 0.0, 1.0);
     vec3 col = mix(purple, pink, vt);
     col = mix(col, white, smoothstep(0.72, 1.15, vSide));
