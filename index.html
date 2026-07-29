@@ -109,15 +109,15 @@ h1,h2,h3,p { font-weight:inherit; }
 #siteHeader {
   position:fixed; left:0; top:0; z-index:100;
   display:flex; width:100%; flex-direction:column; align-items:center;
-  padding:14px 16px 0; pointer-events:none;
+  padding:14px 4vmin 0; pointer-events:none;
   opacity:0; transform:translateY(-10px);
   transition:opacity 700ms ease-in-out, transform 700ms ease-in-out;
 }
 #siteHeader.revealed { opacity:1; transform:translateY(0); }
 .osmo-bar {
   pointer-events:auto; display:flex; align-items:center;
-  width:100%; max-width:1888px; height:72px;
-  background:rgba(255,255,255,.62); border-radius:14px; padding:0 18px 0 28px;
+  width:100%; height:72px;
+  background:rgba(255,255,255,.62); border-radius:var(--radius-card); padding:0 18px 0 28px;
   border:1px solid rgba(255,255,255,.45);
   backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
   box-shadow:0 8px 28px rgba(10,10,10,.08);
@@ -165,8 +165,8 @@ h1,h2,h3,p { font-weight:inherit; }
 .nav-menu:hover { background:rgba(0,0,0,.05); }
 @media (min-width:960px){ .nav-menu { display:none; } }
 #mobileMenu {
-  pointer-events:none; margin-top:8px; width:100%; max-width:1888px;
-  overflow:hidden; border-radius:14px; background:rgba(255,255,255,.8); padding:10px;
+  pointer-events:none; margin-top:8px; width:100%;
+  overflow:hidden; border-radius:var(--radius-card); background:rgba(255,255,255,.8); padding:10px;
   backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
   box-shadow:0 8px 28px rgba(10,10,10,.08);
   opacity:0; transform:translateY(-8px);
@@ -228,8 +228,10 @@ h1,h2,h3,p { font-weight:inherit; }
 #heroCanvas { position:absolute; inset:0; z-index:1; width:100%; height:100%; }
 #heroHeadline {
   position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
-  align-items:flex-start; gap:26px; padding:40px; pointer-events:none;
+  align-items:flex-start; justify-content:center; gap:26px; padding:40px 40px 120px;
+  pointer-events:none;
 }
+#heroHeadline .hero-btns { pointer-events:auto; margin-top:8px; }
 .hero-sub { max-width:34rem; font-size:17px; font-weight:300; line-height:1.6; color:#fff; opacity:.88; }
 @media (max-width:640px){
   #heroHeadline { padding:20px; gap:16px; }
@@ -265,7 +267,7 @@ h1,h2,h3,p { font-weight:inherit; }
 }
 #heroImgB { left:100%; }
 #heroBottom {
-  position:absolute; bottom:0; left:0; width:100%; padding:40px; z-index:6;
+  position:absolute; bottom:0; left:0; width:100%; padding:40px; z-index:5;
   display:flex; flex-direction:column; gap:24px; color:#fff; font-weight:300;
 }
 .hero-para { max-width:28rem; opacity:.9; font-size:16px; line-height:1.625; }
@@ -278,7 +280,48 @@ h1,h2,h3,p { font-weight:inherit; }
 }
 .hero-btn.solid { background:var(--db-accent); color:#111; font-weight:500; border-color:transparent; }
 .hero-divider { width:100%; height:1px; background:rgba(255,255,255,.3); margin:8px 0; }
-.hero-meta { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.hero-meta { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+
+/* client logos marquee (hero bottom center) */
+#clientMarquee {
+  flex:1; align-self:center; overflow:hidden; min-width:0;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.cm-row { display:flex; align-items:center; width:max-content; animation:marquee-run 28s linear infinite; }
+.cm-row img { height:24px; width:auto; margin-right:3.5vw; filter:brightness(0) invert(1); opacity:.85; }
+
+/* contact box (hero bottom right, above the image card so logos slide
+   under its glass blur) */
+#contactBox {
+  position:absolute; right:40px; bottom:40px; z-index:7;
+  display:flex; align-items:flex-end; gap:10px; pointer-events:auto;
+  color:#fff; font-weight:300;
+}
+@media (max-width:640px){ #contactBox { display:none; } }
+.cb-avatar { width:88px; height:88px; border-radius:16px; object-fit:cover; display:block; }
+.cb-panel {
+  position:relative; width:272px; border-radius:16px; padding:14px 18px;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+}
+.cb-dot {
+  position:absolute; top:11px; right:11px; width:9px; height:9px;
+  border-radius:9999px; background:#ff3b30;
+  animation:cb-blink 1.5s ease-in-out infinite;
+}
+@keyframes cb-blink { 0%,100% { opacity:1; } 50% { opacity:.15; } }
+.cb-idle { display:flex; flex-direction:column; gap:1px; max-height:64px; overflow:hidden; transition:max-height .4s ease, opacity .3s ease; }
+.cb-idle b { font-size:18px; font-weight:600; color:#fff; }
+.cb-idle span { font-size:13px; opacity:.6; }
+#contactBox:hover .cb-idle { max-height:0; opacity:0; }
+.cb-details { display:flex; flex-direction:column; max-height:0; opacity:0; overflow:hidden; transition:max-height .45s ease, opacity .35s ease; }
+#contactBox:hover .cb-details { max-height:280px; opacity:1; }
+.cb-row { display:flex; flex-direction:column; gap:1px; padding:8px 0; border-bottom:1px dotted rgba(255,255,255,.35); }
+.cb-row:first-child { padding-top:2px; }
+.cb-row:last-child { border-bottom:none; padding-bottom:2px; }
+.cb-row label { font-size:12px; opacity:.6; }
+.cb-row a { font-size:16px; font-weight:500; color:#fff; }
 .avatar-pill {
   display:flex; align-items:center; gap:12px;
   background:rgba(255,255,255,.1); backdrop-filter:blur(12px);
@@ -548,6 +591,10 @@ h1,h2,h3,p { font-weight:inherit; }
                 <span id="heroLine3" class="hero-line2"></span>
               </h1>
               <p class="hero-sub">Web si dnes vygenerujete za odpoledne. Jenže důvěra zákazníků se vygenerovat nedá — ta se pořád buduje: značkou, webem a obsahem, které někdo promyslel. Přesně tam začínáme my.</p>
+              <div class="hero-btns">
+                <a class="hero-btn solid" href="#zacit-projekt">Začít projekt</a>
+                <a class="hero-btn" href="#prace">Podívat se na práci ↓</a>
+              </div>
             </div>
             <div id="browseTemplates"><h2 id="browseText"></h2></div>
             <div id="heroImageWrap">
@@ -557,10 +604,6 @@ h1,h2,h3,p { font-weight:inherit; }
               </div>
             </div>
             <div id="heroBottom">
-              <div class="hero-btns">
-                <a class="hero-btn solid" href="#zacit-projekt">Začít projekt</a>
-                <a class="hero-btn" href="#prace">Podívat se na práci ↓</a>
-              </div>
               <div class="hero-divider"></div>
               <div class="hero-meta">
                 <div class="avatar-pill">
@@ -571,9 +614,26 @@ h1,h2,h3,p { font-weight:inherit; }
                     <img src="https://i.pravatar.cc/100?img=4" alt="">
                     <img src="https://i.pravatar.cc/100?img=5" alt="">
                   </div>
-                  <span class="trusted">Věří nám Škoda Auto, Kooperativa i IKEM</span>
+                  <span class="trusted">+150 spokojených klientů</span>
                 </div>
-                <p class="hero-meta-right">Za posledních pár let se změnilo všechno a nic. Zákazník se rozhoduje pořád stejně: podle toho, komu věří.</p>
+                <div id="clientMarquee">
+                  <div class="cm-row" id="cmRow"></div>
+                </div>
+              </div>
+            </div>
+            <div id="contactBox">
+              <img class="cb-avatar" src="https://i.pravatar.cc/200?img=12" alt="Jiří Flachs">
+              <div class="cb-panel">
+                <span class="cb-dot" aria-hidden="true"></span>
+                <div class="cb-idle">
+                  <b>Ozvěte se mi</b>
+                  <span>Jiří Flachs</span>
+                </div>
+                <div class="cb-details">
+                  <div class="cb-row"><label>E-mail</label><a href="mailto:jirka@debono.cz">jirka@debono.cz</a></div>
+                  <div class="cb-row"><label>Telefon</label><a href="tel:+420777123456">+420 777 123 456</a></div>
+                  <div class="cb-row"><label>Domluvit hovor</label><a href="#calendly">Calendly</a></div>
+                </div>
               </div>
             </div>
           </div>
@@ -958,6 +1018,7 @@ const auroraEl = el('aurora'), backdropEl = el('backdrop'), marqueeEl = el('marq
 const rigEl = el('rig'), carouselEl = el('carousel');
 const card1El = el('card1'), card2El = el('card2'), card3El = el('card3'), card4El = el('card4');
 const heroHeadlineEl = el('heroHeadline'), heroBottomEl = el('heroBottom');
+const contactBoxEl = el('contactBox');
 const heroSliderEl = el('heroSlider'), heroImgAEl = el('heroImgA'), heroImgBEl = el('heroImgB');
 const carouselCtaEl = el('carouselCta');
 const sphereSceneWrapEl = el('sphereSceneWrap'), sphereWrapEl = el('sphereWrap');
@@ -980,6 +1041,25 @@ const MARQUEE_ITEMS = ['Studio pro značky, kterým lidé věří', 'Malé studi
       const b = document.createElement('span');
       b.className = 'marquee-bullet';
       row.appendChild(b);
+    }
+  }
+}
+
+/* Client logos marquee (hero bottom center) — all forced white via CSS filter */
+const CLIENT_LOGOS = [
+  ['skoda-auto', 'Škoda Auto'], ['rajska-clinic', 'Rajská Clinic'],
+  ['prague-icu', 'Prague ICU'], ['covid-portal', 'Covid Portál'],
+  ['stredocesky-kraj', 'Středočeský kraj'], ['stredni-cechy', 'Střední Čechy'],
+  ['rum-professore', 'Rum Professore'], ['basic-principles', 'Basic Principles'],
+];
+{
+  const row = el('cmRow');
+  for (let rep = 0; rep < 2; rep++) {
+    for (const [slug, name] of CLIENT_LOGOS) {
+      const img = document.createElement('img');
+      img.src = `assets/logos/${slug}.svg`;
+      img.alt = name;
+      row.appendChild(img);
     }
   }
 }
@@ -1606,11 +1686,13 @@ function updateDOM(p, dt) {
   card1El.style.transform = card1Transform(p);
   card1El.style.zIndex = cardZIndex(p, 0);
   card1El.style.opacity = c1o;
-  card2El.style.transform = sideCardTransform(p, 90);
-  card2El.style.zIndex = cardZIndex(p, 1);
+  // slots swapped so the carousel alternates dark/light: hero(dark) →
+  // card3(light) → card2(dark) → card4(lime)
+  card2El.style.transform = sideCardTransform(p, 180);
+  card2El.style.zIndex = cardZIndex(p, 2);
   card2El.style.opacity = c1o;
-  card3El.style.transform = sideCardTransform(p, 180);
-  card3El.style.zIndex = cardZIndex(p, 2);
+  card3El.style.transform = sideCardTransform(p, 90);
+  card3El.style.zIndex = cardZIndex(p, 1);
   card3El.style.opacity = c1o;
   card4El.style.transform = sideCardTransform(p, 270);
   card4El.style.zIndex = cardZIndex(p, 3);
@@ -1620,6 +1702,8 @@ function updateDOM(p, dt) {
   const hcf = heroContentFade(p);
   heroHeadlineEl.style.opacity = hcf;
   heroBottomEl.style.opacity = hcf;
+  contactBoxEl.style.opacity = hcf;
+  contactBoxEl.style.pointerEvents = hcf > 0 ? 'auto' : 'none';
   tiltRx += (tiltTx - tiltRx) * 0.08;
   tiltRy += (tiltTy - tiltRy) * 0.08;
   const tf = heroTiltFade(p);
