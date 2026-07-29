@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flowstate — Deep Work in a Distracted World</title>
+  <title>Flowstate — Doba se zrychlila. Důvěra ne.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -280,6 +280,14 @@
       will-change: transform, opacity;
     }
 
+    /* White highlight block behind "Důvěra ne" — animates as one word unit. */
+    .headline .hl {
+      background: var(--action-inverse);
+      color: var(--hero-base);
+      padding: 0 0.18em;
+      white-space: nowrap;
+    }
+
     /* ---------- ≥640px ---------- */
 
     @media (min-width: 640px) {
@@ -336,9 +344,9 @@
     <div class="center">
       <p class="badge from-down" data-reveal style="transition-delay: 320ms">10K+ already in flow</p>
 
-      <h1 class="headline" data-words data-base-delay="480" data-stagger="85" data-duration="720" data-from-y="26">Deep Work in a Distracted World</h1>
+      <h1 class="headline" data-words data-base-delay="480" data-stagger="85" data-duration="720" data-from-y="26">Doba se zrychlila <span class="hl">Důvěra ne</span></h1>
 
-      <p class="subline" data-words data-base-delay="1150" data-stagger="22" data-duration="600" data-from-y="14">Cut through the noise, reclaim your attention, and do work that truly matters.</p>
+      <p class="subline" data-words data-base-delay="1150" data-stagger="22" data-duration="600" data-from-y="14">Web si dnes vygenerujete za odpoledne. Jenže důvěra zákazníků se vygenerovat nedá — ta se pořád buduje.</p>
 
       <div class="waitlist from-down" data-reveal style="transition-delay: 1450ms">
         <form novalidate="false">
@@ -1491,9 +1499,9 @@ function fluidSimulation(canvas) {
     };
 
     function generateColor() {
-        // Electric cyan→blue→violet→magenta band, full brightness, for a vivid,
+        // Acid yellow→lime→green band, full brightness, for a vivid,
         // slick, immersive palette.
-        const h = 0.5 + Math.random() * 0.42;
+        const h = 0.13 + Math.random() * 0.15;
         let c = HSVtoRGB(h, 0.95, 1.0);
         c.r *= 0.92;
         c.g *= 0.92;
@@ -1552,18 +1560,31 @@ function fluidSimulation(canvas) {
         const stagger = parseInt(el.dataset.stagger, 10);
         const duration = parseInt(el.dataset.duration, 10);
         const fromY = parseInt(el.dataset.fromY, 10);
-        const words = el.textContent.trim().split(/\s+/);
+        // Plain text splits on spaces; an element child (e.g. the .hl highlight
+        // block) stays intact and animates as a single word unit.
+        const units = [];
+        el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE)
+                node.textContent.trim().split(/\s+/).filter(Boolean).forEach(w => units.push(w));
+            else if (node.nodeType === Node.ELEMENT_NODE)
+                units.push(node);
+        });
         el.textContent = "";
-        words.forEach((word, i) => {
-            const span = document.createElement("span");
-            span.className = "word";
-            span.textContent = word;
+        units.forEach((unit, i) => {
+            let span;
+            if (typeof unit === "string") {
+                span = document.createElement("span");
+                span.textContent = unit;
+            } else {
+                span = unit;
+            }
+            span.classList ? span.classList.add("word") : span.className = "word";
             span.style.opacity = "0";
             span.style.transform = "translateY(" + fromY + "px)";
             span.style.transitionDuration = duration + "ms";
             span.style.transitionDelay = (baseDelay + i * stagger) + "ms";
             el.appendChild(span);
-            if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+            if (i < units.length - 1) el.appendChild(document.createTextNode(" "));
         });
     });
 
