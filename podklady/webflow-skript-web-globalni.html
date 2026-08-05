@@ -1,21 +1,30 @@
 <!-- ============================================================
   RAJSKÁ CLINIC — GLOBÁLNÍ SKRIPT (celý web)
 
-  KAM: Webflow Designer → Site settings (ozubené kolo vlevo dole)
-       → Custom code → „Footer code" (Before </body>) → vložit → Save.
-       Tím platí pro všechny stránky najednou.
+  KDE UŽ JE: Site settings → Custom code → „Head code".
+  Nahráno přes API, ručně nic vkládat nemusíte. Tenhle soubor je
+  referenční kopie — po úpravě ho znovu nahrajeme do Webflow.
 
   POZOR: skripty jednotlivých stránek (ceník, šablona služby, šablona
   týmu, služby) zůstávají tam, kde jsou — tenhle je doplňuje.
 
   CO DĚLÁ:
-  1. Slider týmu — šipky ←/→ posouvají o jednu kartu, plynule.
+  1. Karty služeb a lidí — po najetí myší se fotka v pozadí plynule
+     přiblíží (karta má overflow: hidden, takže se ořízne).
+  2. Slider týmu — šipky ←/→ posouvají o jednu kartu, plynule.
      Šipky se samy skryjí, když není kam posunout.
-  2. Animace při scrollu — prvky se třídou .anim-nahoru (a všechny
+  3. Animace při scrollu — prvky se třídou .anim-nahoru (a všechny
      karty .card-service) se jemně vynoří zdola. Respektuje
      systémové nastavení „omezit pohyb".
 ============================================================ -->
 <style>
+  /* karta služby / člena týmu — přiblížení fotky v pozadí po najetí */
+  .card-service .image-card {
+    transition: transform .7s cubic-bezier(.22, .61, .36, 1);
+    will-change: transform;
+  }
+  .card-service:hover .image-card { transform: scale(1.08); }
+
   /* výchozí (skrytý) stav — nasadí se jen když skript běží */
   .js-anim .anim-nahoru,
   .js-anim .card-service,
@@ -30,6 +39,8 @@
   @media (prefers-reduced-motion: reduce) {
     .js-anim .anim-nahoru, .js-anim .card-service,
     .js-anim .kapitola, .js-anim .milnik { opacity: 1; transform: none; transition: none; }
+    .card-service .image-card { transition: none; }
+    .card-service:hover .image-card { transform: none; }
     .slider-track { scroll-behavior: auto; }
   }
 </style>

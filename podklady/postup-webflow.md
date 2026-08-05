@@ -208,3 +208,23 @@ Prolinkované položky horní lišty:
 Overview / Analytics / Healthcare / „Sign up for the '26 conf" apod. (33 odkazů).
 Je potřeba je přepsat na služby kliniky; není to jen výměna odkazů, ale i textů,
 proto to nechávám na odsouhlasení.
+
+## Hover efekt na kartách služeb
+
+Po najetí myší se fotka v pozadí karty plynule přiblíží (scale 1.08, 700 ms).
+Karta má `overflow: hidden`, takže se zvětšená fotka ořízne na rohy karty.
+Platí na všech kartách se třídou `.card-service` — služby i lidé v týmu.
+
+Rozdělené na dvě části, aby šla většina ladit v Designeru:
+
+| Část | Kde se mění |
+|---|---|
+| přechod + `will-change` | **třída `.image-card` v Designeru** — rychlost i křivku změníš tam |
+| samotné zvětšení při hoveru | site custom code, registrovaný skript **„Karta hover zoom"** |
+
+Zvětšení musí být v kódu proto, že jde o selektor `.card-service:hover .image-card`
+(hover na rodiči mění potomka) — takový zápis Designer neumí a Webflow interakce
+by se musely klikat ručně u každé instance.
+
+⚠ V Designeru efekt neuvidíte (registrované skripty se v canvasu nespouštějí),
+projeví se až na publikovaném webu.
