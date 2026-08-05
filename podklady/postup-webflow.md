@@ -371,3 +371,43 @@ plus tlačítko „Zobrazit všechny služby" → /sluzby.
 Footer měl na všech stránkách adresu **Czech Swiss Dental Clinic, Galerie Harfa,
 Českomoravská 2420/15a** — pozůstatek po šabloně. Opraveno v komponentě na
 RAJSKÁ Clinic, Jankovcova 1566/2B, Praha 7 – Holešovice, 170 00.
+
+---
+
+# Navigace — „Naše služby"
+
+## Chování
+
+- **Klik** na „Naše služby" → `/sluzby` (rozcestník).
+- **Najetí myší** → rozbalí se dropdown. Zavře se ~0,26 s po odjetí.
+- Na mobilu (≤991 px) klik ponechán na rozbalení panelu, aby šlo menu ovládat prstem.
+
+Řeší registrovaný skript **`nav_sluzby`**. Rozlišuje skutečný klik od
+programového přes `event.isTrusted` — proto najetí myší panel jen otevře
+a nenaviguje.
+
+## Obsah dropdownu
+
+Demo obsah ze šablony Osmo (Platform / Features / Overview / Analytics…) byl
+smazán. Místo něj je **Collection List na kolekci Služby** ve dvou sloupcích
+(třída `nav-sluzby-mrizka`), položka = `mega-nav__panel-link` s názvem služby
+a štítky, prolinkovaná na detail služby.
+
+## ⚠ Dvě vazby je potřeba doklikat v Designeru
+
+Webflow API neumí navázat CMS text uvnitř **komponenty** — vrací
+„Element is not inside a CMS context". Odkaz na detail navázaný je, texty ne.
+
+V Designeru → komponenta **mega-nav** → dropdown „Naše ošetření“ → v Collection
+Listu u položky:
+
+| Prvek (třída) | Navázat na pole |
+|---|---|
+| `mega-nav__panel-link-text` | **Name** |
+| `mega-nav__panel-link-desc` | **Řeší – štítky** |
+
+Je to dvakrát kliknout na „Get text from…“. Zbytek (zdroj kolekce, mřížka,
+odkaz na detail) je hotový.
+
+Zbylé dva dropdown panely v komponentě (Resources / Company) jsou pořád demo
+obsah z šablony, ale nevede na ně žádná položka v liště — nikde se nezobrazí.
