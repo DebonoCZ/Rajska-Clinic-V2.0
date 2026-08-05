@@ -88,3 +88,65 @@ Stejně šablona Týmu (/tym/:slug) — profil + reverzní výpis služeb.
 | Homepage + /sluzby + /o-nas + drobné | 1–1,5 dne |
 | Obsah, ladění, publikace | 0,5–1 den |
 | **Celkem** | **~4–5 dní práce v Designeru** |
+
+---
+
+# Stav ve Webflow (hotovo přes API)
+
+## Celoplošná úvodní sekce „Section Cover"
+
+Všechny podstránky mají stejnou celoobrazovkovou hlavičku jako CMS detail služby —
+stejné třídy, takže se dá stylovat na jednom místě:
+
+```
+.Section Cover
+├── .SC Content.hero
+│   ├── .SC Holder.Top & Bottom
+│   └── .SC Holder.Middle
+│       └── .kontejner-sluzby.left
+│           ├── .sluzba-nadtitulek     (nadtitulek)
+│           ├── h1.h1.white            (titulek)
+│           ├── .sluzba-claim.white    (claim)
+│           └── .Div Block 4 > .link-ring (šipka dolů, skok na další sekci)
+├── .SC Overlay
+└── .SC Image > img.Cover Image
+```
+
+| Stránka | Nadtitulek / titulek | Fotka |
+|---|---|---|
+| /sluzby | Naše péče / Nabídka služeb | ošetření pleti |
+| /tym | Kdo se o vás postará / Náš tým | týmová fotka |
+| /o-nas | Náš příběh / Krása, která nepotřebuje filtr | interiér kliniky s týmem |
+| /cenik | Přehledně a bez překvapení / Ceník | ošetření pleti |
+| /kontakt | Kde nás najdete / Kontakt | MUDr. Rajská v ordinaci |
+| Šablona týmu | pozice / jméno / bio — **napojeno na CMS**, fotka = pole Fotografie | dle člověka |
+
+Původní šedé pásy s nadpisem (`.Section.Grey > .Container.Inner Page`) byly na těchto
+stránkách odstraněny — nahradila je právě tahle hlavička.
+
+## Navigace
+
+Komponenta **Header** má prolinkované položky: O nás, služby, ceník, tým, Kontakt,
+obě tlačítka „Domluvit konzultaci" → /kontakt, logo → homepage.
+(Položka „Prostory" zatím nemá cílovou stránku. Komponenta **mega-nav** na šabloně
+služby má vlastní rozsáhlé menu — odkazy v ní zatím nastavené nejsou.)
+
+## Šablona týmu
+
+Doplněny chybějící komponenty Header a Footer, tlačítko Instagram je navázané na
+CMS pole Instagram.
+
+## Homepage
+
+Statické mřížky s medailonky týmu odstraněny — nahradil je CMS slider `#tym-slider`
+se šipkami (`[data-slider="prev"|"next"]`).
+
+## Skripty k vložení ve Webflow
+
+| Soubor | Kam |
+|---|---|
+| `webflow-skript-web-globalni.html` | Site settings → Custom code → Footer (celý web) |
+| `webflow-skript-cenik.html` | stránka Ceník → Before `</body>` |
+| `webflow-skript-sluzby.html` | stránka Služby → Before `</body>` |
+| `webflow-skript-sablona-sluzby.html` | Služby Template → Before `</body>` |
+| `webflow-skript-sablona-tym.html` | Tým Template → Before `</body>` |
