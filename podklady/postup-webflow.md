@@ -163,3 +163,48 @@ Karty na /sluzby byly navázané na to prázdné pole, proto se fotky nenačíta
 Přenavázal jsem je na `hero-image-do-pozadi` — stejné pole, jaké už používá hero
 na detailu služby. Pole „Náhledový obrázek" je tím pádem nepoužité; buď ho v CMS
 smaž, nebo do něj nahraj vlastní ořezy pro karty (pak se musí karta přenavázat zpět).
+
+---
+
+# Publikace 5. 8. 2026
+
+Web vypublikován na Webflow subdoménu (`publishToWebflowSubdomain`).
+
+## Co se změnilo
+
+**Obrázky služeb** — všech 13 služeb má teď vyplněná obě obrázková pole:
+`hero-image-do-pozadi` (velké hero na detailu) i `nahledovy-obrazek` (karta ve výpisu).
+Zatím je v obou stejná fotka; „Náhledový obrázek" je samostatné pole právě proto,
+aby se dal nahradit zmenšenou/optimalizovanou variantou bez zásahu do hero fotky.
+Karta ve výpisu je navázaná na `nahledovy-obrazek`.
+
+**Draft položky** — z draftu vytaženo:
+- služba „Niťový lifting" (jediná služba, která nebyla publikovaná)
+- 10 z 11 lidí v týmu (publikovaná byla jen MUDr. Rajská — proto by /tym byl prázdný)
+
+**Chybějící fotka** — MUDr. Barbora Formánková neměla portrét, doplněn asset
+„Placeholder foto lékaře". Jakmile dorazí skutečná fotka, stačí ji přepsat v CMS.
+
+## Header
+
+Komponenta **Header** nahrazena komponentou **mega-nav** (ta z detailu služby) na všech
+stránkách: homepage, /sluzby, /tym, /o-nas, /cenik, /kontakt, šablona týmu.
+Šablona služby ji měla už předtím.
+
+Prolinkované položky horní lišty:
+
+| Položka | Cíl |
+|---|---|
+| logo | homepage |
+| Naše služby | rozbaluje mega panel (není to odkaz) |
+| O nás | /o-nas |
+| **Tým** | /tym — položka nově doplněna, v mega-nav chyběla |
+| Ceník | /cenik |
+| Prostory | zatím bez cíle (stránka neexistuje) |
+| Kontakt | /kontakt |
+| Domluvit konzultaci | /kontakt |
+
+⚠ **Obsah rozbalovacího mega panelu je pořád demo ze šablony Osmo** — anglické položky
+Overview / Analytics / Healthcare / „Sign up for the '26 conf" apod. (33 odkazů).
+Je potřeba je přepsat na služby kliniky; není to jen výměna odkazů, ale i textů,
+proto to nechávám na odsouhlasení.
