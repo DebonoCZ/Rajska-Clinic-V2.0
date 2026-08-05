@@ -311,3 +311,63 @@ Services Template a všech 10 starých stránek lékařů.
 Footer na nich je, ale mají **starou komponentu Header** a celý starý design.
 Doporučení: smazat je a nastavit 301 redirecty na nové ekvivalenty. Prohazovat
 na nich hlavičku nemá smysl, obsah by stejně zůstal starý.
+
+---
+
+# Oprava nahlášených chyb
+
+## 1) Staré statické stránky lidí a oblastí
+
+Odstaveny z publikování (`draft: true`) — na webu už nejsou:
+10× stránka lékaře (`/lucie-rajska`, `/barbora-grillova`, `/anna-flachsova`,
+`/vladena-charvatova`, `/natalia-havlicek`, `/krystof-kudlacek`, `/klara-novakova`,
+`/mudr-barbora-formankova`, `/mudr-zuzana-tulpova`, `/marie-efanova`),
+dále `/dermatologie` a `/esteticka-dermatologie`.
+
+Zvolen draft místo smazání — je to vratné a výsledek je stejný (stránky nejsou
+na webu). Smazat napevno můžeme kdykoli.
+
+**301 redirecty API neumí — je potřeba je naklikat** v Site settings → Publishing:
+
+| Z | Na |
+|---|---|
+| /lucie-rajska, /barbora-grillova, /anna-flachsova, /vladena-charvatova, /natalia-havlicek, /krystof-kudlacek, /klara-novakova, /mudr-barbora-formankova, /mudr-zuzana-tulpova, /marie-efanova | /tym |
+| /dermatologie, /esteticka-dermatologie | /sluzby |
+
+## 2) Menu — Tým a O nás v jednom kontejneru
+
+Položka Tým se při vkládání připojila do stejného `<li>` jako O nás a text
+skončil zabalený v `<div>`. Opraveno: Tým má vlastní `<li>` s atributem
+`data-nav-list-item` a text je přímo v labelu.
+
+Prolinkováno: logo → homepage, O nás → /o-nas, Tým → /tym, Ceník → /cenik,
+**Prostory → /prostory**, Kontakt i obě CTA → /kontakt.
+
+## 3) Homepage — hero ve stejném layoutu jako podstránky
+
+Hero přestavěn ze `Section 3 / Hero` na sdílený `Section Cover`. Původní obsah
+(H1 se zlatým zvýrazněním, odstavec, hodnocení Google) i **background video**
+byly přesunuty, nic se nepřepisovalo. Video sedí v `SC Image` místo fotky.
+
+## 4) Nová stránka /prostory
+
+Cover hlavička + text + galerie fotek (`.galerie-foto`, mřížka `Grid 4`).
+Fotky jsou zatím **placeholdery z Assets** — část z nich je z jiné (zubní)
+kliniky, je potřeba je vyměnit za skutečné fotky Rajská Clinic.
+
+Galerie se otevírá v lightboxu jako jedna společná galerie — registrovaný skript
+`galerie_lightbox` (šipky, Esc, klik mimo, počítadlo). Webflow Lightbox element
+přes API nastavit nejde (neexistuje pro něj API na média ani skupinu galerie).
+
+## 5) Homepage — sekce služeb podle prototypu
+
+Přidána sekce **Nejoblíbenější služby**: Collection List na kolekci Služby,
+limit 4, řazení dle pole Pořadí, karty ve sdílených třídách
+`card-service` / `image-card` / `content-card` / komponenta `Heading-card`,
+plus tlačítko „Zobrazit všechny služby" → /sluzby.
+
+## Bonus: špatná adresa ve footeru
+
+Footer měl na všech stránkách adresu **Czech Swiss Dental Clinic, Galerie Harfa,
+Českomoravská 2420/15a** — pozůstatek po šabloně. Opraveno v komponentě na
+RAJSKÁ Clinic, Jankovcova 1566/2B, Praha 7 – Holešovice, 170 00.
