@@ -1,0 +1,39 @@
+<!-- ============================================================
+  RAJSKÁ CLINIC — skript pro stránku SLUŽBY (/sluzby)
+
+  KAM: Webflow Designer → Pages → Služby → ⚙ Settings
+       → Custom code → „Before </body> tag" → vložit → Save → Publish.
+
+  CO DĚLÁ:
+  Záložky Vše / Estetická medicína / Dermatologie / Plastická chirurgie
+  filtrují karty služeb podle pole „Oblast" z CMS — okamžitě, bez
+  načítání stránky. Webflow Tabs samy o sobě jeden Collection List
+  filtrovat neumí, tohle je propojí.
+============================================================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var taby = document.getElementById('sluzby-taby');
+  var vypis = document.getElementById('vypis-sluzeb');
+  if (!taby || !vypis) return;
+
+  var karty = Array.prototype.slice.call(vypis.querySelectorAll('.card-service'));
+  karty.forEach(function (k) {
+    var znacka = k.querySelector('.je-skryte');
+    k._oblast = znacka ? znacka.textContent.trim() : '';
+  });
+
+  function filtruj(oblast) {
+    karty.forEach(function (k) {
+      var zobraz = !oblast || k._oblast === oblast;
+      k.classList.toggle('je-schovana', !zobraz);
+    });
+  }
+
+  taby.querySelectorAll('.tab, [class*="tab"][role="tab"], a.w-tab-link').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var popisek = tab.textContent.trim();
+      filtruj(popisek === 'Vše' ? '' : popisek);
+    });
+  });
+});
+</script>
