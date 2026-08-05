@@ -275,3 +275,39 @@ Nasazeno jako site scripts (Site settings → Custom code → registrované skri
 
 Skripty se samy deaktivují na stránkách, kde příslušné prvky nejsou.
 Ceník a šablona týmu mají své skripty už vložené ve svém page custom code.
+
+---
+
+# Footer — audit všech stránek
+
+Footer = komponenta **Footer** `5f825ed3-bdab-7432-8713-7364b8e98f75`.
+Prošlo se všech **29 stránek** webu. Všude je stejná instance komponenty
+bez přepsaných propů — změna v komponentě se propíše na celý web.
+
+**Footer měly už předtím (25 stránek):** Home, Home Copy (draft), Služby,
+Služby Template, Tým, Tým Template, O nás, Ceník, Kontakt, Souhlas s cookies,
+Pravidla soutěže, Dermatologie, Estetická dermatologie, Procedures Template,
+Services Template a všech 10 starých stránek lékařů.
+
+**Chybělo — doplněno:**
+
+| Stránka | Co se přidalo |
+|---|---|
+| 404 | Footer + mega-nav (starý Header odebrán) |
+| Password (401) | Footer + mega-nav (starý Header odebrán) |
+| Ceník – položky Template | Footer + mega-nav — stránka byla úplně prázdná |
+| Ceník – kategorie Template | Footer + mega-nav — stránka byla úplně prázdná |
+
+## Staré stránky z původního webu — k rozhodnutí
+
+15 z 29 stránek je pozůstatek po duplikaci původního webu a nový web je nahrazuje:
+
+- 10× samostatná stránka lékaře (`/lucie-rajska`, `/barbora-grillova`, …)
+  → nahrazuje CMS šablona `/tym/:slug`
+- `/dermatologie`, `/esteticka-dermatologie` → nahrazuje `/sluzby`
+- `Procedures Template`, `Services Template` → staré CMS kolekce
+- `Home Copy` (draft)
+
+Footer na nich je, ale mají **starou komponentu Header** a celý starý design.
+Doporučení: smazat je a nastavit 301 redirecty na nové ekvivalenty. Prohazovat
+na nich hlavičku nemá smysl, obsah by stejně zůstal starý.
