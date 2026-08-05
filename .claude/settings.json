@@ -2,6 +2,20 @@
   "permissions": {
     "allow": [
       "mcp__Webflow",
+      "mcp__Webflow__data_element_settings_tool",
+      "mcp__Webflow__data_component_props_tool",
+      "mcp__Webflow__data_component_variants_tool",
+      "mcp__Webflow__data_component_builder",
+      "mcp__Webflow__data_element_builder",
+      "mcp__Webflow__data_element_tool",
+      "mcp__Webflow__data_style_tool",
+      "mcp__Webflow__data_cms_tool",
+      "mcp__Webflow__data_pages_tool",
+      "mcp__Webflow__data_scripts_tool",
+      "mcp__Webflow__data_assets_tool",
+      "mcp__Webflow__asset_tool",
+      "mcp__Webflow__designer_tool",
+      "mcp__Webflow__element_snapshot_tool",
       "mcp__Claude_Code_Remote",
       "WebFetch",
       "WebSearch"

@@ -1,0 +1,21 @@
+<!-- ============================================================
+  RAJSKÁ CLINIC — skript pro šablonu člena týmu
+
+  KAM: Webflow Designer → Pages → Tým Template → ⚙ Settings
+       → Custom code → „Before </body> tag" → vložit → Save → Publish.
+
+  CO DĚLÁ:
+  V sekci „Další lidé z týmu" skryje kartu člověka, jehož profil je
+  právě otevřený (Webflow neumí nativně vyloučit aktuální položku).
+  Porovnává slug ze skryté značky v kartě s adresou stránky.
+============================================================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var cesta = window.location.pathname.split('/').filter(Boolean).pop() || '';
+  document.querySelectorAll('.tym-karta').forEach(function (karta) {
+    var znacka = karta.querySelector('.je-skryte');
+    var slug = znacka ? znacka.textContent.trim() : '';
+    if (slug && slug === cesta) { karta.classList.add('je-aktualni'); }
+  });
+});
+</script>
