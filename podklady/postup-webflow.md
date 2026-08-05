@@ -228,3 +228,50 @@ by se musely klikat ručně u každé instance.
 
 ⚠ V Designeru efekt neuvidíte (registrované skripty se v canvasu nespouštějí),
 projeví se až na publikovaném webu.
+
+---
+
+# Responzivita — kontrola a doladění
+
+Projito po třídách, breakpointy Webflow: **medium** ≤991 (tablet),
+**small** ≤767 (mobil na šířku), **tiny** ≤479 (mobil na výšku).
+
+## Co bylo v pořádku už předtím
+
+`fakta-mrizka` (4→2→1), `cta-mrizka`, `sluzba-dvousloupec`, `kroky-mrizka` (3→1),
+`tym-sluzby-mrizka`, `garant-box` (na mobilu pod sebe), `sluzba-hero-cta`,
+`cenik-polozka` (zalomení ceny), `slider-polozka` (28 % → 42 % → 78 %),
+`sekce-sluzby` (padding 2rem → 1,25rem).
+
+## Co jsem opravil
+
+| Třída | Problém | Oprava |
+|---|---|---|
+| `Grid 4` (karty služeb) | skok 3 sloupce → 1 už na tabletu | medium `1fr 1fr`, small `1fr` |
+| `Section Cover` | na tabletu chyběl boční padding, text lepil na kraj | medium `padding-left/right: 5vw` |
+| `SC Content` | `height: 100vh` + `overflow: hidden` u rodiče → na nízkém displeji (mobil na šířku) se obsah ořízl | small `height: auto`, `position: relative` |
+| `cenik-vstup` (vyhledávání) | 30px písmo a 40px padding i na mobilu | small 18px/18–24px, tiny 16px/14–20px |
+| `tym-mrizka` | 2 sloupce i na úzkém telefonu | tiny `1fr` |
+| `slider-hlavicka` | nadpis + šipky se na mobilu tlačily na jeden řádek | small `flex-wrap: wrap` |
+| `kontakt-karta` | padding 32px ubíral moc místa | small 24px |
+| `sluzba-claim` | 18px na mobilu | small 16px |
+
+## Mega-nav na mobilu
+
+Komponenta má vlastní `Code Embed` uvnitř sebe, takže si skript nese s sebou na
+každou stránku. Mobilní chování je připravené (`data-mobile-nav`,
+`data-mobile-back`, tlačítko „Back"). Nic doplňovat netřeba.
+
+## Skripty nasazené přes API
+
+`set_page_freeform_code` vrací 406, ale **registrované skripty jdou nahrát**.
+Nasazeno jako site scripts (Site settings → Custom code → registrované skripty):
+
+| Skript | Co dělá |
+|---|---|
+| `karta_hover_zoom` | přiblížení fotky na kartě po najetí |
+| `slider_a_animace` | šipky slideru + vynořování prvků při scrollu |
+| `filtr_sluzeb` | záložky Vše / oblasti na /sluzby (chyběl úplně) |
+
+Skripty se samy deaktivují na stránkách, kde příslušné prvky nejsou.
+Ceník a šablona týmu mají své skripty už vložené ve svém page custom code.
