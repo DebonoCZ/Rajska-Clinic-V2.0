@@ -411,3 +411,40 @@ odkaz na detail) je hotový.
 
 Zbylé dva dropdown panely v komponentě (Resources / Company) jsou pořád demo
 obsah z šablony, ale nevede na ně žádná položka v liště — nikde se nezobrazí.
+
+---
+
+# ⚠ Kolize slugů — proč nefungují prokliky na detaily
+
+## Co se děje
+
+Kolekce **Tým** má slug `tym`, takže si rezervuje adresy `/tym/{slug}` pro
+detaily. Zároveň existuje **statická stránka** se slugem `tym`. Webflow API
+hlásí u obou `publishedPath: "/tym"` — dvě stránky na stejné adrese.
+
+Designer by takovou stránku nedovolil založit („slug is already taken"),
+přes API to prošlo. Důsledek: detaily členů týmu se nevygenerují a proklik
+z karty nikam nevede. Úplně stejně je na tom kolekce **Služby** vs. stránka
+`/sluzby`.
+
+Odkaz na kartě je nastavený správně
+(`{"mode":"collectionPage","to":{"pageSlug":"detail_tym"}}`) — problém není
+v odkazu, ale v tom, že cílová adresa neexistuje.
+
+## Řešení (nutný zásah v Designeru — API slug kolekce měnit neumí)
+
+CMS → nastavení kolekce → změnit **slug kolekce**:
+
+| Kolekce | Slug teď | Změnit na | Výsledné adresy detailů |
+|---|---|---|---|
+| Tým | `tym` | `lekar` | `/lekar/lucie-rajska` |
+| Služby | `sluzby` | `sluzba` | `/sluzba/botulotoxin` |
+
+Statické výpisy zůstanou na `/tym` a `/sluzby`.
+
+**Odkazy se předělávat nemusí.** Karty odkazují na *šablonu* přes její slug
+(`detail_tym`, `detail_sluzby`), ne na natvrdo zapsanou adresu — po změně slugu
+kolekce začnou samy mířit na nové adresy.
+
+Zvažovaná alternativa (přejmenovat statické výpisy na `/nas-tym`
+a `/nabidka-sluzeb`) byla zamítnuta kvůli horším adresám výpisů.
