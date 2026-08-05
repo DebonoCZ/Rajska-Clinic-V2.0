@@ -1,0 +1,97 @@
+<!-- ============================================================
+  RAJSKÁ CLINIC — GLOBÁLNÍ SKRIPT (celý web)
+
+  KAM: Webflow Designer → Site settings (ozubené kolo vlevo dole)
+       → Custom code → „Footer code" (Before </body>) → vložit → Save.
+       Tím platí pro všechny stránky najednou.
+
+  POZOR: skripty jednotlivých stránek (ceník, šablona služby, šablona
+  týmu, služby) zůstávají tam, kde jsou — tenhle je doplňuje.
+
+  CO DĚLÁ:
+  1. Slider týmu — šipky ←/→ posouvají o jednu kartu, plynule.
+     Šipky se samy skryjí, když není kam posunout.
+  2. Animace při scrollu — prvky se třídou .anim-nahoru (a všechny
+     karty .card-service) se jemně vynoří zdola. Respektuje
+     systémové nastavení „omezit pohyb".
+============================================================ -->
+<style>
+  /* výchozí (skrytý) stav — nasadí se jen když skript běží */
+  .js-anim .anim-nahoru,
+  .js-anim .card-service,
+  .js-anim .kapitola,
+  .js-anim .milnik { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .js-anim .je-videt { opacity: 1 !important; transform: translateY(0) !important; }
+  /* schované šipky slideru */
+  .slider-sipka[disabled] { opacity: .35; cursor: default; }
+  /* skrytí posuvníku u slideru, ale scroll zůstává funkční */
+  .slider-track { scrollbar-width: none; -ms-overflow-style: none; }
+  .slider-track::-webkit-scrollbar { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js-anim .anim-nahoru, .js-anim .card-service,
+    .js-anim .kapitola, .js-anim .milnik { opacity: 1; transform: none; transition: none; }
+    .slider-track { scroll-behavior: auto; }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------- 1) SLIDER TÝMU ---------- */
+  document.querySelectorAll('.slider-track').forEach(function (track) {
+    var obal = track.closest('div');
+    var sekce = track.parentElement;
+    while (sekce && !sekce.querySelector('[data-slider]')) { sekce = sekce.parentElement; }
+    if (!sekce) return;
+
+    var prev = sekce.querySelector('[data-slider="prev"]');
+    var next = sekce.querySelector('[data-slider="next"]');
+
+    function krok() {
+      var prvni = track.firstElementChild;
+      if (!prvni) return track.clientWidth;
+      var mezera = parseInt(getComputedStyle(track).columnGap || '24', 10) || 24;
+      return prvni.getBoundingClientRect().width + mezera;
+    }
+
+    function stav() {
+      if (!prev || !next) return;
+      var max = track.scrollWidth - track.clientWidth - 2;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max;
+    }
+
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -krok(), behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: krok(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', stav);
+    window.addEventListener('resize', stav);
+    stav();
+  });
+
+  /* ---------- 2) ANIMACE PŘI SCROLLU ---------- */
+  if (!('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js-anim');
+
+  var pozorovatel = new IntersectionObserver(function (zaznamy) {
+    zaznamy.forEach(function (z) {
+      if (z.isIntersecting) {
+        z.target.style.transitionDelay = (z.target._zpozdeni || 0) + 'ms';
+        z.target.classList.add('je-videt');
+        pozorovatel.unobserve(z.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.anim-nahoru, .kapitola, .milnik').forEach(function (el) {
+    pozorovatel.observe(el);
+  });
+
+  /* karty v mřížce se vynořují postupně (kaskáda po 60 ms) */
+  document.querySelectorAll('.w-dyn-items').forEach(function (seznam) {
+    seznam.querySelectorAll('.card-service').forEach(function (karta, i) {
+      karta._zpozdeni = Math.min(i, 7) * 60;
+      pozorovatel.observe(karta);
+    });
+  });
+});
+</script>
