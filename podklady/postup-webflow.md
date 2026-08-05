@@ -150,3 +150,16 @@ se šipkami (`[data-slider="prev"|"next"]`).
 | `webflow-skript-sluzby.html` | stránka Služby → Before `</body>` |
 | `webflow-skript-sablona-sluzby.html` | Služby Template → Before `</body>` |
 | `webflow-skript-sablona-tym.html` | Tým Template → Before `</body>` |
+
+## Pozor: dvě obrázková pole u Služeb
+
+Kolekce Služby má dvě pole typu Image:
+
+- **`hero-image-do-pozadi`** („Hero image do pozadí") — **vyplněné** u všech 13 služeb
+  (01-botulotoxin.avif … 13-plasticka-chirurgie.avif)
+- **`nahledovy-obrazek`** („Náhledový obrázek") — prázdné u všech položek
+
+Karty na /sluzby byly navázané na to prázdné pole, proto se fotky nenačítaly.
+Přenavázal jsem je na `hero-image-do-pozadi` — stejné pole, jaké už používá hero
+na detailu služby. Pole „Náhledový obrázek" je tím pádem nepoužité; buď ho v CMS
+smaž, nebo do něj nahraj vlastní ořezy pro karty (pak se musí karta přenavázat zpět).
