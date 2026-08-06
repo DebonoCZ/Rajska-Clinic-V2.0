@@ -500,3 +500,43 @@ jménem a vyšší verzí, pak přepnout v `set_site_scripts`.
 Tím se zároveň nejspíš opraví i šipky slideru, animace při scrollu,
 lightbox na /prostory a klik/hover chování „Naše služby" — všechny stály
 na stejné chybě.
+
+---
+
+# Osmo mega-nav — proč nefungovalo submenu a oprava
+
+## Příčina č. 1: chyběl GSAP
+
+Osmo skript (Code Embed uvnitř komponenty, `initMegaNavDirectionalHover`) staví
+celou animaci na **GSAP** — a ten se na webu nikde nenačítal. První volání
+`gsap.timeline()` spadlo a celé menu (hover, dropdown, mobilní burger) bylo mrtvé.
+
+**Fix:** GSAP 3.12.5 z CDN přidán na začátek Site settings → Head code.
+Všechny povinné prvky komponenty (`data-menu-wrap`, `data-dropdown-wrapper`,
+`data-menu-backdrop`, `data-burger-toggle`, panely `data-nav-content`) jsou
+na místě — ověřeno, nic dalšího nechybělo.
+
+Osmo od teď řídí hover sám (directional hover, otevření po 120 ms). Náš skript
+`nav_sluzby` už hover nesimuluje — dělá jen klik → /sluzby (desktop).
+
+## Příčina č. 2: Collection List v komponentě je zakázaný
+
+Při stavbě sloupců to Webflow řekl naplno:
+> „You can't add a Collection List to a Component that's used on a Collection page."
+
+mega-nav sedí na šablonách kolekcí (detail služby, detail týmu), takže Collection
+List uvnitř téhle komponenty není podporovaný — proto selhávaly i filtry, sort
+a CMS vazby textů. Včerejší pokus s Collection Listem v dropdownu byl slepá ulička
+a je odstraněn, včetně demo sloupců Osmo (Platform/Features…).
+
+## Nové řešení — 3 sloupce podle oblasti
+
+Panel „Naše služby" má tři statické sloupce (`mega-nav__panel-col` +
+`mega-nav__panel-label`): **Estetická medicína / Dermatologie / Plastická
+chirurgie**, každý s prázdným `<ul data-sluzby-oblast="…">`.
+
+Skript **`nav_sluzby` v1.1.0** je plní z CMS: stáhne `/sluzby` (výpis, který už
+CMS renderuje), z karet přečte název + odkaz + oblast a rozřadí položky do
+sloupců. Kešuje do sessionStorage. Menu je tedy dál 100% CMS-driven — nová
+služba se objeví v menu automaticky s publikací, jen bez zakázaného Collection
+Listu. Položky mají `data-menu-fade`, takže je Osmo animuje stejně jako zbytek.
