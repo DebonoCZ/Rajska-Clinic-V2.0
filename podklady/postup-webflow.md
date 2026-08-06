@@ -540,3 +540,39 @@ CMS renderuje), z karet přečte název + odkaz + oblast a rozřadí položky do
 sloupců. Kešuje do sessionStorage. Menu je tedy dál 100% CMS-driven — nová
 služba se objeví v menu automaticky s publikací, jen bez zakázaného Collection
 Listu. Položky mají `data-menu-fade`, takže je Osmo animuje stejně jako zbytek.
+
+---
+
+# Detail člena týmu — úpravy
+
+## Hero
+
+- **Výřez fotky:** `Cover Image` má na šabloně týmu combo **`portret`**
+  (`object-position: 50% 12%`) — portréty se ořezávají od hlavy, ne od středu.
+  Kdyby některé fotce seděl jiný výřez, uprav procenta v combu.
+- **Tlačítka:** CTA kontejner má combo **`vodorovne`** (flex row, gap 12) —
+  „Objednat konzultaci" a Instagram jsou vedle sebe. Instagram má combo
+  **`sluzba-btn.sekundarni`** — průhledné pozadí, bílý rámeček a text.
+
+## Sekce O mně
+
+RichText navázán na CMS pole **„O mně – delší text"** (`o-mne---delsi-text`).
+Pole vyplněno u všech 11 členů (odstavec + Specializace/Co mám na starosti
++ Můj přístup).
+
+⚠ **Texty jsou psané mnou, ne ze starého webu** — rajskaclinic.cz je z tohoto
+prostředí blokovaná (403). Držel jsem se bio a pozic, žádné konkrétní školy ani
+roky jsem si nevymýšlel, ale před ostrým spuštěním je nutná kontrola klientkou.
+
+## Další lidé z týmu — slider
+
+Stejná stavba jako na homepage: list `slider-track`, item `slider-polozka`,
+karta `card-service` (combo `tym-karta`), foto `image-card`, obsah `content-card`
+s komponentou `Heading-card` (jméno) a `popis sluzba` (pozice). Nad sliderem
+šipky `slider-sipky` / `slider-sipka` s `data-slider="prev|next"` — ovládá je
+stejný globální skript.
+
+**Vyloučení otevřeného člověka:** neděje se automaticky — page skript šablony
+porovná slug ve skryté značce s adresou a označí kartu třídou `je-aktualni`;
+CSS `.w-dyn-item:has(.je-aktualni){display:none}` (v „Karta hover zoom" v1.0.1)
+pak schová celé políčko slideru, takže nevznikne mezera.
