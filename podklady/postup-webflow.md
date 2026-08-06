@@ -472,3 +472,31 @@ Slugy kolekcí zatím nejsou změněné (API to neumí, jde to jen v Designeru):
 
 Do té doby vedou karty lidí i služeb do prázdna, protože adresu /tym i /sluzby
 drží statické stránky.
+
+---
+
+# Oprava: taby na /sluzby nefiltrovaly
+
+Příčina: všechny čtyři registrované skripty čekaly na `DOMContentLoaded`, ale
+Webflow je servíruje jako externí soubory z CDN — často se načtou až po této
+události, takže se inicializace nikdy nespustila. Struktura stránky byla
+v pořádku (ID `sluzby-taby` / `vypis-sluzeb`, značka `.je-skryte` navázaná
+na Oblast, `display:none`).
+
+Fix ve verzích **1.0.1** (`filtr_sluzeb`, `slider_a_animace`,
+`galerie_lightbox`, `nav_sluzby`):
+
+```js
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else { init(); }   // skript dorazil později — spustit rovnou
+```
+
+Filtr navíc přepsán na delegovaný click na celém tabs wrapperu (odolnější
+vůči překreslení tabů Webflowem). `update_registered_script` vrací 404 —
+nová verze se musí registrovat přes `register_inline_script` se stejným
+jménem a vyšší verzí, pak přepnout v `set_site_scripts`.
+
+Tím se zároveň nejspíš opraví i šipky slideru, animace při scrollu,
+lightbox na /prostory a klik/hover chování „Naše služby" — všechny stály
+na stejné chybě.
