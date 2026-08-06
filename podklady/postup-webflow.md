@@ -598,3 +598,33 @@ pak schová celé políčko slideru, takže nevznikne mezera.
   (0R9A5317, 20R9A5172, 0R9A5410, banner_lucie). První kapitola už měla
   portrét „MUDr. Lucie Rajská". Až dorazí nové fotky, stačí je vyměnit
   v Designeru na místě.
+
+---
+
+# Závěrečný průchod — nalezené a opravené bugy
+
+| Kde | Chyba | Oprava |
+|---|---|---|
+| /tym — karty lidí | odkaz měl `mode: collectionPage`, ale **chyběl cíl** (`to`) → proklik mrtvý | doplněn cíl `detail_tym` |
+| Homepage — slider týmu | stejná chyba | doplněn cíl `detail_tym` |
+| Homepage — karty služeb | nenavázaný obrázek, lorem místo štítků, bez odkazu | navázán obrázek + alt, štítky „Řeší", odkaz na detail služby |
+| /prostory | H1/claim/nadpis/perex zůstaly placeholder | doplněny texty + scroll šipka na galerii |
+| Footer (celý web) | 4 mrtvé odkazy: telefon, logo, Cookies policy, logo Debono | telefon `tel:`, logo → homepage, Cookies → stránka souhlasu, Debono → debono.cz |
+| O nás — obrácené kapitoly | trik `direction: rtl` bez resetu pro obsah | `.kapitola-obracene>*{direction:ltr}` v CSS skriptu (v1.0.3) |
+
+Responzivita zkontrolována u nových částí: `kapitola` (small → 1 sloupec),
+`kapitola-foto` (aspect-ratio, fluidní), galerie `Grid 4` (2/1 sloupce),
+mega-nav řeší Osmo skript, slider šipky beze změn.
+
+## ⚠ Stále blokováno — jediný zbývající krok v Designeru
+
+**Slugy kolekcí pořád nejsou přejmenované** (ověřeno v API: Tým = `tym`,
+Služby = `sluzby`). Dokud se nezmění na `lekar` / `sluzba`, kolidují detaily
+s výpisy /tym a /sluzby a prokliky na detaily nemají kam vést — bez ohledu na
+to, že odkazy jsou teď nastavené správně. CMS → nastavení kolekce → Slug.
+
+## Screenshoty
+
+`element_snapshot_tool` vyžaduje otevřený Designer (vrací `status:false`)
+a `rajska-clinic.webflow.io` je z tohoto prostředí blokované proxy — vizuální
+kontrola proto proběhla auditem stylů a nastavení přes API, ne screenshoty.
