@@ -586,3 +586,15 @@ pak schová celé políčko slideru, takže nevznikne mezera.
   v nich zůstal placeholder „This is some text…". Doplněno ← / → přes
   `set_settings` a kontejner `slider-sipky` zarovnán doprava s odsazením.
   Homepage šipky zkontrolovány — tam texty sedí.
+
+## Oprava: stránka O nás — nečitelný text a chybějící fotky
+
+- **Bílý text:** kapitoly používají sdílené komponenty `Heading-card`
+  a `Paragraph`, které jsou navržené pro tmavé překryvy karet — píšou bíle.
+  Na béžovém podkladu O nás byly neviditelné. Řešeno CSS overridem scoped jen
+  na kapitoly: `.kapitola :is(h1,h2,h3,h4,p){color:#1B1B1B!important}`
+  (ve skriptu „Karta hover zoom" v1.0.2). Karty jinde zůstávají bílé.
+- **Fotky:** 4 prázdné `kapitola-foto` doplněny fotkami Lucie Rajské z Assets
+  (0R9A5317, 20R9A5172, 0R9A5410, banner_lucie). První kapitola už měla
+  portrét „MUDr. Lucie Rajská". Až dorazí nové fotky, stačí je vyměnit
+  v Designeru na místě.
