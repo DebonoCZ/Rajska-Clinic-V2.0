@@ -448,3 +448,27 @@ kolekce začnou samy mířit na nové adresy.
 
 Zvažovaná alternativa (přejmenovat statické výpisy na `/nas-tym`
 a `/nabidka-sluzeb`) byla zamítnuta kvůli horším adresám výpisů.
+
+---
+
+# Úklid a stav 6. 8.
+
+- Zbylé tři staré stránky (`/lucie-rajska`, `/dermatologie`, `/esteticka-dermatologie`)
+  přesunuty do složky `/archiv/` a nastaveny jako draft — stejně jako zbytek,
+  který přesunul Jirka ručně.
+- Homepage proti prototypu: hero ✓, Nejoblíbenější služby ✓, Reference ✓ (sekce
+  už existovala), tým-slider ✓, voucher ✓, formulář ✓.
+- Oprávnění v `.claude/settings.json` rozšířena o všechny Webflow MCP nástroje
+  a běžné shell příkazy — potvrzování by mělo z 95 % zmizet.
+
+## ⚠ Pořád blokuje prokliky na detaily
+
+Slugy kolekcí zatím nejsou změněné (API to neumí, jde to jen v Designeru):
+
+| Kolekce | Slug teď | Změnit na | CMS → ⚙ kolekce → Collection URL |
+|---|---|---|---|
+| Tým | `tym` | `lekar` | detaily pak /lekar/… |
+| Služby | `sluzby` | `sluzba` | detaily pak /sluzba/… |
+
+Do té doby vedou karty lidí i služeb do prázdna, protože adresu /tym i /sluzby
+drží statické stránky.
