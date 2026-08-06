@@ -576,3 +576,13 @@ stejný globální skript.
 porovná slug ve skryté značce s adresou a označí kartu třídou `je-aktualni`;
 CSS `.w-dyn-item:has(.je-aktualni){display:none}` (v „Karta hover zoom" v1.0.1)
 pak schová celé políčko slideru, takže nevznikne mezera.
+
+## Oprava: šablona týmu — odkazy služeb a šipky slideru
+
+- **„Služby, které provádí"** — řádek (`tym-sluzba-odkaz`) byl Link bez cíle,
+  proto se nedalo nikam prokliknout. Nastaven link `collectionPage →
+  detail_sluzby`; v multireferenčním listu se rozloží na detail každé služby.
+- **Šipky slideru „Další lidé"** — builder tlačítkám tiše nezapsal text, takže
+  v nich zůstal placeholder „This is some text…". Doplněno ← / → přes
+  `set_settings` a kontejner `slider-sipky` zarovnán doprava s odsazením.
+  Homepage šipky zkontrolovány — tam texty sedí.
