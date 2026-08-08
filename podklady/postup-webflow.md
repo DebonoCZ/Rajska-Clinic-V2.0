@@ -628,3 +628,18 @@ to, že odkazy jsou teď nastavené správně. CMS → nastavení kolekce → Sl
 `element_snapshot_tool` vyžaduje otevřený Designer (vrací `status:false`)
 a `rajska-clinic.webflow.io` je z tohoto prostředí blokované proxy — vizuální
 kontrola proto proběhla auditem stylů a nastavení přes API, ne screenshoty.
+
+## Oprava: černé nadpisy na kartách + ořez fotek
+
+- **Nadpisy karet (/sluzby, /tym, homepage, slider):** kořen komponenty
+  **Heading-card** byl holý `<h3>` bez třídy — barvu dědil z okolí, na fotkách
+  byl tmavý a nečitelný. Vytvořena globální třída **`Heading-card`** (bílá,
+  jemný text-shadow, margin) a nasazena na kořen komponenty → platí pro všechny
+  karty najednou; vzhled se dál ladí přes tuto třídu v Designeru.
+  Na O nás zůstávají nadpisy kapitol tmavé díky scoped overridu
+  `.kapitola :is(h1,h2,h3,h4,p)` — to je záměr.
+- **Ořez fotek na kartách:** `image-card` má nově `object-position: 50% 18%`
+  — výřez drží hlavy v záběru (portrétové fotky se ořezávaly od středu).
+  Procenta jdou doladit v Designeru na třídě.
+- **Slider:** `slider-polozka` má `aspect-ratio: 3/4`, aby karty ve sliderech
+  držely portrétní tvar a neroztahovaly se.
