@@ -659,3 +659,18 @@ ve skriptu Slider drag), z položky odstraněn, track má `align-items:flex-star
   vypíná scroll-snap, po tahu se blokuje omylný proklik karty,
 - mobil: nativní swipe (touch se nechává prohlížeči),
 - boční scroll kolečkem/touchpadem zůstává funkční, ale už není jediná cesta.
+
+## Mega-nav: nadpisy sloupců + slider dotažení
+
+- Nadpisy tří sloupců dropdownu doplněny (Estetická medicína / Dermatologie /
+  Plastická chirurgie) — builder je při stavbě tiše nezapsal (stejná známá past
+  `set_text`). Screenshot dropdownu zároveň potvrdil, že registrované skripty
+  na publikovaném webu běží (sloupce se plní z CMS, GSAP menu funguje).
+- Velikost karet ve sliderech přesunuta ze skriptové CSS do Designer stylů:
+  combo **`card-service.tym-karta`** má `aspect-ratio: 3/4`, `height: auto`,
+  `min-height: 0` — nasazeno na karty slideru na šabloně týmu i na homepage.
+  Šířku řídí `slider-polozka` (28 / 42 / 78 %).
+- `slider-track` má `overscroll-behavior-x: contain` — boční scroll uvnitř
+  slideru už nepřetahuje celou stránku.
+- Pozn.: pokud po publish vypadají karty pořád obří, jde o cache HTML/CSS
+  v prohlížeči — tvrdý refresh (Cmd/Ctrl+Shift+R).
