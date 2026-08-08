@@ -643,3 +643,19 @@ kontrola proto proběhla auditem stylů a nastavení přes API, ne screenshoty.
   Procenta jdou doladit v Designeru na třídě.
 - **Slider:** `slider-polozka` má `aspect-ratio: 3/4`, aby karty ve sliderech
   držely portrétní tvar a neroztahovaly se.
+
+## Oprava: obří karty ve sliderech + nové ovládání (všechny slidery)
+
+**Proč byly karty obří:** `aspect-ratio` jsem předtím dal na flex položku
+(`slider-polozka`) — s výchozím `align-items: stretch` na tracku si položka
+odvodila šířku z výšky tracku, kruhem se nafoukla a rozbila viewport.
+Fix: poměr přesunut na kartu (`.slider-polozka .card-service{aspect-ratio:3/4}`
+ve skriptu Slider drag), z položky odstraněn, track má `align-items:flex-start`.
+Šířku karty dál řídí `slider-polozka` (28 % → 42 % → 78 % dle breakpointu).
+
+**Ovládání (nový skript `slider_drag`, platí pro všechny `.slider-track`):**
+- šipky ←/→ (stávající),
+- desktop: **drag myší/touchpadem** — kurzor grab/grabbing, během tahu se
+  vypíná scroll-snap, po tahu se blokuje omylný proklik karty,
+- mobil: nativní swipe (touch se nechává prohlížeči),
+- boční scroll kolečkem/touchpadem zůstává funkční, ale už není jediná cesta.
