@@ -674,3 +674,14 @@ ve skriptu Slider drag), z položky odstraněn, track má `align-items:flex-star
   slideru už nepřetahuje celou stránku.
 - Pozn.: pokud po publish vypadají karty pořád obří, jde o cache HTML/CSS
   v prohlížeči — tvrdý refresh (Cmd/Ctrl+Shift+R).
+
+## Symbol „Clenove tymu" na /tym + slider přes okraj obrazovky
+
+- Uživatelem vytvořený symbol **Clenove tymu** (sekce týmu z homepage) vložen
+  na stránku **/tym** pod cover; starý statický výpis (Section > Container
+  s mřížkou karet) odstraněn. Tým se teď spravuje na jednom místě v symbolu.
+- **`slider-track`** má full-bleed doprava:
+  `margin-right: calc(50% - 50vw)` + `padding-right: calc(50vw - 50%)` —
+  karty nekončí ořezem na hraně kontejneru, ale vybíhají až za okraj okna
+  a poslední karta má při doscrollování správný odstup. Platí pro všechny
+  slidery (homepage, /tym, „Další lidé" na šabloně).
