@@ -685,3 +685,38 @@ ve skriptu Slider drag), z položky odstraněn, track má `align-items:flex-star
   karty nekončí ořezem na hraně kontejneru, ale vybíhají až za okraj okna
   a poslední karta má při doscrollování správný odstup. Platí pro všechny
   slidery (homepage, /tym, „Další lidé" na šabloně).
+
+---
+
+# O nás — přestavba na Osmo Sticky Steps
+
+Stránka O nás přestavěna podle Osmo komponenty **Sticky Steps (basic)**
+z vloženého Webflow clipboardu: vlevo scrollují textové kapitoly, vpravo drží
+sticky fotka, která se s aktivní kapitolou prolne.
+
+## Struktura a třídy (1:1 dle Osmo)
+
+`section.sticky-steps > __container > __collection [data-sticky-steps-init]
+> __list > 5× __item [data-sticky-steps-item, -status] >
+(__text [data-sticky-steps-anchor]: __eyebrow + __h2 + __p) +
+(__media > __sticky > __visual > img.__cover-image)`
+
+Všech 13 tříd vytvořeno včetně tablet/mobil variant (media na tabletu přechází
+do toku pod text, sticky se vypíná). `100dvh` nahrazeno `100vh` (Webflow API
+dvh nebere), pilulkový tvar fotek (radius 500em) zachován.
+
+## Obsah
+
+5 kapitol převzato ze zrušených `.kapitola` bloků (Kde to začalo / Věda a praxe
+/ Cesta k estetice / RAJSKÁ Clinic / Známá tvář oboru) včetně textů a fotek
+Lucie Rajské. Staré kapitoly odstraněny; pás „Můžete nás znát z" (komponenta
+loga) v původní sekci zůstal.
+
+## Chování — skript `sticky_steps`
+
+Osmo JS je za přihlášením (proxy 403), takže chování je vlastní, nad jejich
+datovými atributy: na scroll se najde kotva nejblíž středu viewportu a itemy
+dostanou status `before/active/after`; CSS pak prolíná `__media` (opacity)
+a tlumí neaktivní texty. Na ≤991 px se efekt vypíná (layout je pod sebou).
+Statusy jsou kompatibilní s originálem — kdyby se později nasadil oficiální
+Osmo skript, stačí náš vypnout.
