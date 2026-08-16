@@ -902,3 +902,29 @@ a styly vrátit. Poznámka: na webu jsou nahrané i nepoužívané fonty
 „Fontspring DEMO Prettywise" (demo licence!) a „Vogun" — doporučuji smazat.
 
 Web vypublikován.
+
+---
+
+# Sjednocení šířek kontejnerů na celém webu (16. 8. 2026)
+
+Referencí je sekce Náš tým — třída `.container`:
+**max-width 1440 px, boční padding 5vw, margin auto.**
+Na tuto mřížku byly převedeny všechny odchylné kontejnery:
+
+| Styl | Dřív | Nyní |
+|---|---|---|
+| `.kontejner-sluzby` (služby, detail služby) | 1100 px, bez bočního paddingu | 1440 px + 5vw |
+| `.sekce-sluzby` | boční padding 2rem | 0 (padding řeší kontejner) |
+| `.kontejner-cta-uvod` (bronzová CTA karta) | 1100 px | 1440 px |
+| `.container-2` (homepage sekce) | 1280 px, padding 40 px | 1440 px + 5vw |
+| `.container-3` | 1560 px, padding 60 px | 1440 px + 5vw |
+| `.container-default` | 1218 px, padding 24 px | 1440 px + 5vw |
+| `.sticky-steps__container` (O nás) | 74em ≈ 1184 px | 1440 px + 5vw |
+| `.sc-content` (hero cover text) | width 70 % | 100 %, max 1440 px + 5vw |
+| `.mega-nav__bar` + `__dropdown-wrapper` | 80em/80rem ≈ 1280 px | 90em/90rem = 1440 px |
+
+Hero texty na coverech, navigace, sekce služeb i sticky-steps teď sedí
+na stejné mřížce jako slider týmu a využívají větší část obrazovky.
+Záměrně užší zůstaly jen textové bloky (citáty `.citat` 760 px apod.).
+
+Web vypublikován.
