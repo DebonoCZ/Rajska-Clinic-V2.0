@@ -837,3 +837,22 @@ přenosu do projektu ztratil. Bez něj:
 Výška lišty i `top` obou panelů čtou stejnou proměnnou, takže na sebe
 přesně navazují. Blur zůstává na desktopu (tam je panel absolute,
 containing block nevadí). Web vypublikován.
+
+---
+
+# Oprava 3: mobilní menu — tlačítko Zpět a scroll panelu (16. 8. 2026)
+
+1. **Tlačítko Zpět překrývalo křížek.** `.mega-nav__back` mělo na mobilu
+   `left: auto; right: 0%` — sedělo vpravo přes zavírací tlačítko.
+   Přesunuto doleva na místo loga (`left: 0; right: auto; top/bottom: 0;
+   flex + align-items: center`) — přesně tak funguje Osmo swap
+   logo ↔ Zpět (skript je prolíná opacitou).
+2. **Text přeložen:** „Back" → **„Zpět"**.
+3. **Nešlo doscrollovat na konec panelu služeb.**
+   `.mega-nav__dropdown-wrapper` měl na mobilu `height: 100%`
+   a zároveň `top: var(--nav-height)` — panel byl o výšku lišty vyšší
+   než viewport, spodek přetékal mimo obrazovku. `height: auto`
+   → panel je přesně mezi lištou (top) a spodkem obrazovky (bottom: 0),
+   vnitřní scroll dojede až na poslední položku.
+
+Web vypublikován.
