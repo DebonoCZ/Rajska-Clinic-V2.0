@@ -778,3 +778,29 @@ při změnách udržovat obě strany, nebo časem sjednotit na jedno pole.
 
 Všech 13 položek Služeb znovu publikováno (Injekční lipolýza byla
 v draftu) a celý web vypublikován.
+
+---
+
+# Oprava: mobilní hamburger menu se nezobrazovalo (16. 8. 2026)
+
+## Příčina
+
+Třída `.mega-nav__burger` (tlačítko hamburgeru v Osmo mega-nav) měla
+`display: none` na základním breakpointu a **žádný override na tabletu
+ani mobilu** — tlačítko tedy nebylo vidět na žádné šířce. Při přenosu
+Osmo cloneablu se ztratilo nastavení `display: flex` pro breakpoint
+Tablet (≤991 px). Mobilní logika ve skriptu (otevření menu, slide-over
+panely služeb, tlačítko Zpět, animace burgeru) byla celou dobu funkční —
+jen neměla viditelný spouštěč.
+
+## Oprava
+
+- `.mega-nav__burger` → breakpoint **medium (≤991 px): `display: flex`**
+  (kaskáduje i na telefon).
+- Přebarvení z Osmo demo fialové na barvy kliniky: pozadí tlačítka
+  `#EFE9E0`, linky hamburgeru `#1B1B1B`.
+- Mobilní panel `.mega-nav__bar-inner` se polohuje přes `var(--nav-height)`,
+  která není nikde definovaná → doplněn fallback
+  `top: var(--nav-height, 4.5rem)`, aby panel seděl pod lištou.
+
+Web vypublikován.
