@@ -856,3 +856,49 @@ containing block nevadí). Web vypublikován.
    vnitřní scroll dojede až na poslední položku.
 
 Web vypublikován.
+
+---
+
+# Slider týmu: mrtvé prokliky + scroll trap; diakritika v nadpisech (16. 8. 2026)
+
+## 1) Proklik na kartách nefungoval
+
+Drag skript volal `setPointerCapture` už při `pointerdown`. Pointer
+capture přesměruje všechny další eventy **včetně výsledného kliknutí**
+na track slideru — odkaz v kartě klik nikdy nedostal. Nový skript
+`sliderdrag` v1.1.0 aktivuje capture až po skutečném tažení (>5 px);
+obyčejný klik projde do odkazu. Starý `slider_drag` 1.0.0 odebrán.
+
+## 2) Vertikální scroll se zasekával na slideru
+
+`overflow-x: auto` implicitně nastaví i `overflow-y: auto` — track se
+stal i svislým scroll kontejnerem a chytal kolečko/touchpad. Ve v1.1.0
+přibylo `overflow-y: clip`: track není svislý scroll kontejner, stránka
+scrolluje plynule; do boku se slider dál posouvá (touchpad gesto,
+swipe na mobilu, drag, šipky).
+
+## 3) Diakritika (ě, š, ř…) padala do fallback fontu
+
+Nadpisové styly odkazovaly na **Adobe Fonts** rodiny (`essonnes-headline`,
+`essonnes-text`, `essonnes-display`, `big-caslon-fb`) — Adobe kit servíruje
+default subset jen se základní latinkou (proto „á" fungovalo, „ě/š" ne).
+V Designeru vše vypadá správně, protože ten renderuje z plného fontu.
+
+Řešení: styly přepnuty na **plné TTF rodiny nahrané na webu**
+(Essonnesheadline / Essonnestext / Essonnesdisplay — pocházejí z původního
+českého template, českou sadu obsahují):
+
+| Styl | Dřív (Adobe) | Nyní (upload) |
+|---|---|---|
+| `Heading-card` (karty) | essonnes-headline | Essonnesheadline |
+| `h2` (tag) | essonnes-text | Essonnestext |
+| `.h2`, `.cislo`, `.doctor-name.no-bottom` | essonnes-display | Essonnesdisplay |
+| `h1` (tag), `.heading-service`, `.h1.subpage` | big-caslon-fb | Essonnesheadline |
+| `.label-sub-page` | chapman | Essonnestext |
+
+⚠ Pokud má klient licenci Big Caslon / Chapman a chce je zpět, je potřeba
+v Adobe Fonts web projektu zapnout „All characters" (jazykovou podporu CZ)
+a styly vrátit. Poznámka: na webu jsou nahrané i nepoužívané fonty
+„Fontspring DEMO Prettywise" (demo licence!) a „Vogun" — doporučuji smazat.
+
+Web vypublikován.
