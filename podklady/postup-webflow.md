@@ -720,3 +720,61 @@ dostanou status `before/active/after`; CSS pak prolíná `__media` (opacity)
 a tlumí neaktivní texty. Na ≤991 px se efekt vypíná (layout je pod sebou).
 Statusy jsou kompatibilní s originálem — kdyby se později nasadil oficiální
 Osmo skript, stačí náš vypnout.
+
+---
+
+# Detail služby — čitelnost, ceník na plnou šíři, tým odborníků (16. 8. 2026)
+
+Čtyřbodová dávka oprav na CMS šabloně **Služby Template**.
+
+## 1+2) Rich text na bronzových boxech — světlý text a šipkové odrážky
+
+Tmavý text v `.rich-text-colored` (S čím ošetření pomůže, Rekonvalescence)
+a v `.bunka-pro-koho` nešel přečíst. Do HtmlEmbedu na šabloně (tam, kde už
+bydlí CSS ceníkového akordeonu) přibylo:
+
+- vše uvnitř obou barevných kontextů (`h1–h6, p, li, a, blockquote`)
+  má barvu `#F7F1E8`,
+- odrážkové seznamy v celém rich textu šablony mají místo puntíků šipku
+  `→` (bronzová `#A48965`, na barevných boxech světlá `#EDDCC3`),
+  odsazení 26 px a vzdušnější rozestupy.
+
+## 3) Ceník na plnou šíři kontejneru
+
+Příčina úzkého ceníku: `.kontejner-sluzby` je flex sloupec
+s `align-items: center`, takže se děti smršťovaly na šířku obsahu.
+Fix v tomtéž embedu, scopovaný na `#cenik-sluzby`: `align-items: stretch`
++ `width: 100%; max-width: none` pro `.w-dyn-list` a `.cenik-kategorie`.
+Ostatní použití `.kontejner-sluzby` na webu zůstala nedotčená.
+
+## 4) Místo garanta seznam všech odborníků, kteří službu provádějí
+
+- Na kolekci **Služby** vzniklo nové pole **Odborníci**
+  (MultiReference → Tým, slug `odbornici`,
+  id `ad2ac03563c46a8af8e9a4f3f3af4539`). Data naplněna přes API zrcadlově
+  k poli „Služby, které provádí" u lidí; Mezoterapie dostala aspoň
+  garantku (MUDr. Ťulpová), aby sekce nebyla prázdná.
+- Starý statický „Garant ošetření" box ze šablony odstraněn. Na jeho místě
+  je nadpis **„Váš tým pro tuto službu"** + Collection List (Grid 4)
+  s kartami `card-service tym-karta`: CMS fotka, jméno, pozice,
+  proklik na detail člověka (collectionPage `detail_tym`).
+- Hover zoom i světlé nadpisy karty fungují automaticky (sdílené třídy).
+
+### ⚠ Jeden klik v Designeru (API to neumí)
+
+Nový list má zatím Source = celá kolekce Tým (ukazuje všech 8 lidí).
+V Designeru u něj přepněte **Source → pole „Odborníci"** (Get Items from…
+current Služba). Bindingy přežijí, cílová kolekce se nemění.
+Totéž platí pro list „Služby, které provádí" na šabloně Týmu — přepnout
+Source na pole `sluzby-ktere-provadi`, jinak ukazuje všechny služby.
+
+### Pravidlo synchronizace
+
+Zaškrtávání „kdo službu dělá" nově probíhá **na službě v poli Odborníci**
+(to čte web). Pole „Služby, které provádí" u člověka je jen zrcadlo —
+při změnách udržovat obě strany, nebo časem sjednotit na jedno pole.
+
+## Publikace
+
+Všech 13 položek Služeb znovu publikováno (Injekční lipolýza byla
+v draftu) a celý web vypublikován.
