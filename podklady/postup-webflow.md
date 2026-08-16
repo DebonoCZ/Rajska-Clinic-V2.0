@@ -804,3 +804,36 @@ jen neměla viditelný spouštěč.
   `top: var(--nav-height, 4.5rem)`, aby panel seděl pod lištou.
 
 Web vypublikován.
+
+---
+
+# Oprava 2: mobilní menu se otevřelo, ale byl vidět jen řádek (16. 8. 2026)
+
+## Příčina
+
+Osmo cloneable má kromě tříd i pomocný `<style>` blok, který se při
+přenosu do projektu ztratil. Bez něj:
+
+1. `.mega-nav__bar` má `backdrop-filter: blur(5px)` — filtr dělá z lišty
+   *containing block* pro `position: fixed` potomky. Mobilní panel
+   `.mega-nav__bar-inner` (fixed, top/bottom) se tak kotvil **uvnitř
+   lišty**, ne k viewportu → z menu byl vidět jen proužek vysoký pár px.
+2. Proměnná `--nav-height` (výška lišty, na kterou navazuje panel menu
+   i výška `.mega-nav__container`) nebyla nikde definovaná.
+3. `.mega-nav__dropdown-wrapper` má na mobilu `display: none` a chybělo
+   pravidlo, které ho po otevření menu zapne → slide-over panel
+   „Naše služby" by se neukázal.
+
+## Oprava (site Custom code → Head)
+
+```css
+@media (max-width: 991px) {
+  .mega-nav { --nav-height: 4.5rem; }
+  .mega-nav__bar { backdrop-filter: none; background-color: #fff; }
+  .mega-nav[data-menu-open="true"] .mega-nav__dropdown-wrapper { display: block; }
+}
+```
+
+Výška lišty i `top` obou panelů čtou stejnou proměnnou, takže na sebe
+přesně navazují. Blur zůstává na desktopu (tam je panel absolute,
+containing block nevadí). Web vypublikován.
