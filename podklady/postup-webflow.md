@@ -954,3 +954,16 @@ List má Source = celá kolekce Tým (ukazuje všech 8 lidí). Pro filtraci
 (API to neumí). Data v poli jsou pro všech 13 služeb naplněná.
 
 Web vypublikován.
+
+## Dodatek: karty na detailu služby byly větší než na homepage
+
+Příčina: homepage má slider v `.container` (`align-items: stretch`),
+kdežto šablona služby v `.kontejner-sluzby` (`align-items: flex-start`).
+Ve flex-start se obal slideru nenatáhne na plnou šířku a dostane
+fit-content sizing — procentuální `flex-basis: 28%` u `.slider-polozka`
+pak nemá vůči čemu počítat a karty se nafouknou podle obsahu
+(stejná past jako dřív u `aspect-ratio` na flex položce).
+
+Fix: nová třída **`.slider-obal`** (`width: 100%; align-self: stretch;
+min-width: 0`) nasazená na obal sekce i na Collection List wrapper.
+Karty teď mají identické proporce jako na homepage.
