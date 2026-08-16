@@ -928,3 +928,29 @@ na stejné mřížce jako slider týmu a využívají větší část obrazovky.
 Záměrně užší zůstaly jen textové bloky (citáty `.citat` 760 px apod.).
 
 Web vypublikován.
+
+---
+
+# Detail služby: tým jako slider (16. 8. 2026)
+
+Sekce odborníků na šabloně Služby přestavěna z mřížky Grid 4 na
+**stejný slider jako na homepage** (symbol „Clenove tymu" nejde na CMS
+šablonu vložit — Webflow zakazuje Collection List v komponentě na
+collection page — takže je struktura zreplikovaná 1:1):
+
+- `.slider-hlavicka` > `.Vertical-holder` (h4 `.eyebrown` „Náš tým"
+  + h2 „Váš tým pro tuto službu") + `.slider-sipky` (2× button
+  `.slider-sipka` s `data-slider="prev"/"next"`, šipky ←/→)
+- Collection List: DynamoList → `.slider-track`,
+  DynamoItem → `.slider-polozka`; karty `card-service tym-karta` beze změny.
+
+Funguje automaticky vše ze sdíleného slider systému: šipky, drag,
+swipe na mobilu, přesah přes pravý okraj, hover zoom, prokliky.
+
+### ⚠ Stále platí ruční krok v Designeru
+
+List má Source = celá kolekce Tým (ukazuje všech 8 lidí). Pro filtraci
+„jen kdo službu provádí" přepněte u listu **Source → pole Odborníci**
+(API to neumí). Data v poli jsou pro všech 13 služeb naplněná.
+
+Web vypublikován.
