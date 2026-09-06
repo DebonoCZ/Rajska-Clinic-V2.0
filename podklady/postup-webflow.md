@@ -967,3 +967,59 @@ pak nemá vůči čemu počítat a karty se nafouknou podle obsahu
 Fix: nová třída **`.slider-obal`** (`width: 100%; align-self: stretch;
 min-width: 0`) nasazená na obal sekce i na Collection List wrapper.
 Karty teď mají identické proporce jako na homepage.
+
+---
+
+# Nová oblast Longevity + 2 služby: LED terapie Celluma, Infuzní terapie (6. 9. 2026)
+
+Podklady od klienta: `podklady/klient/LED_terapie.docx`, `Infuzni_terapie.docx`.
+
+## Co je hotové (API)
+
+**CMS – Služby** (položky publikované):
+- **LED terapie Celluma** (`/sluzby/led-terapie-celluma`) – claim, krátký popis
+  (text klienta), štítky, fakta (30 min / bez anestezie / bez rekonvalescence /
+  účinek), 4 rich texty, 3 kroky, ceník. Doplněno z veřejných zdrojů
+  o Celluma: vlnové délky 465 nm (modrá – akné), 640 nm (červená – kolagen,
+  zánět), 880 nm (NIR – bolest, hojení), FDA clearance, mechanismus (ATP).
+- **Infuzní terapie** (`/sluzby/infuzni-terapie`) – text klienta + doplněno
+  typické složení (vitamín C, B-komplex, hořčík, stopové prvky, antioxidanty)
+  a kontraindikace (horečka, alergie na složku, závažné onemocnění ledvin/srdce)
+  podle běžné praxe pražských klinik.
+
+**CMS – Ceník:** kategorie „LED terapie Celluma" (poř. 25) a „Infuzní terapie"
+(poř. 26), oblast zatím „Obě" (v kategoriích ceníku Longevity taky není).
+Položky: LED 900 / po zákroku 700 / balíček 5× 3 500 / 10× 6 500;
+Infuze 1 800 / balíček 3× 4 800 (balíčky zvýrazněné).
+
+**Přejmenování „Výsledek" → „Účinek"** (přání klienta): popisek na šabloně
+služby i název CMS pole („Fakta – účinek", slug zůstává `fakta---vysledek`).
+
+**Navigace:** v panelu Naše služby přibyl 4. sloupec `Longevity`
+(`ul[data-sluzby-oblast="Longevity"]`) – skript `nav_sluzby` ho naplní sám,
+jakmile služby budou mít oblast Longevity.
+
+**/sluzby filtr – `filtr_sluzeb` v1.2.0:** do Tabs Menu nejde přes API vložit
+nic než nativní záložku, proto skript záložky pro nové oblasti **vytváří sám**
+z dat na kartách (klon poslední záložky). Nová hodnota Oblasti v CMS = nová
+záložka, bez Designeru. Zdroj: `podklady/skripty/filtr_sluzeb-1.2.0.js`.
+
+## ⚠ Co API neumí – 2 minuty v Designeru
+
+1. **Přidat volbu „Longevity" do pole Oblast** (kolekce Služby → Settings →
+   pole Oblast → Add option). API hlásí `Value is not an allowed Option`.
+2. Poté u položek **LED terapie Celluma** a **Infuzní terapie** nastavit
+   Oblast = Longevity a publikovat. Tím se samy: objeví v nav sloupci
+   Longevity, dostanou záložku na /sluzby, začnou se filtrovat.
+   (Do té doby jsou vidět jen pod záložkou „Vše".)
+3. Volitelně totéž v kolekci *Ceník – kategorie* (pole Oblast) – teď „Obě".
+
+## ⚠ Placeholdery k výměně
+
+- **Fotky:** LED = foto z Laserových ošetření, Infuze = foto z Bioremodelace.
+- **Garant / Odborníci:** obě služby zatím MUDr. Lucie Rajská – klient
+  určí, kdo je reálně provádí.
+- Doplněné odborné texty (vlnové délky, složení infuzí, kontraindikace)
+  nechat zkontrolovat lékařem.
+- Homepage: pokud jsou sekce služeb filtrované po oblastech v Designeru,
+  Longevity tam zatím nemá blok.
