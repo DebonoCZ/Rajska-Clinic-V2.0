@@ -1,0 +1,5 @@
+// Kontext formulářů — v1.0.0
+// Do každého formuláře na stránce přidá skrytá pole „Služba" (název z H1, jen na /sluzby/… a /sluzba/…)
+// a „Stránka" (URL bez query). Na detailu služby navíc předvyplní zprávu „Mám zájem o: …".
+// Přichází v notifikaci Webflow jako běžná pole formuláře.
+(function(){function init(){var h1=document.querySelector('h1');var nazev=h1?h1.textContent.trim():'';var jeSluzba=/^\/(sluzby|sluzba)\/[^\/]+/.test(location.pathname)&&nazev;document.querySelectorAll('form').forEach(function(f){function pole(n,popisek,v){if(!v)return;var i=f.querySelector('input[name="'+n+'"]');if(!i){i=document.createElement('input');i.type='hidden';i.name=n;i.setAttribute('data-name',popisek);f.appendChild(i)}i.value=v}if(jeSluzba){pole('Sluzba','Služba',nazev);var ta=f.querySelector('textarea');if(ta&&!ta.value){ta.value='Mám zájem o: '+nazev+'.\n'}}pole('Stranka','Stránka',location.href.split('?')[0])})}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init)}else{init()}})();

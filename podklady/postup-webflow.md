@@ -1118,3 +1118,27 @@ záložka nebyla vidět v Designeru. Widget proto nahrazen obyčejnou strukturou
 - Skript `filtr_sluzeb` v1.3.0 (`podklady/skripty/filtr_sluzeb-1.3.0.js`):
   hledá `#sluzby-filtr`, přepíná `.je-aktivni`, auto‑doplnění záložek
   pro nové oblasti zůstává jako pojistka.
+
+---
+
+# Formuláře: kontext služby + oprava bočního scrollu na mobilu (6. 9. 2026)
+
+## Služba ve formuláři
+
+Nový skript **`formular_kontext` v1.0.0** (site‑wide, zdroj
+`podklady/skripty/formular_kontext-1.0.0.js`):
+- na detailu služby přidá do každého formuláře skryté pole **„Služba"**
+  (název z H1) a předvyplní zprávu „Mám zájem o: Botulotoxin.",
+- na všech stránkách přidá skryté pole **„Stránka"** (URL),
+  takže z notifikace je vždy vidět, odkud klient psal.
+Pole přijdou v e‑mailu z Webflow jako běžná pole. Nic v Designeru
+netřeba, funguje i pro formulář ve footeru a na Kontaktu.
+
+## Boční scroll na telefonu
+
+Příčina: slidery přesahují přes pravý okraj (`.slider-track`
+`margin-right: calc(50% - 50vw)`), na mobilu to roztáhlo dokument.
+Fix v site Head code: `html, body { overflow-x: clip }`
+(+ fallback `hidden` pro staré prohlížeče). `clip` na rozdíl od `hidden`
+nedělá z body scroll kontejner, takže sticky prvky (O nás, box
+„Pro koho" na detailu služby) fungují dál.
