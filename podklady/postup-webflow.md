@@ -1075,3 +1075,24 @@ Lucie Rajské zůstaly, jsou to autentické texty klienta.
 Medicínská fakta (rekonvalescence, výdrž, počty ošetření) jsou nastavena
 podle běžné praxe; lékaři by je měli potvrdit pro konkrétní přípravky,
 které klinika používá.
+
+---
+
+# Longevity: záložka a sloupec v navigaci (6. 9. 2026, dodatek)
+
+Původní pole **Oblast** (Option) nejde přes API rozšířit o novou volbu,
+proto vzniklo nové pole **„Oblast webu"** (`oblast-webu`,
+id `fbe0f0124248369d55ab1cc418bcb41e`) se čtyřmi volbami:
+Estetická medicína · Dermatologie · Plastická chirurgie · **Longevity**.
+
+- Naplněno u všech 15 služeb (LED terapie Celluma a Infuzní terapie = Longevity).
+- Přepojeny prvky, které oblast čtou: skrytý `.je-skryte` na kartách /sluzby
+  (zdroj pro záložky filtru i pro sloupce v navigaci) a nadtitulek v hero
+  šablony služby.
+- Původní pole Oblast zůstává kvůli filtrům v Designeru (homepage).
+  **Od teď je řídicí pole „Oblast webu"** – při zakládání nové služby
+  vyplnit obě, dokud se v Designeru nesjednotí.
+
+Výsledek: na /sluzby přibyla záložka Longevity (skript ji tvoří z dat),
+sloupec Longevity v navigaci se plní oběma službami. Ruční krok
+v Designeru (přidání volby do původního pole) už není potřeba.
