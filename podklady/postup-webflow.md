@@ -1096,3 +1096,25 @@ Estetická medicína · Dermatologie · Plastická chirurgie · **Longevity**.
 Výsledek: na /sluzby přibyla záložka Longevity (skript ji tvoří z dat),
 sloupec Longevity v navigaci se plní oběma službami. Ruční krok
 v Designeru (přidání volby do původního pole) už není potřeba.
+
+---
+
+# /sluzby: záložky filtru jako editovatelné prvky (6. 9. 2026)
+
+Webflow Tabs widget nedovolí přes API přidat záložku a JS‑generovaná
+záložka nebyla vidět v Designeru. Widget proto nahrazen obyčejnou strukturou:
+
+`div#sluzby-filtr.tabs > div.tab-menu > 5× Link Block.tab`
+(Vše · Estetická medicína · Dermatologie · Plastická chirurgie · Longevity).
+
+- V Designeru lze záložky **duplikovat, přejmenovat, přeskládat**; skript
+  je pozná podle textu (musí odpovídat názvu v poli „Oblast webu").
+- `.tab` upravena pro link block (inline‑block, padding 15/30 px, barva
+  #1B1B1B, bez podtržení). Aktivní stav = nová combo třída **`.tab.je-aktivni`**
+  (bronzové pozadí, bílý text); „Vše" ji má v Designeru nastavenou natvrdo,
+  skript ji za běhu přepíná.
+- `.tab-menu`: flex + wrap + **margin-bottom 40 px** (odsazení ke kartám,
+  dřív ho dělal prázdný tab pane, po jeho zrušení karty „lepily" na záložky).
+- Skript `filtr_sluzeb` v1.3.0 (`podklady/skripty/filtr_sluzeb-1.3.0.js`):
+  hledá `#sluzby-filtr`, přepíná `.je-aktivni`, auto‑doplnění záložek
+  pro nové oblasti zůstává jako pojistka.
