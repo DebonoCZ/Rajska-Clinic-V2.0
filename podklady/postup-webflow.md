@@ -1023,3 +1023,55 @@ záložka, bez Designeru. Zdroj: `podklady/skripty/filtr_sluzeb-1.2.0.js`.
   nechat zkontrolovat lékařem.
 - Homepage: pokud jsou sekce služeb filtrované po oblastech v Designeru,
   Longevity tam zatím nemá blok.
+
+---
+
+# Copywriting: průchod celým webem (6. 9. 2026)
+
+Cíl: lidský, vysvětlující a úderný text bez AI klišé, bez dlouhých pomlček
+a s ověřenými fakty. Vše nahráno přes API a publikováno.
+
+## Styl
+
+- Žádné em dashes (—). Věty se dělí tečkou, dvojtečkou nebo čárkou.
+  Spojovník v rozsazích zůstává (3–7 dní).
+- Kroky ošetření číslované „1. Konzultace" místo „01 — Konzultace".
+- Pryč s frázemi typu „dopřejte si", „nastartujte", „komplexní péče",
+  „individuální přístup", „harmonie a jedinečná krása", „s citem pro detail".
+- Lehký vtip tam, kde sedí („Když tělo potřebuje víc než kávu",
+  „zubaře, široce otevřená ústa nitím nesvědčí", „obor se mění rychleji než pleť").
+- Ženy v týmu mají ženské tituly (Lékařka, Plastická chiruržka, Manažerka).
+
+## Opravená fakta
+
+| Služba | Dřív | Nyní |
+|---|---|---|
+| Injekční lipolýza | rekonvalescence 2–3 dny, kúra 2–3 | otok a citlivost několik dní, výjimečně až 2 týdny; kúra 2–4 ošetření |
+| Plastická chirurgie | ochrana jizvy 3–6 měsíců | 6–12 měsíců; smazány pracovní značky „⚠ vyžaduje korekci" |
+| Niťový lifting | vloženo nesouvisející YouTube video o padání vlasů | odstraněno |
+| Výplně | výdrž 9–18 měsíců | 6–18 měsíců podle partie; rty otok 2–3 dny |
+| Botulotoxin | – | doplněn plný efekt do 2 týdnů |
+| Preventivní derm. | – | histologie do 2 týdnů |
+| O nás | „hodnocení 5/5 na Google", „tisíce klientů" | neověřitelné, nahrazeno „klienti, kteří se vracejí roky" |
+
+## Co bylo přepsáno
+
+- **15 služeb** (claim, popis, fakta, 4 rich texty, 3 kroky).
+- **11 členů týmu** (pozice, krátké bio, „O mně").
+- **Ceník** – popisy a akční texty 11 kategorií („Zakoupením balíčků 3 ošetření
+  je z celkové částky odečteno −10 %" → „Při koupi balíčku 3 ošetření sleva 10 %").
+- **Homepage** – hero odstavec, text o klinice. Recenze klientů netknuté.
+- **O nás** – 5 kapitol, 2 milníky, hero (komponenta Section Cover, prop Text 2).
+- **Služby, Prostory, Ceník, Kontakt** – hero claimy, poznámky k objednání,
+  otevírací doba, prázdné hledání v ceníku.
+- **Footer** – otevírací doba a poznámka k termínům.
+- **Šablona služby** – poznámka u formuláře.
+
+Tagline „Estetika bez nadsázky. Přirozenost bez kompromisu." a citát
+Lucie Rajské zůstaly, jsou to autentické texty klienta.
+
+## Pro klienta ke kontrole
+
+Medicínská fakta (rekonvalescence, výdrž, počty ošetření) jsou nastavena
+podle běžné praxe; lékaři by je měli potvrdit pro konkrétní přípravky,
+které klinika používá.
