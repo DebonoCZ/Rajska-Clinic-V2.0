@@ -1,0 +1,100 @@
+<!--
+  Šablona notifikačního e-mailu z formulářů Rajská Clinic
+  Kam: Webflow → Site settings → Forms → Form notification → „Customize form notification email"
+  Předmět (Subject):   Nová poptávka: {{formName}}
+  Tělo (Body):         vlož celý blok níže (HTML), Webflow HTML v těle povoluje.
+  Reply‑to:            Webflow nastaví automaticky na pole typu e‑mail (naše pole „E-mail"),
+                       takže na notifikaci jde rovnou odpovědět klientovi.
+
+  Proměnné Webflow: {{siteName}} {{formName}} {{formData}} {{formDashboardUrl}}
+  Jednotlivá pole:  {{Jméno a příjmení}} {{E-mail}} {{Telefon}} {{Kdy chcete dorazit}}
+                    {{Text zprávy}} {{Služba}} {{Stránka}}
+  Pozn.: {{formName}} plní skript formular_kontext v1.1.0 při odeslání jako „Jméno, Služba"
+  (stejný trik jako u SM produkt), proto předmět rovnou říká, kdo a o co má zájem.
+-->
+<div style="margin:0;padding:32px 12px;background:#EFE9E0;font-family:Georgia,'Times New Roman',serif;color:#1B1B1B;">
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:600px;margin:0 auto;">
+    <tr>
+      <td style="padding:0 0 16px 4px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8F7D6B;">
+        Rajská Clinic &nbsp;·&nbsp; nová poptávka z webu
+      </td>
+    </tr>
+    <tr>
+      <td style="background:#FFFFFF;border-radius:12px;overflow:hidden;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td style="background:#3E2C21;padding:28px 32px;">
+              <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#D6B597;margin-bottom:8px;">Poptávka</div>
+              <div style="font-size:26px;line-height:1.25;color:#FFFFFF;">{{formName}}</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:28px 32px 8px 32px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1B1B1B;">
+              Někdo vyplnil formulář na webu {{siteName}}. Údaje níže, odpovědět můžete rovnou na tento e‑mail.
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 32px 8px 32px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;">
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;width:38%;color:#8F7D6B;font-size:12px;letter-spacing:1px;text-transform:uppercase;vertical-align:top;">Jméno</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;color:#1B1B1B;font-weight:bold;">{{Jméno a příjmení}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;color:#8F7D6B;font-size:12px;letter-spacing:1px;text-transform:uppercase;vertical-align:top;">E‑mail</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;"><a href="mailto:{{E-mail}}" style="color:#3E2C21;">{{E-mail}}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;color:#8F7D6B;font-size:12px;letter-spacing:1px;text-transform:uppercase;vertical-align:top;">Telefon</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;"><a href="tel:{{Telefon}}" style="color:#3E2C21;">{{Telefon}}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;color:#8F7D6B;font-size:12px;letter-spacing:1px;text-transform:uppercase;vertical-align:top;">Služba</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;color:#1B1B1B;">{{Služba}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;color:#8F7D6B;font-size:12px;letter-spacing:1px;text-transform:uppercase;vertical-align:top;">Kdy chce dorazit</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #EFE9E0;color:#1B1B1B;">{{Kdy chcete dorazit}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 0;color:#8F7D6B;font-size:12px;letter-spacing:1px;text-transform:uppercase;vertical-align:top;">Zpráva</td>
+                  <td style="padding:10px 0;color:#1B1B1B;white-space:pre-line;">{{Text zprávy}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 32px 28px 32px;">
+              <a href="mailto:{{E-mail}}" style="display:inline-block;background:#A48965;color:#FFFFFF;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;padding:12px 22px;border-radius:999px;">Odpovědět klientovi</a>
+              &nbsp;&nbsp;
+              <a href="{{formDashboardUrl}}" style="display:inline-block;color:#8F7D6B;text-decoration:underline;font-family:Arial,Helvetica,sans-serif;font-size:13px;padding:12px 0;">Otevřít ve Webflow</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:16px 32px;background:#FAF7F2;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5;color:#8F7D6B;">
+              Odesláno ze stránky <a href="{{Stránka}}" style="color:#8F7D6B;">{{Stránka}}</a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:16px 4px 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:#8F7D6B;">
+        Automatická zpráva z webu {{siteName}}. Klient dostal na stránce potvrzení, že se ozvete.
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- =====================================================================
+  ZÁLOŽNÍ VARIANTA (kdyby se v testu proměnné jednotlivých polí, např. {{Služba}},
+  nevyplnily a v mailu zůstaly složené závorky): nahraď v hlavní šabloně celou
+  tabulku s poli tímto blokem. {{formData}} vypíše všechna pole „Název: hodnota".
+====================================================================== -->
+<!--
+<tr>
+  <td style="padding:12px 32px 8px 32px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7;color:#1B1B1B;">
+    {{formData}}
+  </td>
+</tr>
+-->

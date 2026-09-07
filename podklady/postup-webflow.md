@@ -1142,3 +1142,54 @@ Fix v site Head code: `html, body { overflow-x: clip }`
 (+ fallback `hidden` pro staré prohlížeče). `clip` na rozdíl od `hidden`
 nedělá z body scroll kontejner, takže sticky prvky (O nás, box
 „Pro koho" na detailu služby) fungují dál.
+
+---
+
+# Formuláře: hezké notifikační maily (7. 9. 2026)
+
+Stejný princip jako u SM produkt (maily z `no-reply@webforms.io`,
+předmět „Poptávka z webu: Město, Jméno, Služba").
+
+## Co je hotové přes API (publikováno)
+
+- Formuláře přejmenované: „Email Form" → **„Poptávka – detail služby"**
+  (`#formular-sluzba`) a **„Poptávka – kontakt"** (`#formular-kontakt`).
+- Select na detailu služby: název pole „Field" → **„Kdy chcete dorazit"**
+  (`#kdy-chcete-dorazit`), aby v mailu nebylo „Field: …".
+- Skript **`formular_kontext` v1.1.0** (`podklady/skripty/formular_kontext-1.1.0.js`):
+  - skryté pole „Služba" teď na všech stránkách (mimo detail služby
+    hodnota „Obecný dotaz"), „Stránka" = URL,
+  - při odeslání přepíše `data-name` formuláře na **„Jméno, Služba"**
+    (capture listener, běží před Webflow handlerem). Webflow čte
+    název formuláře až při odeslání, takže předmět
+    `Nová poptávka: {{formName}}` zní např.
+    „Nová poptávka: Jana Nováková, Botulotoxin".
+  - Bez JS (spam roboti postují přímo) zůstane výchozí název formuláře,
+    tím se spam rovnou pozná.
+  - Daň: ve Webflow → Forms se každá poptávka tváří jako vlastní formulář
+    (stejně jako u SM produkt). Data zůstávají kompletní.
+
+## Ruční krok (Site settings → Forms) – šablonu nelze nastavit přes API
+
+Soubor **`podklady/formulare/notifikace-email.html`**:
+1. Site settings → Forms → Form notification → „Send form submissions to":
+   e‑mail kliniky (+ případně kopie).
+2. Zapnout „Customize form notification email".
+3. Subject: `Nová poptávka: {{formName}}`
+4. Body: vložit HTML ze souboru (bez úvodního komentáře).
+5. Reply‑to nastaví Webflow automaticky z pole typu e‑mail („E-mail"),
+   ověřit testovacím odesláním z publikovaného webu.
+6. Pokud v testu zůstanou u jednotlivých polí `{{…}}` nevyplněné,
+   použít záložní blok s `{{formData}}` ze spodku souboru.
+
+Šablona: hnědá hlavička s předmětem, tabulka Jméno / E‑mail / Telefon /
+Služba / Kdy chce dorazit / Zpráva, tlačítko „Odpovědět klientovi"
+(mailto), odkaz do Webflow (`{{formDashboardUrl}}`), patička s URL
+stránky. Fonty a barvy odpovídají webu (#3E2C21, #A48965, #EFE9E0).
+
+## Doporučení navíc
+
+- Zapnout **reCAPTCHA** (Site settings → Forms) – u SM produkt začal
+  chodit spam přes přímé POSTy, viz e‑mail od klienta z 30. 8.
+- Formuláře nemají souhlas GDPR (checkbox). Před spuštěním kampaní doplnit
+  jako u SM produkt („Souhlas GDPR: true" v mailu).
