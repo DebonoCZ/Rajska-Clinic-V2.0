@@ -1193,3 +1193,33 @@ stránky. Fonty a barvy odpovídají webu (#3E2C21, #A48965, #EFE9E0).
   chodit spam přes přímé POSTy, viz e‑mail od klienta z 30. 8.
 - Formuláře nemají souhlas GDPR (checkbox). Před spuštěním kampaní doplnit
   jako u SM produkt („Souhlas GDPR: true" v mailu).
+
+---
+
+# Připomínky klientky (7. 9. 2026) + zjištění k filtru odborníků
+
+Přehled a stav jednotlivých bodů: `podklady/klient/feedback-2026-09-07.md`.
+
+## Slider „Váš tým pro tuto službu“ zatím nefiltruje
+
+Zjištěno při této dávce: Collection List na šabloně služby má Source
+nastavený na **celou kolekci Tým**, ne na pole Odborníci. Na detailu
+každé služby se proto vypisuje celý tým včetně recepce.
+
+Přes API to nejde spravit, ověřeno čtyřmi cestami:
+- `set_settings` klíč `source` bere jen `{ collectionId }`, `fieldSlug` ignoruje,
+- binding `source` → pole Odborníci vrací „Cannot change source: the list's
+  item template contains bindings or nested lists“ i po vyčištění všech vazeb,
+- filtr na multi‑referenci: „Field 'sluzby-ktere-provadi' (itemRefSet) with
+  operator 'contains' does not support bound filter values in the Designer“,
+- filtr na PlainText umí jen equals/doesNotEqual/isSet/isNotSet, takže ani
+  pomocné pole se seznamem slugů nepomůže.
+
+**Jediný krok v Designeru (cca 10 s):** otevřít šablonu Služby, kliknout na
+Collection List uvnitř sekce „Váš tým pro tuto službu“ → panel Collection List
+Settings → Source přepnout z „Tým“ na **Odborníci** (multi‑reference pole
+služby). Vazby v kartě (foto, jméno, pozice, odkaz na detail člena) zůstanou.
+Po přepnutí zkontrolovat Niťový lifting — tým je prázdný, sekce se zobrazí
+bez karet.
+
+Data v CMS už jsou nachystaná, takže po přepnutí sedí týmy podle klientky.
