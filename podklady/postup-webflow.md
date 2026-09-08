@@ -1269,16 +1269,29 @@ Na detailu služby se odrážky kreslily dvakrát: šipka `→` z `li::before`
 přebíjelo pravidlo na `li` s vyšší specificitou. U delších, zalomených
 položek se obě značky rozešly pod sebe.
 
-Fix v embedu na Služby Template (`3a6b51bc-…`): šipky pryč, zůstávají
-nativní tečky.
+První pokus (nechat nativní tečky, vypnout šipku) nestačil: zbyly dvě
+tečky vedle sebe. Bronzová byla `li::marker` (obarvená naším CSS), tmavá
+pochází odjinud a `content:none` na `.w-richtext ul li::before` ji
+neshodilo. Bez přístupu na publikovaný web (proxy blokuje webflow.io)
+nešlo dohledat, které pravidlo ji kreslí, proto je fix natvrdo:
+vypnout všechny značky a jednu tečku si nakreslit sám.
+
+Finální CSS v embedu na Služby Template (`3a6b51bc-…`):
 
 ```
-.w-richtext ul{list-style:disc outside;padding-left:20px;margin-top:12px}
-.w-richtext ul li{list-style:disc outside;padding-left:6px;margin-bottom:10px}
-.w-richtext ul li::before{content:none}
-.w-richtext ul li::marker{color:#A48965}
-.rich-text-colored ul li::marker,.bunka-pro-koho ul li::marker{color:#EDDCC3}
+.w-richtext ul{list-style:none !important;padding-left:0;margin-top:12px}
+.w-richtext ul li{list-style:none !important;position:relative;padding-left:24px;margin-bottom:10px}
+.w-richtext ul li::marker{content:"" !important;color:transparent !important;font-size:0 !important}
+.w-richtext ul li::after{content:none !important;display:none !important}
+.w-richtext ul li > *::before{content:none !important}
+.w-richtext ul li::before{content:"" !important;display:block !important;position:absolute;left:6px;top:.55em;width:6px;height:6px;border-radius:50%;background:#A48965}
+.rich-text-colored ul li::before,.bunka-pro-koho ul li::before{background:#EDDCC3}
 ```
 
-`::before{content:none}` je pojistka, kdyby se stará šipka někde držela
-v cache stylů. Barva puntíku je bronzová, na bronzových boxech světlá.
+Tečka je kreslená `background`em, ne znakem, takže nezávisí na fontu.
+`::marker` se vypíná třemi způsoby naráz (content, barva, velikost), aby to
+sedlo napříč prohlížeči.
+
+**Platí jen pro detail služby** — CSS je v embedu té šablony. Pokud se
+dvojité odrážky objeví i na jiných stránkách, přesunout blok do site head
+custom code.
