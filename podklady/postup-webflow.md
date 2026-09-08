@@ -1259,3 +1259,26 @@ skripty API bere bez problémů. Proto byl nejdřív nasazený registrovaný skr
 `cenik_vyjimky` 1.0.0 jako náhrada; po vložení verze 3 do page custom code byl
 ze site scripts **odebrán**, aby stejnou práci nedělaly dvě místa. Zdroj
 zůstává v `podklady/skripty/cenik_vyjimky-1.0.0.js` pro případ potřeby.
+
+---
+
+# Odrážky v rich textu — zpátky na tečky (8. 9. 2026)
+
+Na detailu služby se odrážky kreslily dvakrát: šipka `→` z `li::before`
+(přidáno 16. 8.) a k tomu nativní puntík, protože `list-style:none` na `ul`
+přebíjelo pravidlo na `li` s vyšší specificitou. U delších, zalomených
+položek se obě značky rozešly pod sebe.
+
+Fix v embedu na Služby Template (`3a6b51bc-…`): šipky pryč, zůstávají
+nativní tečky.
+
+```
+.w-richtext ul{list-style:disc outside;padding-left:20px;margin-top:12px}
+.w-richtext ul li{list-style:disc outside;padding-left:6px;margin-bottom:10px}
+.w-richtext ul li::before{content:none}
+.w-richtext ul li::marker{color:#A48965}
+.rich-text-colored ul li::marker,.bunka-pro-koho ul li::marker{color:#EDDCC3}
+```
+
+`::before{content:none}` je pojistka, kdyby se stará šipka někde držela
+v cache stylů. Barva puntíku je bronzová, na bronzových boxech světlá.
