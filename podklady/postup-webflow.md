@@ -1223,3 +1223,41 @@ Po přepnutí zkontrolovat Niťový lifting — tým je prázdný, sekce se zobr
 bez karet.
 
 Data v CMS už jsou nachystaná, takže po přepnutí sedí týmy podle klientky.
+
+---
+
+# Ceník: skrytí konkrétní položky u vybraných služeb (8. 9. 2026)
+
+Zadání: „Estetická konzultace (30 min)" se nemá zobrazovat na detailu
+Dětské dermatologie a Preventivní dermatologie (obě mají navázanou
+kategorii „Korektivní dermatologie – konzultace").
+
+## Řešení — nové CMS pole, žádné zásahy do struktury
+
+**Ceník – položky → „Nezobrazovat u služeb"** (PlainText,
+`nezobrazovat-u-sluzeb`). Do pole se píšou slugy služeb oddělené čárkou,
+u kterých se položka nemá objevit. U Estetické konzultace je vyplněno
+`detska-dermatologie, preventivni-dermatologie`. Na /cenik se položka
+zobrazuje vždy, pravidlo platí jen pro detail služby.
+
+Na šabloně služby jsou v obou zásobnících (`#cenik-zasobnik-1` i `-2`)
+řádky `.cenik-polozka` doplněné o atribut **`data-bez-sluzeb`** navázaný
+na to pole (attributes → value binding, zapisuje se přes `static_json`,
+tvar `{"name":..., "value":{"sourceType":"cms","collectionId":...,"fieldId":...}}`
+— varianta s `value_binding` v tool schématu vrací chybu).
+
+Nový skript **`cenik_vyjimky` v1.0.0** (site‑wide, footer, zdroj
+`podklady/skripty/cenik_vyjimky-1.0.0.js`):
+- ze slugu v URL `/sluzby/<slug>` pozná otevřenou službu,
+- smaže řádky, které mají slug v `data-bez-sluzeb`,
+- počká, až se vyprázdní zásobníky (rozřazování dělá skript v page custom
+  code), a pak schová kategorie, ve kterých nic nezbylo, a rozbalí první
+  viditelnou.
+
+**Proč zvlášť skript a ne úprava page custom code:** `set_page_freeform_code`
+vrací HTTP 406 na jakýkoli obsah s `<script>`. Ověřeno i na triviálním
+`<script>console.log('test')</script>`. Page custom code s JS jde tedy měnit
+jen ručně v Designeru; registrované skripty API bere bez problémů.
+Aktualizovaná verze skriptu z page custom code je pro jistotu uložená
+v `podklady/skripty/cenik-sablona-sluzby-v3.html` (zatím nenasazená,
+současná verze 2 v Designeru funguje dál a s novým skriptem se nebije).

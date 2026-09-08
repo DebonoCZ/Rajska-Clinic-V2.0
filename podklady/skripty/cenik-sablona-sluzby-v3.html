@@ -1,0 +1,59 @@
+<!-- ============================================================
+  RAJSKÁ CLINIC — skript pro šablonu služby  ·  VERZE 3 (akordeon + výjimky)
+
+  KAM: Webflow Designer → Pages → Služby Template → ⚙ Settings
+       → Custom code → „Before </body> tag" (nahráno přes API).
+
+  CO DĚLÁ:
+  1. Rozřadí položky ceníku (ze skrytých zásobníků #cenik-zasobnik-1/2)
+     pod správné kategorie podle slugu.
+  2. NOVÉ: položku přeskočí, pokud má v CMS poli „Nezobrazovat u služeb"
+     slug právě otevřené služby (atribut data-bez-sluzeb).
+     Kategorie, ve které tím nezbude žádná položka, se schová celá.
+  3. Kategorie fungují jako akordeon — první viditelná je rozbalená.
+  4. Skryje zlatý akční box u kategorií bez vyplněného „Akce – titulek".
+============================================================ -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.body.classList.add('cenik-nacteno');
+
+  /* slug aktuální služby z URL: /sluzby/<slug> */
+  var m = location.pathname.match(/^\/(?:sluzby|sluzba)\/([^\/]+)/);
+  var sluzba = m ? decodeURIComponent(m[1]).toLowerCase() : '';
+
+  /* 1) rozřazení položek pod kategorie + výjimky */
+  document.querySelectorAll('#cenik-zasobnik-1 .cenik-polozka, #cenik-zasobnik-2 .cenik-polozka').forEach(function (r) {
+    var bez = (r.getAttribute('data-bez-sluzeb') || '').toLowerCase();
+    if (sluzba && bez) {
+      var vyjimky = bez.split(',').map(function (s) { return s.trim(); });
+      if (vyjimky.indexOf(sluzba) !== -1) { r.remove(); return; }
+    }
+    var k = r.querySelector('.je-skryte');
+    var kat = k ? k.textContent.trim() : '';
+    var cil = document.getElementById(kat);
+    if (cil) { cil.appendChild(r); }
+  });
+
+  /* 2) kategorie bez položek schovat */
+  var kategorie = [];
+  document.querySelectorAll('.cenik-kategorie').forEach(function (kat) {
+    if (!kat.querySelector('.cenik-polozka')) { kat.style.display = 'none'; return; }
+    kategorie.push(kat);
+  });
+
+  /* 3) akordeon */
+  kategorie.forEach(function (kat) {
+    var h = kat.querySelector('h3');
+    if (h) {
+      h.addEventListener('click', function () { kat.classList.toggle('je-rozbalena'); });
+    }
+  });
+  if (kategorie.length) { kategorie[0].classList.add('je-rozbalena'); }
+
+  /* 4) skrýt prázdné akční boxy */
+  document.querySelectorAll('[data-akce-box]').forEach(function (b) {
+    var t = (b.firstElementChild && b.firstElementChild.textContent.trim()) || '';
+    if (!t) { b.style.display = 'none'; }
+  });
+});
+</script>
