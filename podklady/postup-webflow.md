@@ -1246,18 +1246,16 @@ na to pole (attributes → value binding, zapisuje se přes `static_json`,
 tvar `{"name":..., "value":{"sourceType":"cms","collectionId":...,"fieldId":...}}`
 — varianta s `value_binding` v tool schématu vrací chybu).
 
-Nový skript **`cenik_vyjimky` v1.0.0** (site‑wide, footer, zdroj
-`podklady/skripty/cenik_vyjimky-1.0.0.js`):
-- ze slugu v URL `/sluzby/<slug>` pozná otevřenou službu,
-- smaže řádky, které mají slug v `data-bez-sluzeb`,
-- počká, až se vyprázdní zásobníky (rozřazování dělá skript v page custom
-  code), a pak schová kategorie, ve kterých nic nezbylo, a rozbalí první
-  viditelnou.
+Logiku dělá **page custom code šablony služby, verze 3**
+(zdroj `podklady/skripty/cenik-sablona-sluzby-v3.html`, vložil Jirka ručně
+do Před `</body>`): při rozřazování přeskočí položku, jejíž `data-bez-sluzeb`
+obsahuje slug otevřené služby, a kategorii bez položek schová celou.
+Rozbaluje se první viditelná kategorie.
 
-**Proč zvlášť skript a ne úprava page custom code:** `set_page_freeform_code`
-vrací HTTP 406 na jakýkoli obsah s `<script>`. Ověřeno i na triviálním
-`<script>console.log('test')</script>`. Page custom code s JS jde tedy měnit
-jen ručně v Designeru; registrované skripty API bere bez problémů.
-Aktualizovaná verze skriptu z page custom code je pro jistotu uložená
-v `podklady/skripty/cenik-sablona-sluzby-v3.html` (zatím nenasazená,
-současná verze 2 v Designeru funguje dál a s novým skriptem se nebije).
+**Pozor na API:** `set_page_freeform_code` vrací HTTP 406 na jakýkoli obsah
+s `<script>` — ověřeno i na triviálním `<script>console.log('test')</script>`.
+Page custom code s JS jde tedy měnit jen ručně v Designeru, registrované
+skripty API bere bez problémů. Proto byl nejdřív nasazený registrovaný skript
+`cenik_vyjimky` 1.0.0 jako náhrada; po vložení verze 3 do page custom code byl
+ze site scripts **odebrán**, aby stejnou práci nedělaly dvě místa. Zdroj
+zůstává v `podklady/skripty/cenik_vyjimky-1.0.0.js` pro případ potřeby.
